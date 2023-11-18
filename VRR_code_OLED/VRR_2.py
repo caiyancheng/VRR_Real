@@ -83,10 +83,10 @@ def main(frame_rate_zone, time_per_zone, clear_Color_steady, clear_Color_change,
     glfw.terminate()
 
 if __name__ == "__main__":
-    # clear_Color_change = [1.0, 0, 0]
-    # clear_Color_steady = [1.0, 0.8, 0.8]
-    clear_Color_steady = [1.0, 1.0, 1.0]
-    clear_Color_change = [1.0, 1.0, 1.0]
+    # clear_Color_change = [1.0, 0.5, 0.5]
+    # clear_Color_steady = [1.0, 0.5, 0.5]
+    clear_Color_steady = [1, 1, 1]
+    clear_Color_change = [1, 1, 1]
     # clear_Color_steady = [0.8, 0.8, 0.8]
     # clear_Color_change = [0.8, 0.8, 0.8]
     # clear_Color_steady = [0.6, 0.6, 0.6]
@@ -95,10 +95,10 @@ if __name__ == "__main__":
     # clear_Color_change = [0.4, 0.4, 0.4]
     # clear_Color_steady = [0.2, 0.2, 0.2]
     # clear_Color_change = [0.2, 0.2, 0.2]
-    frame_rate_zone = [30, 240, 30]
+    frame_rate_zone = [10, 120, 10]
     # frame_rate_zone = [30, 240, 30]
     # frame_rate_zone = [80, 120, 80]
     # time_per_zone = [4, 2, 2, 2, 2]
-    time_per_zone = [2, 0, 2, 0, 2]
+    time_per_zone = [0.1, 0, 0.1, 0, 0]
     # time_per_zone = [1,1,1,1,1]
     main(frame_rate_zone, time_per_zone, clear_Color_steady, clear_Color_change, cotinue=True, black_frame=False)

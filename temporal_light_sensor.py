@@ -53,8 +53,10 @@ class TemporalLightSensor:
 
     def __read_message(self) -> MessageStruct:
         message = MessageStruct.from_buffer_copy(self.serial_port.read(ctypes.sizeof(MessageStruct)))
-        print("message length =", message.length)
-        return self.serial_port.read(message.length)
+        print("read_message: message length =", message.length)
+        result =  self.serial_port.read(message.length)
+        print("read_message: done")
+        return result
 
     def take_measurement(self, edge_triggered: bool = False, bright_mode: bool = False, sampling_frequency: int = 10000,
                          num_measurements: int = 10000) -> None:
