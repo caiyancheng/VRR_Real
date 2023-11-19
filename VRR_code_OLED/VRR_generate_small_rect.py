@@ -3,8 +3,6 @@ from OpenGL.GL import *
 import time
 import cv2
 import numpy as np
-import win32api
-import win32con
 
 def microsecond_sleep(sleep_time):
     end_time = time.perf_counter() + (sleep_time) / 1e6
@@ -12,7 +10,6 @@ def microsecond_sleep(sleep_time):
         pass
 
 def vrr_generate(rect_params, frame_rates, interval_times, total_time):
-    win32api.SetDisplayConfig(1, win32con.SDC_ENABLE_HDR)
     if not glfw.init():
         return
     second_monitor = glfw.get_monitors()[1]
