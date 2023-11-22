@@ -14,6 +14,8 @@ def vrr_generate(rect_params, frame_rates, interval_times, total_time):
         return
     second_monitor = glfw.get_monitors()[1]
     screen_width, screen_height = glfw.get_video_mode(second_monitor).size
+    print('Screen_Width', screen_width)
+    print('Screen_Height', screen_height)
     glfw.window_hint(glfw.VISIBLE, glfw.FALSE)
     window = glfw.create_window(screen_width, screen_height, "Color Disappearing Effect", second_monitor, None)
     if not window:
@@ -42,14 +44,18 @@ def vrr_generate(rect_params, frame_rates, interval_times, total_time):
 
         glColor3f(rect_params['color'][0], rect_params['color'][1], rect_params['color'][2])
         glBegin(GL_QUADS)
-        glVertex2f(rect_params['x_center'] / screen_width - rect_params['width'] / (2 * screen_width),
-                   rect_params['y_center'] / screen_height - rect_params['height'] / (2 * screen_height))
-        glVertex2f(rect_params['x_center'] / screen_width + rect_params['width'] / (2 * screen_width),
-                   rect_params['y_center'] / screen_height - rect_params['height'] / (2 * screen_height))
-        glVertex2f(rect_params['x_center'] / screen_width + rect_params['width'] / (2 * screen_width),
-                   rect_params['y_center'] / screen_height + rect_params['height'] / (2 * screen_height))
-        glVertex2f(rect_params['x_center'] / screen_width - rect_params['width'] / (2 * screen_width),
-                   rect_params['y_center'] / screen_height + rect_params['height'] / (2 * screen_height))
+        # glVertex2f(rect_params['x_center'] / screen_width - rect_params['width'] / (2 * screen_width),
+        #            rect_params['y_center'] / screen_height - rect_params['height'] / (2 * screen_height))
+        # glVertex2f(rect_params['x_center'] / screen_width + rect_params['width'] / (2 * screen_width),
+        #            rect_params['y_center'] / screen_height - rect_params['height'] / (2 * screen_height))
+        # glVertex2f(rect_params['x_center'] / screen_width + rect_params['width'] / (2 * screen_width),
+        #            rect_params['y_center'] / screen_height + rect_params['height'] / (2 * screen_height))
+        # glVertex2f(rect_params['x_center'] / screen_width - rect_params['width'] / (2 * screen_width),
+        #            rect_params['y_center'] / screen_height + rect_params['height'] / (2 * screen_height))
+        glVertex2f(rect_params['x_center'] - rect_params['width_scale'], rect_params['y_center'] - rect_params['height_scale'])
+        glVertex2f(rect_params['x_center'] + rect_params['width_scale'], rect_params['y_center'] - rect_params['height_scale'])
+        glVertex2f(rect_params['x_center'] + rect_params['width_scale'], rect_params['y_center'] + rect_params['height_scale'])
+        glVertex2f(rect_params['x_center'] - rect_params['width_scale'], rect_params['y_center'] + rect_params['height_scale'])
         glEnd()
         glfw.swap_buffers(window)
 
@@ -63,11 +69,12 @@ if __name__ == "__main__":
     rect_params = {
         'x_center': 0,  # 长方形中心 x 坐标
         'y_center': 0,  # 长方形中心 y 坐标
-        'width': 10000,  # 长方形宽度
-        'height': 10000,  # 长方形高度
-        'color': [1.0, 1.0, 1.0]  # 长方形颜色 (白色)
+        'width_scale': 1,  # 长方形宽度
+        'height_scale': 1,  # 长方形高度
+        # 'color': [1.0, 1.0, 1.0]  # 长方形颜色 (白色)\
+        'color': [1, 1, 1]
     }
     frame_rates = [30, 120] # 第二个应该比第一个大
-    interval_times = [2, 2]
+    interval_times = [0.1, 0.1]
     total_time = 10000 #总共展示的s数量
     vrr_generate(rect_params, frame_rates, interval_times, total_time)

@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/VRR_Real.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Display_Calibration/LG_G1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Display_Calibration/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/Find_aim_luminance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/plot_calibration_cyc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/plot_calibration_matlab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/plot_find_aiml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/py_display_calibration_color.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/py_display_calibration_color_size.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1_Calibration/py_konica.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/VRR_Real.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VRR_Real.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VRR_code_OLED/VRR_generate_small_rect.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_code_OLED/VRR_generate_small_rect.py" afterDir="false" />
@@ -65,8 +72,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.VRR_generate_small_rect">
-    <configuration name="VRR_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.VRR_subjective_1">
+    <configuration name="Find_aim_luminance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,34 +81,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_code_OLED" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_code_OLED/VRR_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="VRR_generate_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_code_OLED" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_code_OLED/VRR_generate_dataset.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/Find_aim_luminance.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,7 +117,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="VRR_interval_time_change" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="VRR_subjective_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -140,12 +125,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Creat_Dataset_Generate" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_Subjective_Experiment" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Creat_Dataset_Generate/VRR_interval_time_change.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,7 +139,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="temporal_light_sensor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="plot_find_aiml" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -162,12 +147,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temporal_light_sensor.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/plot_find_aiml.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="py_konica" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/py_konica.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.VRR_subjective_1" />
         <item itemvalue="Python.VRR_generate_small_rect" />
-        <item itemvalue="Python.VRR_2" />
-        <item itemvalue="Python.VRR_generate_dataset" />
-        <item itemvalue="Python.VRR_interval_time_change" />
-        <item itemvalue="Python.temporal_light_sensor" />
+        <item itemvalue="Python.Find_aim_luminance" />
+        <item itemvalue="Python.plot_find_aiml" />
+        <item itemvalue="Python.py_konica" />
       </list>
     </recent_temporary>
   </component>
@@ -209,18 +216,63 @@
       <workItem from="1700088519708" duration="1104000" />
       <workItem from="1700094143941" duration="3258000" />
       <workItem from="1700345831958" duration="2417000" />
+      <workItem from="1700496537600" duration="2959000" />
+      <workItem from="1700515877181" duration="4159000" />
+      <workItem from="1700520867673" duration="4246000" />
+      <workItem from="1700525553669" duration="6946000" />
+      <workItem from="1700575440487" duration="6176000" />
+      <workItem from="1700651689509" duration="4387000" />
+      <workItem from="1700656776919" duration="7670000" />
+      <workItem from="1700667336875" duration="668000" />
+      <workItem from="1700668169068" duration="1848000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/G1_Calibration/plot_calibration_matlab.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/G1_Calibration/plot_calibration_cyc.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_1.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="csv_data['idx']" language="Python" />
+        <watch expression="csv_data[' R']" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/VRR_Real$Find_aim_luminance.coverage" NAME="Find_aim_luminance Coverage Results" MODIFIED="1700668362224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_2.coverage" NAME="VRR_2 Coverage Results" MODIFIED="1700158996896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
-    <SUITE FILE_PATH="coverage/VRR_Real$VRR_interval_time_change.coverage" NAME="VRR_interval_time_change Coverage Results" MODIFIED="1699895870533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
-    <SUITE FILE_PATH="coverage/VRR_Real$VRR_generate_small_rect.coverage" NAME="VRR_generate_small_rect Coverage Results" MODIFIED="1700350335940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
-    <SUITE FILE_PATH="coverage/VRR_Real$VRR_generate_dataset.coverage" NAME="VRR_generate_dataset Coverage Results" MODIFIED="1700071328602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
-    <SUITE FILE_PATH="coverage/VRR_Real$json2figure.coverage" NAME="json2figure Coverage Results" MODIFIED="1699825544310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
     <SUITE FILE_PATH="coverage/VRR_Real$temporal_light_sensor.coverage" NAME="temporal_light_sensor Coverage Results" MODIFIED="1699895782475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_interval_time_change.coverage" NAME="VRR_interval_time_change Coverage Results" MODIFIED="1699895870533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
+    <SUITE FILE_PATH="coverage/VRR_Real$py_display_calibration_color__1_.coverage" NAME="py_display_calibration_color (1) Coverage Results" MODIFIED="1700524065071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$json2figure.coverage" NAME="json2figure Coverage Results" MODIFIED="1699825544310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
+    <SUITE FILE_PATH="coverage/VRR_Real$plot_calibration_cyc.coverage" NAME="plot_calibration_cyc Coverage Results" MODIFIED="1700652802589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$plot_find_aiml.coverage" NAME="plot_find_aiml Coverage Results" MODIFIED="1700663551730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_1.coverage" NAME="VRR_subjective_1 Coverage Results" MODIFIED="1700669428749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$py_konica.coverage" NAME="py_konica Coverage Results" MODIFIED="1700657150186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_generate_small_rect.coverage" NAME="VRR_generate_small_rect Coverage Results" MODIFIED="1700669495492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_generate_dataset.coverage" NAME="VRR_generate_dataset Coverage Results" MODIFIED="1700523815802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
+    <SUITE FILE_PATH="coverage/VRR_Real$py_display_calibration_color_size.coverage" NAME="py_display_calibration_color_size Coverage Results" MODIFIED="1700590727025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$plot_calibration.coverage" NAME="plot_calibration Coverage Results" MODIFIED="1700441548817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$calibration_color.coverage" NAME="calibration_color Coverage Results" MODIFIED="1700518194851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
   </component>
 </project>
