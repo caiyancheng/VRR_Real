@@ -69,10 +69,10 @@ if __name__ == "__main__":
     rect_params = {
         'x_center': 0,  # 长方形中心 x 坐标
         'y_center': 0,  # 长方形中心 y 坐标
-        'width_scale': 1,  # 长方形宽度
-        'height_scale': 1,  # 长方形高度
+        'width_scale': 0.05,  # 长方形宽度
+        'height_scale': 0.05,  # 长方形高度
         # 'color': [1.0, 1.0, 1.0]  # 长方形颜色 (白色)\
-        'color': [1, 1, 1]
+        'color': [0.0703125, 0.0703125, 0.0703125]
     }
     frame_rates = [30, 120] # 第二个应该比第一个大
     interval_times = [0.1, 0.1]

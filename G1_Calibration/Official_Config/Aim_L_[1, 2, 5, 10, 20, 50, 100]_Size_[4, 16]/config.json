@@ -1,0 +1,1 @@
+{"rect_params": {"x_center": 0, "y_center": 0}, "aim_luminance_list": [1, 2, 5, 10, 20, 50, 100], "tolerance_list": [0.1, 0.1, 0.2, 0.5, 0.5, 1, 1], "size_list": [4, 16]}

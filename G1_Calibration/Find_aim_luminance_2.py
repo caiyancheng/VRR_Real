@@ -8,11 +8,11 @@ import cv2
 import numpy as np
 from tqdm import tqdm
 import threading
-import pandas as pd
 from datetime import datetime
 import os
 import json
-
+import pandas as pd
+from G1_Calibration.compute_size_real import compute_scale_from_degree
 def microsecond_sleep(sleep_time):
     end_time = time.perf_counter() + (sleep_time) / 1e6
     while time.perf_counter() < end_time:
@@ -36,10 +36,11 @@ def get_color_thread():
         y = float(split_str[11])
 
 
-def find_aim_color(rect_params, aim_luminance, Tolerance, maxtime=1000):
+def find_aim_color(rect_params, aim_luminance, Tolerance, size, maxtime=1000):
     global Y, x, y
     if not glfw.init():
         return
+    x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
     second_monitor = glfw.get_monitors()[1]
     screen_width, screen_height = glfw.get_video_mode(second_monitor).size
     glfw.window_hint(glfw.VISIBLE, glfw.FALSE)
@@ -72,10 +73,10 @@ def find_aim_color(rect_params, aim_luminance, Tolerance, maxtime=1000):
             break
         glColor3f(color_down, color_down, color_down)
         glBegin(GL_QUADS)
-        glVertex2f(rect_params['x_center'] - rect_params['scale'], rect_params['y_center'] - rect_params['scale'])
-        glVertex2f(rect_params['x_center'] + rect_params['scale'], rect_params['y_center'] - rect_params['scale'])
-        glVertex2f(rect_params['x_center'] + rect_params['scale'], rect_params['y_center'] + rect_params['scale'])
-        glVertex2f(rect_params['x_center'] - rect_params['scale'], rect_params['y_center'] + rect_params['scale'])
+        glVertex2f(rect_params['x_center'] - x_scale, rect_params['y_center'] - y_scale)
+        glVertex2f(rect_params['x_center'] + x_scale, rect_params['y_center'] - y_scale)
+        glVertex2f(rect_params['x_center'] + x_scale, rect_params['y_center'] + y_scale)
+        glVertex2f(rect_params['x_center'] - x_scale, rect_params['y_center'] + y_scale)
         glEnd()
         glfw.swap_buffers(window)
 
@@ -108,10 +109,10 @@ def find_aim_color(rect_params, aim_luminance, Tolerance, maxtime=1000):
             break
         glColor3f(color_up, color_up, color_up)
         glBegin(GL_QUADS)
-        glVertex2f(rect_params['x_center'] - rect_params['scale'], rect_params['y_center'] - rect_params['scale'])
-        glVertex2f(rect_params['x_center'] + rect_params['scale'], rect_params['y_center'] - rect_params['scale'])
-        glVertex2f(rect_params['x_center'] + rect_params['scale'], rect_params['y_center'] + rect_params['scale'])
-        glVertex2f(rect_params['x_center'] - rect_params['scale'], rect_params['y_center'] + rect_params['scale'])
+        glVertex2f(rect_params['x_center'] - x_scale, rect_params['y_center'] - y_scale)
+        glVertex2f(rect_params['x_center'] + x_scale, rect_params['y_center'] - y_scale)
+        glVertex2f(rect_params['x_center'] + x_scale, rect_params['y_center'] + y_scale)
+        glVertex2f(rect_params['x_center'] - x_scale, rect_params['y_center'] + y_scale)
         glEnd()
         glfw.swap_buffers(window)
 
@@ -145,10 +146,10 @@ def find_aim_color(rect_params, aim_luminance, Tolerance, maxtime=1000):
                 break
             glColor3f(color_next, color_next, color_next)
             glBegin(GL_QUADS)
-            glVertex2f(rect_params['x_center'] - rect_params['scale'], rect_params['y_center'] - rect_params['scale'])
-            glVertex2f(rect_params['x_center'] + rect_params['scale'], rect_params['y_center'] - rect_params['scale'])
-            glVertex2f(rect_params['x_center'] + rect_params['scale'], rect_params['y_center'] + rect_params['scale'])
-            glVertex2f(rect_params['x_center'] - rect_params['scale'], rect_params['y_center'] + rect_params['scale'])
+            glVertex2f(rect_params['x_center'] - x_scale, rect_params['y_center'] - y_scale)
+            glVertex2f(rect_params['x_center'] + x_scale, rect_params['y_center'] - y_scale)
+            glVertex2f(rect_params['x_center'] + x_scale, rect_params['y_center'] + y_scale)
+            glVertex2f(rect_params['x_center'] - x_scale, rect_params['y_center'] + y_scale)
             glEnd()
             glfw.swap_buffers(window)
 
@@ -170,6 +171,17 @@ def find_aim_color(rect_params, aim_luminance, Tolerance, maxtime=1000):
         else:
             color_up = color_next
 
+def find_aim_color_list(rect_params, aim_luminance_list, tolerance_list, size_list, save_dir_path):
+    json_result = {}
+    for size in size_list:
+        for aim_luminance, tolerance in zip(aim_luminance_list, tolerance_list):
+            color_list, luminance_list = find_aim_color(rect_params, aim_luminance, tolerance, size)
+            csv_data = {'Color': color_list, 'Luminance': luminance_list}
+            df = pd.DataFrame(csv_data)
+            df.to_csv(os.path.join(save_dir_path, f'Aim_L_{aim_luminance}_Size_{size}_result.csv'), index=False)
+            json_result[f'L_{aim_luminance}_S_{size}'] = color_list[-1]
+    with open(os.path.join(save_dir_path, 'result_dict.json'), 'w') as fp:
+        json.dump(json_result, fp)
 
 
 
@@ -177,18 +189,21 @@ if __name__ == "__main__":
     rect_params = {
         'x_center': 0,  # 长方形中心 x 坐标
         'y_center': 0,  # 长方形中心 y 坐标
-        'scale': 1,
+        # 'scale': 1,
+        # 'size' : 4,
     }
-    aim_luminance = 100
-    Tolerance = 1
-    now = datetime.now()
-    formatted_time = now.strftime("%Y_%m_%d_%H_%M_%S")
-    save_dir_path = f'E:\Py_codes\VRR_Real\G1_Calibration\py_display_calibration_results/LG-G1-Std-{formatted_time}-AimL-{aim_luminance}'
-    os.makedirs(save_dir_path)
-    config_json = {'rect_params': rect_params, 'aim_luminance': aim_luminance, 'Tolerance': Tolerance}
+    aim_luminance_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 50, 100]
+    tolerance_list = [0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.5, 0.5, 1, 1]
+    if not len(aim_luminance_list) == len(tolerance_list):
+        assert ValueError('The Length of aim_luminance_list is not equal to tolerance_list')
+    size_list = [4, 16]
+
+    # now = datetime.now()
+    # formatted_time = now.strftime("%Y_%m_%d_%H_%M_%S")
+    save_dir_path = f"E:\Py_codes\VRR_Real\G1_Calibration\Official_Config/Aim_L_{aim_luminance_list}_Size_{size_list}_Hot"
+    os.makedirs(save_dir_path, exist_ok=True)
+    config_json = {'rect_params': rect_params, 'aim_luminance_list': aim_luminance_list,
+                   'tolerance_list': tolerance_list, 'size_list': size_list}
     with open(os.path.join(save_dir_path, 'config.json'), 'w') as fp:
         json.dump(config_json, fp=fp)
-    color_list, luminance_list = find_aim_color(rect_params, aim_luminance, Tolerance)
-    csv_data = {'Color': color_list, 'Luminance': luminance_list}
-    df = pd.DataFrame(csv_data)
-    df.to_csv(os.path.join(save_dir_path, 'result_data.csv'), index=False)
+    find_aim_color_list(rect_params, aim_luminance_list, tolerance_list, size_list, save_dir_path)

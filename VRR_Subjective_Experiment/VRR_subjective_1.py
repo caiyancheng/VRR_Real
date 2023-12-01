@@ -108,23 +108,24 @@ if __name__ == "__main__":
     rect_params = {
         'x_center': 0,  # 长方形中心 x 坐标
         'y_center': 0,  # 长方形中心 y 坐标
-        'width_scale': 0.5,  # 长方形宽度
-        'height_scale': 0.5,  # 长方形高度
+        'width_scale': 1,  # 长方形宽度
+        'height_scale': 1,  # 长方形高度
         # 'color': [0.515625, 0.515625, 0.515625],  # 长方形颜色 (白色)\
-        'color': [0.171875, 0.171875, 0.171875],  # 长方形颜色 (白色)\
+        # 'color': [0.171875, 0.171875, 0.171875],  # 长方形颜色 (白色)\
         # 'color': [0.062500, 0.062500, 0.062500],  # 长方形颜色 (白色)\
+        'color': [0.6640625, 0.6640625, 0.6640625],
     }
     vrr_params = {
-        'frame_rate_min': 10,
+        'frame_rate_min': 30,
         'frame_rate_max': 120,
         'interval_time': 0.1,
-        'vrr_total_time': 5,
+        'vrr_total_time': 2,
         'fix_frame_rate': 60,
     }
     other_params = {
         'signal_1_color': [0.1, 0.1, 0.1],
         'signal_2_color': [0.1, 0.1, 0.1],
-        'signal_time': 2,
+        'signal_time': 0.2,
     }
     # random_vrr_period = random.randint(0, 1)
     random_vrr_period = 0
