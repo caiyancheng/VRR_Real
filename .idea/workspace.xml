@@ -5,25 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Computational_Model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1_Calibration/Find_aim_luminance_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1_Calibration/compute_size_distance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1_Calibration/compute_size_real.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1_Calibration/compute_x_y_location.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Frequency.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/Display_Check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/change_score.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/compute_score.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/try.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Computational_Model/Compute_C_t_P.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Computational_Model/FFT.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Computational_Model/Fit_Psychometric_function_simple.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Computational_Model/stelaCSF_ct_probability.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Computational_Model/try.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Frequency_Psy_stelaCSF.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance_Psy_stelaCSF.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance_Psychometric.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size_Psy_stelaCSF.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Delete_pictures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Fit_Psychometric_all.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Gather_CSV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/try.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_3_light_measure.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_3_light_measure_fix_rfr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/deltaL_L.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/draw_temporal_flicker_meter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/Find_aim_luminance.py" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/Find_aim_luminance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_code_OLED/VRR_generate_small_rect.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_code_OLED/VRR_generate_small_rect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Frequency.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Frequency.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size.py" beforeDir="false" afterPath="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_Subjective_Experiment/compute_score.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/compute_score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_Subjective_Experiment/实验说明.docx" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/实验说明.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +73,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yc613/Py_Codes/VRR_Real&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Py_codes/VRR_math_simulation&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,8 +82,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.Analyze_Frequency">
-    <configuration name="Analyze_Frequency" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.deltaL_L">
+    <configuration name="Analyze_Luminance_Psy_stelaCSF" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,7 +96,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Frequency.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance_Psy_stelaCSF.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,7 +105,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Analyze_Luminance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Compute_C_t_P" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Computational_Model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Computational_Model/Compute_C_t_P.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Fit_Psychometric_all" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -113,7 +140,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\Py_codes\VRR_Real\Subjective_Experiment_Analyze\Analyze_Luminance.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Subjective_Experiment_Analyze/Fit_Psychometric_all.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,29 +149,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Analyze_Size" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="VRR_subjective_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="deltaL_L" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -157,7 +162,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_Experiment/deltaL_L.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,7 +171,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="compute_score" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="draw_temporal_flicker_meter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -179,7 +184,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_Experiment/compute_score.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_Experiment/draw_temporal_flicker_meter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Analyze_Frequency" />
-        <item itemvalue="Python.Analyze_Size" />
-        <item itemvalue="Python.Analyze_Luminance" />
-        <item itemvalue="Python.compute_score" />
-        <item itemvalue="Python.VRR_subjective_3" />
+        <item itemvalue="Python.deltaL_L" />
+        <item itemvalue="Python.Compute_C_t_P" />
+        <item itemvalue="Python.draw_temporal_flicker_meter" />
+        <item itemvalue="Python.Analyze_Luminance_Psy_stelaCSF" />
+        <item itemvalue="Python.Fit_Psychometric_all" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +237,9 @@
       <workItem from="1700668169068" duration="4419000" />
       <workItem from="1700780327944" duration="38234000" />
       <workItem from="1701127268883" duration="23316000" />
-      <workItem from="1701357060685" duration="10085000" />
+      <workItem from="1701357060685" duration="26973000" />
+      <workItem from="1701708166594" duration="60766000" />
+      <workItem from="1702039311526" duration="7659000" />
     </task>
     <servers />
   </component>
@@ -258,24 +265,29 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Frequency.py</url>
-          <line>21</line>
+          <line>22</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Computational_Model/stelaCSF_ct_probability.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Computational_Model/Compute_C_t_P.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Computational_Model/Fit_Psychometric_function_simple.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Luminance_Psy_stelaCSF.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -283,37 +295,57 @@
       <configuration name="PythonConfigurationType">
         <watch expression="csv_data['idx']" language="Python" />
         <watch expression="csv_data[' R']" language="Python" />
+        <watch expression="np.mean(accuracy_array, axis=1)" language="Python" />
+        <watch expression="result_df.keys()" language="Python" />
+        <watch expression="df.keys()" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/VRR_Real$try.coverage" NAME="try Coverage Results" MODIFIED="1701133102770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Delete_pictures.coverage" NAME="Delete_pictures Coverage Results" MODIFIED="1701610277757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$try.coverage" NAME="try Coverage Results" MODIFIED="1701958987980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Computational_Model" />
     <SUITE FILE_PATH="coverage/VRR_Real$compute_x_y_location.coverage" NAME="compute_x_y_location Coverage Results" MODIFIED="1701038250272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
-    <SUITE FILE_PATH="coverage/VRR_Real$VRR_2.coverage" NAME="VRR_2 Coverage Results" MODIFIED="1701292230476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
-    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Frequency.coverage" NAME="Analyze_Frequency Coverage Results" MODIFIED="1701368794099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_2.coverage" NAME="VRR_2 Coverage Results" MODIFIED="1701439879801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Frequency.coverage" NAME="Analyze_Frequency Coverage Results" MODIFIED="1701731260995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Frequency_Psy_stelaCSF.coverage" NAME="Analyze_Frequency_Psy_stelaCSF Coverage Results" MODIFIED="1701911701879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$temporal_light_sensor.coverage" NAME="temporal_light_sensor Coverage Results" MODIFIED="1699895782475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_3.coverage" NAME="VRR_subjective_3 Coverage Results" MODIFIED="1701298921780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Fit_Psychometric_function_simple.coverage" NAME="Fit_Psychometric_function_simple Coverage Results" MODIFIED="1701961758334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Computational_Model" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Fit_Psychometric_all.coverage" NAME="Fit_Psychometric_all Coverage Results" MODIFIED="1701962796769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_3.coverage" NAME="VRR_subjective_3 Coverage Results" MODIFIED="1701440583946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$change_score.coverage" NAME="change_score Coverage Results" MODIFIED="1701292203106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$json2figure.coverage" NAME="json2figure Coverage Results" MODIFIED="1699825544310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
     <SUITE FILE_PATH="coverage/VRR_Real$Display_Check.coverage" NAME="Display_Check Coverage Results" MODIFIED="1701268077926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Luminance_Psy_stelaCSF.coverage" NAME="Analyze_Luminance_Psy_stelaCSF Coverage Results" MODIFIED="1701966191898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$plot_find_aiml.coverage" NAME="plot_find_aiml Coverage Results" MODIFIED="1700663551730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$py_konica.coverage" NAME="py_konica Coverage Results" MODIFIED="1700657150186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_generate_dataset.coverage" NAME="VRR_generate_dataset Coverage Results" MODIFIED="1700523815802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
     <SUITE FILE_PATH="coverage/VRR_Real$py_display_calibration_color_size.coverage" NAME="py_display_calibration_color_size Coverage Results" MODIFIED="1700590727025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$draw_temporal_flicker_meter.coverage" NAME="draw_temporal_flicker_meter Coverage Results" MODIFIED="1702047682023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Luminance.coverage" NAME="Analyze_Luminance Coverage Results" MODIFIED="1701730577336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$Find_aim_luminance.coverage" NAME="Find_aim_luminance Coverage Results" MODIFIED="1700782157399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Gather_CSV.coverage" NAME="Gather_CSV Coverage Results" MODIFIED="1701803590055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$compute_size_distance.coverage" NAME="compute_size_distance Coverage Results" MODIFIED="1701027542268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_2.coverage" NAME="VRR_subjective_2 Coverage Results" MODIFIED="1701097060602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
-    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Size.coverage" NAME="Analyze_Size Coverage Results" MODIFIED="1701368333418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$deltaL_L.coverage" NAME="deltaL_L Coverage Results" MODIFIED="1702055484189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Compute_C_t_P.coverage" NAME="Compute_C_t_P Coverage Results" MODIFIED="1702055388393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Computational_Model" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Size.coverage" NAME="Analyze_Size Coverage Results" MODIFIED="1701731422220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_interval_time_change.coverage" NAME="VRR_interval_time_change Coverage Results" MODIFIED="1699895870533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_3_light_measure.coverage" NAME="VRR_subjective_3_light_measure Coverage Results" MODIFIED="1701398612818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$Find_aim_luminance_2.coverage" NAME="Find_aim_luminance_2 Coverage Results" MODIFIED="1701276423420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Size_Psy_stelaCSF.coverage" NAME="Analyze_Size_Psy_stelaCSF Coverage Results" MODIFIED="1701910238979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Compare_three_c_t.coverage" NAME="Compare_three_c_t Coverage Results" MODIFIED="1701888828607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Luminance_Psychometric.coverage" NAME="Analyze_Luminance_Psychometric Coverage Results" MODIFIED="1701892238281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$py_display_calibration_color__1_.coverage" NAME="py_display_calibration_color (1) Coverage Results" MODIFIED="1700524065071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$computer_size_real.coverage" NAME="computer_size_real Coverage Results" MODIFIED="1701037359659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$draw_1.coverage" NAME="draw_1 Coverage Results" MODIFIED="1701366260725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/VRR_Real$stelaCSF_ct_probability.coverage" NAME="stelaCSF_ct_probability Coverage Results" MODIFIED="1701826473937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Computational_Model" />
     <SUITE FILE_PATH="coverage/VRR_Real$plot_calibration_cyc.coverage" NAME="plot_calibration_cyc Coverage Results" MODIFIED="1700652802589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_1.coverage" NAME="VRR_subjective_1 Coverage Results" MODIFIED="1700671430699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_generate_small_rect.coverage" NAME="VRR_generate_small_rect Coverage Results" MODIFIED="1701272365044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
-    <SUITE FILE_PATH="coverage/VRR_Real$compute_score.coverage" NAME="compute_score Coverage Results" MODIFIED="1701297180657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$compute_score.coverage" NAME="compute_score Coverage Results" MODIFIED="1701444546090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/VRR_Real$FFT.coverage" NAME="FFT Coverage Results" MODIFIED="1701819994803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Computational_Model" />
     <SUITE FILE_PATH="coverage/VRR_Real$plot_calibration.coverage" NAME="plot_calibration Coverage Results" MODIFIED="1700441548817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$calibration_color.coverage" NAME="calibration_color Coverage Results" MODIFIED="1700518194851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_3_light_measure_fix_rfr.coverage" NAME="VRR_subjective_3_light_measure_fix_rfr Coverage Results" MODIFIED="1701400059207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
   </component>
 </project>

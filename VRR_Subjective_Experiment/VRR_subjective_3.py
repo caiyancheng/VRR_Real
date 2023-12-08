@@ -188,6 +188,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path):
     while index < len(setting_list):
         setting_params = setting_list[index]
         lum, vrr_f, size, ecc, re_i = setting_params
+        # print('Luminace', lum, 'VRR_Frequency', vrr_f, 'Size', size)
         x_center, y_center = compute_x_y_from_eccentricity(eccentricity=ecc)
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
         interval_time = 1 / (2 * vrr_f)
@@ -260,11 +261,16 @@ if __name__ == "__main__":
         # 'signal_2_color': [0., 0.1, 0.],
         'signal_time': 0.2,
     }
-    observer_params = {
-        'name': 'Yancheng_Cai_Test_Repeat_10',
-        'age': 22,
-        'gender': 'M',
-    }
+    # observer_params = {
+    #     'name': 'Yancheng_Cai_Test_Repeat_10',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
+    # observer_params = {
+    #     'name': 'Measure_Light_Meter',
+    #     'age': -1,
+    #     'gender': 'None',
+    # }
     # observer_params = {
     #     'name': 'Yaru_Liu_Test_Repeat_10',
     #     'age': 26,
@@ -275,6 +281,11 @@ if __name__ == "__main__":
     #     'age': 23,
     #     'gender': 'M',
     # }
+    observer_params = {
+        'name': 'Yuxin_Guo_Test_Repeat_10',
+        'age': 25,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Rafal_Test_Repeat_1',
     #     'age': 45,
