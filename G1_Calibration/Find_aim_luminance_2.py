@@ -196,7 +196,7 @@ if __name__ == "__main__":
     tolerance_list = [0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.5, 0.5, 1, 1]
     if not len(aim_luminance_list) == len(tolerance_list):
         assert ValueError('The Length of aim_luminance_list is not equal to tolerance_list')
-    size_list = [4, 16]
+    size_list = [0.5, 1, 2, 4, 8, 16, 32]
 
     # now = datetime.now()
     # formatted_time = now.strftime("%Y_%m_%d_%H_%M_%S")

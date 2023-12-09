@@ -239,7 +239,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path):
 if __name__ == "__main__":
     # 这段代码即为完整代码
     change_parameters = {
-        'VRR_Frequency': 2, #[0.5, 1, 2, 5, 10, 20, 50],
+        'VRR_Frequency': [2], #[0.5, 1, 2, 5, 10, 20, 50],
         'Luminance': [2],
         'Size': [0.5, 1, 2, 4, 8, 16, 32],
         'Eccentricity': [0],
@@ -261,7 +261,7 @@ if __name__ == "__main__":
         'signal_time': 0.2,
     }
     observer_params = {
-        'name': 'Yancheng_Cai_Test_Repeat_20_VRR_Frequency',
+        'name': 'Yancheng_Cai_Test_Repeat_20_Size',
         'age': 22,
         'gender': 'M',
     }
