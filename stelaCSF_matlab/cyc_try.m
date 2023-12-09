@@ -1,26 +1,43 @@
-% 计算某个数据的FFT
-exp_log_path = 'E:\About_Cambridge\All Research Projects\Variable Refresh Rate\Subjective_Exp_1\Subjective_Exp_1';
-luminance_index = 1;
-size_index = 4;
-vrr_f_index = 2;
-repeat_index = 0;
-file_name = fullfile(exp_log_path, sprintf('Luminance_%d_Size_%d_VRR_Frequency_%d', luminance_index, size_index, vrr_f_index), sprintf('%d.json', repeat_index));
-exp_data = jsondecode(fileread(file_name));
-x_time_array = exp_data.x_time;
-y_luminance_array = exp_data.y_luminance_scale;
-[x_freq_sub, K_FFT_sub] = compute_signal_FFT(x_time_array, y_luminance_array, 120, false, true, true);
+% Constants
+size_list = [4, 16];
+luminance_list = [1, 2, 3, 4, 5, 10, 100];
 
-freq_range = [0, 20];
-valid_indices = x_freq_sub > freq_range(1) & x_freq_sub <= freq_range(2);
-% 按照每个frequency计算sensitivity
-csf_model = CSF_stelaCSF();
-csf_pars = struct('s_frequency', 0.01, 't_frequency', x_freq_sub(valid_indices), 'orientation', 0, 'luminance', luminance_index, 'area', size_index, 'eccentricity', 0);
-S = csf_model.sensitivity(csf_pars);
+% Generate and plot horizontal FFT
+figure;
+hold on;
+for size_value = size_list
+    for luminance_value = luminance_list
+        [horizontal_x, horizontal_y, ~, ~] = generate_signal(size_value, luminance_value, false);
+        [x, amplitude] = compute_spatial_FFT(horizontal_x, horizontal_y, 200, false, false, true);
+        plot(x, amplitude, 'DisplayName', ['S: ', num2str(size_value), ', L: ', num2str(luminance_value)]);
+        hold on;
+    end
+end
+xlabel('Cycles per Degree');
+ylabel('Amplitude');
+title('Horizontal FFT');
+xlim([0, 30]);
+legend;
+% grid on;
+% box on;
+% axis tight;
 
-% 绘制图形
-plot(x_freq_sub(valid_indices), S);
-% set(gca, 'YScale', 'log');
-xlabel('Frequency [Hz]');
-ylabel('Sensitivity');
-
-
+% Generate and plot vertical FFT
+figure;
+hold on;
+for size_value = size_list
+    for luminance_value = luminance_list
+        [~, ~, vertical_x, vertical_y] = generate_signal(size_value, luminance_value, false);
+        [x, amplitude] = compute_spatial_FFT(vertical_x, vertical_y, 200, false, false, true);
+        plot(x, amplitude, 'DisplayName', ['S: ', num2str(size_value), ', L: ', num2str(luminance_value)]);
+        hold on;
+    end
+end
+xlabel('Cycles per Degree');
+ylabel('Amplitude');
+title('Vertical FFT');
+xlim([0, 30]);
+legend;
+% grid on;
+% box on;
+% axis tight;

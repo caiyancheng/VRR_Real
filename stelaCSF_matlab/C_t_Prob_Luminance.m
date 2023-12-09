@@ -8,8 +8,10 @@ data = readtable(c_t_subjective_path);
 
 stelacsf_model = CSF_stelaCSF();
 stelacsf_mod_model = CSF_stelaCSF_mod();
+barten_mod_model = CSF_stmBartenVeridical();
 k_stelaCSF = 6;
 k_stelaCSF_mod = 6;
+k_barten_mod = 6;
 
 % N = length(luminance_indices) * length(size_indices) * length(vrr_f_indices) * num_obs / length(luminance_indices);
 
@@ -33,11 +35,13 @@ for size_value = size_indices
         end
 
         luminance_CSF_list = linspace( 0, 100 )';
-        csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance_CSF_list, 'area', size_value, 'eccentricity', 0);
+        csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance_CSF_list, 'area', size_value/2, 'eccentricity', 0);
         stelaCSF_S = stelacsf_model.sensitivity(csf_pars);
         stelaCSF_mod_S = stelacsf_mod_model.sensitivity(csf_pars);
+        barten_mod_S = barten_mod_model.sensitivity(csf_pars);
         C_t_stelaCSF = 1./(k_stelaCSF * stelaCSF_S);
         C_t_stelaCSF_mod = 1./(k_stelaCSF_mod * stelaCSF_mod_S);
+        C_t_barten_mod = 1./(k_barten_mod * barten_mod_S);
         
         subplot(length(size_indices), length(vrr_f_indices), (find(size_indices == size_value)-1)*length(vrr_f_indices) + find(vrr_f_indices == vrr_f_value));
         hold on;
@@ -46,6 +50,7 @@ for size_value = size_indices
         % errorbar(log10(luminance_list), average_C_t_list, average_C_t_list - bino_error_bar_list_down, bino_error_bar_list_up - average_C_t_list, 'Color', 'blue', 'CapSize', 3, 'DisplayName', '95% Binomial Confidence Interval');
         plot(luminance_CSF_list, C_t_stelaCSF, 'r-', 'LineWidth', 1.5, 'DisplayName', 'stelaCSF (1 cpd)');
         plot(luminance_CSF_list, C_t_stelaCSF_mod, 'g-', 'LineWidth', 1.5, 'DisplayName', 'stelaCSF_{mod} (1 cpd)');
+        plot(luminance_CSF_list, C_t_barten_mod, 'c-', 'LineWidth', 1.5, 'DisplayName', 'Barten_{mod} (1 cpd)');
         hold off;
         xlabel('Luminance');
         ylabel('C_t (Average across Observers)');
