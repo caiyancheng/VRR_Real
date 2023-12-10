@@ -3,15 +3,15 @@ size_indices = [4, 16];
 vrr_f_indices = [2, 5, 10];
 num_obs = 4;
 
-c_t_subjective_path = 'E:\Py_codes\VRR_Real\Computational_Model/mu_results.csv';
+c_t_subjective_path = '../Computational_Model/mu_results.csv';
 data = readtable(c_t_subjective_path);
 
 stelacsf_model = CSF_stelaCSF();
 stelacsf_mod_model = CSF_stelaCSF_mod();
 barten_mod_model = CSF_stmBartenVeridical();
-k_stelaCSF = 6;
-k_stelaCSF_mod = 6;
-k_barten_mod = 6;
+k_stelaCSF = 2;
+k_stelaCSF_mod = 2;
+k_barten_mod = 2;
 
 % N = length(luminance_indices) * length(size_indices) * length(vrr_f_indices) * num_obs / length(luminance_indices);
 
@@ -35,7 +35,7 @@ for size_value = size_indices
         end
 
         luminance_CSF_list = linspace( 0, 100 )';
-        csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance_CSF_list, 'area', size_value/2, 'eccentricity', 0);
+        csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance_CSF_list, 'area', size_value*size_value, 'eccentricity', 0);
         stelaCSF_S = stelacsf_model.sensitivity(csf_pars);
         stelaCSF_mod_S = stelacsf_mod_model.sensitivity(csf_pars);
         barten_mod_S = barten_mod_model.sensitivity(csf_pars);
