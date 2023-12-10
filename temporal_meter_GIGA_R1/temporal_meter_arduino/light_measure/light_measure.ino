@@ -6,13 +6,13 @@
 #define E_TOO_LONG 1
 
 #pragma packed(1)
-struct message_t {
+struct message_t { //定义了一个结构体，包含了一个代表长度的数组以及data的指针位置
   uint64_t length;
   uint8_t data[0];
 };
 
 #pragma packed(1)
-struct measure_request_t {
+struct measure_request_t { //定义了measure request的结构体，由python函数传入指令
   uint8_t edge_triggered;
   uint8_t bright_mode;
   uint16_t sampling_frequency;
@@ -20,7 +20,7 @@ struct measure_request_t {
 };
 
 #pragma packed(1)
-struct measure_response_t {
+struct measure_response_t { //定义了measure response的结构体，仅仅回答状态
   uint8_t status;
 };
 
@@ -30,19 +30,19 @@ struct results_header_t {
   uint32_t start_ts;
 };
 
-uint32_t start_ts = 0;
+uint32_t start_ts = 0; //定义一个32位无符号整数，表示测量的开始时间。
 
-measure_request_t active_measurement_request;
-uint16_t L_measurements[MAX_NO_MEAS];
+measure_request_t active_measurement_request; //定义一个measure_request_t类型的变量，表示当前的测量请求。
+uint16_t L_measurements[MAX_NO_MEAS]; //定义一个长度为MAX_NO_MEAS的uint16_t类型数组，用于存储测量结果。
 
 void setup() {
   Serial.begin(500000);
   Serial.setTimeout(1000);
 
-  pinMode(METER_PIN_1, INPUT);
-  pinMode(METER_PIN_2, INPUT);
+  pinMode(METER_PIN_1, INPUT); //将 METER_PIN_1（在代码中被定义为 A0）配置为输入模式。这意味着该引脚将被用于接收来自外部传感器或其他设备的电信号。
+  pinMode(METER_PIN_2, INPUT); //将 METER_PIN_2（在代码中被定义为 A1）配置为输入模式，与上述相同。
 
-  analogReadResolution(16);
+  analogReadResolution(16); //设置模拟输入的分辨率为 16 位。这决定了模拟输入被转换为数字值时的位数。在 Arduino 上，通常使用 10 位分辨率（0 到 1023），但这里将分辨率设置为 16 位，表示模拟读取的数值范围为 0 到 65535。
 
   // L_measurements = (uint16_t*)malloc(sizeof(uint16_t) * MAX_NO_MEAS);
 

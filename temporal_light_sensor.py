@@ -47,14 +47,14 @@ class TemporalLightSensor:
     def __init__(self, serial_port: serial.Serial) -> None:
         self.serial_port = serial_port
 
-        self.serial_port.write(b'i')
-        if self.__read_message() != b"flicker_meter":
+        self.serial_port.write(b'i') # 向硬件设备发送字符 'i'
+        if self.__read_message() != b"flicker_meter": # 读取消息并判断硬件设备是否正确识别为 "flicker_meter"
             raise BadIdentification()
 
     def __read_message(self) -> MessageStruct:
-        message = MessageStruct.from_buffer_copy(self.serial_port.read(ctypes.sizeof(MessageStruct)))
+        message = MessageStruct.from_buffer_copy(self.serial_port.read(ctypes.sizeof(MessageStruct))) # 从串口读取消息长度
         print("read_message: message length =", message.length)
-        result =  self.serial_port.read(message.length)
+        result =  self.serial_port.read(message.length) # 读取消息内容
         print("read_message: done")
         return result
 
