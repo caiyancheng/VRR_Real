@@ -194,6 +194,8 @@ if __name__ == "__main__":
     }
     aim_luminance_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 50, 100]
     tolerance_list = [0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.5, 0.5, 1, 1]
+    # aim_luminance_list = [2, 3, 4]
+    # tolerance_list = [0.1, 0.1, 0.1]
     if not len(aim_luminance_list) == len(tolerance_list):
         assert ValueError('The Length of aim_luminance_list is not equal to tolerance_list')
     size_list = [0.5, 1, 2, 4, 8, 16, 32]

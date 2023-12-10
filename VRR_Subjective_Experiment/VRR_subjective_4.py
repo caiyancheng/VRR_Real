@@ -170,7 +170,9 @@ def vrr_one_block(glfw, window, vrr_params, signal_params, random_vrr_period, c_
 
 
 def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path):
-    with open('E:\Py_codes\VRR_Real\G1_Calibration\Official_Config\Aim_L_[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 50, 100]_Size_[4, 16]_Hot/result_dict.json', 'r') as fp:
+    # with open('E:\Py_codes\VRR_Real\G1_Calibration\Official_Config\Aim_L_[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 50, 100]_Size_[4, 16]_Hot/result_dict.json', 'r') as fp:
+    #     luminance_dict = json.load(fp)
+    with open('E:\Py_codes\VRR_Real\G1_Calibration\Official_Config\Aim_L_[2, 3, 4]_Size_[0.5, 1, 2, 4, 8, 16, 32]_Hot/result_dict.json', 'r') as fp:
         luminance_dict = json.load(fp)
     experiment_record = {'Block_ID': [], 'VRR_Frequency': [], 'Luminance': [], 'Size_Degree': [], 'Eccentricity': [],
                          'Repeat_ID': [], 'Real_VRR_period': [], 'Observer_choice': [], 'VRR_Color': []}
@@ -261,7 +263,7 @@ if __name__ == "__main__":
         'signal_time': 0.2,
     }
     observer_params = {
-        'name': 'Yancheng_Cai_Test_Repeat_20_Size',
+        'name': 'Yancheng_Cai_Test_Repeat_20_Size_4',
         'age': 22,
         'gender': 'M',
     }
