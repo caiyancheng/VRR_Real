@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_Experiment/draw_temporal_flicker_meter.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_Experiment/draw_temporal_flicker_meter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_from_saved_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_from_saved_json.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +60,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.draw_temporal_flicker_meter">
-    <configuration name="Analyze_Size_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.VRR_generate_small_rect">
+    <configuration name="VRR_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,12 +69,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_code_OLED" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Subjective_Experiment_Analyze/Analyze_Size_2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_code_OLED/VRR_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,7 +83,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="VRR_subjective_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="VRR_generate_small_rect" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -93,12 +91,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_code_OLED" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_Experiment/VRR_subjective_4.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_code_OLED/VRR_generate_small_rect.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.VRR_generate_small_rect" />
+        <item itemvalue="Python.VRR_2" />
         <item itemvalue="Python.draw_temporal_flicker_meter" />
         <item itemvalue="Python.plot_from_saved_json" />
         <item itemvalue="Python.temporal_flick_meter_measure_main" />
-        <item itemvalue="Python.Analyze_Size_2" />
-        <item itemvalue="Python.VRR_subjective_4" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +220,7 @@
       <workItem from="1702039311526" duration="19473000" />
       <workItem from="1702133276023" duration="8701000" />
       <workItem from="1702158468438" duration="11204000" />
-      <workItem from="1702231381069" duration="7698000" />
+      <workItem from="1702231381069" duration="8899000" />
     </task>
     <servers />
   </component>
@@ -326,8 +324,10 @@
     <SUITE FILE_PATH="coverage/VRR_Real$plot_find_aiml.coverage" NAME="plot_find_aiml Coverage Results" MODIFIED="1700663551730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$draw_temporal_flicker_meter.coverage" NAME="draw_temporal_flicker_meter Coverage Results" MODIFIED="1702256803062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Size_Psy_stelaCSF.coverage" NAME="Analyze_Size_Psy_stelaCSF Coverage Results" MODIFIED="1701910238979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_generate_small_rect.coverage" NAME="VRR_generate_small_rect Coverage Results" MODIFIED="1702258017184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
     <SUITE FILE_PATH="coverage/VRR_Real$Delete_pictures.coverage" NAME="Delete_pictures Coverage Results" MODIFIED="1701610277757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_3.coverage" NAME="VRR_subjective_3 Coverage Results" MODIFIED="1701440583946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_2.coverage" NAME="VRR_2 Coverage Results" MODIFIED="1702257910742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
     <SUITE FILE_PATH="coverage/VRR_Real$py_display_calibration_color__1_.coverage" NAME="py_display_calibration_color (1) Coverage Results" MODIFIED="1700524065071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$change_score.coverage" NAME="change_score Coverage Results" MODIFIED="1701292203106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$deltaL_L.coverage" NAME="deltaL_L Coverage Results" MODIFIED="1702055484189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
