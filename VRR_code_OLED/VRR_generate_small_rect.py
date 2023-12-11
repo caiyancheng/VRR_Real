@@ -5,8 +5,8 @@ import cv2
 import numpy as np
 
 def microsecond_sleep(sleep_time):
-    end_time = time.perf_counter() + (sleep_time) / 1e6
-    while time.perf_counter() < end_time:
+    end_time = time.perf_counter_ns() / 1e9 + (sleep_time)
+    while time.perf_counter_ns() / 1e9 < end_time:
         pass
 
 def vrr_generate(rect_params, frame_rates, interval_times, total_time):
@@ -26,9 +26,9 @@ def vrr_generate(rect_params, frame_rates, interval_times, total_time):
     glfw.show_window(window)
 
     # glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
-    real_all_begin_time = all_begin_time = time.perf_counter()
+    real_all_begin_time = all_begin_time = time.perf_counter_ns() / 1e9
     while not glfw.window_should_close(window):
-        begin_time = time.perf_counter()
+        begin_time = time.perf_counter_ns() / 1e9
         display_t = begin_time - all_begin_time
         real_display_t = begin_time - real_all_begin_time
         if real_display_t > total_time:
@@ -40,7 +40,7 @@ def vrr_generate(rect_params, frame_rates, interval_times, total_time):
         elif display_t < interval_times[0] + interval_times[1]:
             frame_rate = frame_rates[1]
         else:
-            all_begin_time = time.perf_counter()
+            all_begin_time = time.perf_counter_ns() / 1e9
 
         glColor3f(rect_params['color'][0], rect_params['color'][1], rect_params['color'][2])
         glBegin(GL_QUADS)
@@ -59,8 +59,8 @@ def vrr_generate(rect_params, frame_rates, interval_times, total_time):
         glEnd()
         glfw.swap_buffers(window)
 
-        end_time = time.perf_counter()
-        sleep_time = (1.0 / frame_rate - (end_time - begin_time)) * 1e6
+        end_time = time.perf_counter_ns() / 1e9
+        sleep_time = (1.0 / frame_rate - (end_time - begin_time))
         microsecond_sleep(sleep_time)
         glfw.poll_events()
     glfw.terminate()
