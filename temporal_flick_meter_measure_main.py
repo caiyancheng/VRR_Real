@@ -5,7 +5,7 @@ import numpy as np
 
 sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM4", 500000))
 num_measurements = 50000
-sampling_frequency = 5000
+sampling_frequency = 50000
 sensor.take_measurement(num_measurements=num_measurements, sampling_frequency=sampling_frequency)
 
 measurements, start_ts = sensor.get_results()

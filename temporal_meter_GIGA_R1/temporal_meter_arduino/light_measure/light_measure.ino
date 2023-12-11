@@ -54,12 +54,12 @@ void setup() {
 
 
 void take_measurements() {
-  start_ts = micros();
+  start_ts = micros(); //使用 micros() 函数获取当前的微秒级时间，并将其赋值给 start_ts 变量。这是用于记录测量开始的时间戳。
   unsigned long last_ts = start_ts;
   unsigned long ts;
 
-  unsigned long sampling_period = 1000000 / active_measurement_request.sampling_frequency;
-  int active_pin = active_measurement_request.bright_mode ? METER_PIN_2 : METER_PIN_1;
+  unsigned long sampling_period = 1000000 / active_measurement_request.sampling_frequency; //根据测量请求中的采样频率计算出采样周期，以微秒为单位。
+  int active_pin = active_measurement_request.bright_mode ? METER_PIN_2 : METER_PIN_1; //根据测量请求中的亮度模式，选择要读取的模拟引脚。如果 bright_mode 为真，选择 METER_PIN_2，否则选择 METER_PIN_1。
 
   for (int i = 0; i < active_measurement_request.num_measurements; ++i) {
     while ((ts = micros()) - last_ts < sampling_period);
