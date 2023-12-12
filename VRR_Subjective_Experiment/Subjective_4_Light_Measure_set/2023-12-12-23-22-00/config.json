@@ -1,0 +1,1 @@
+{"change_params": {"VRR_Frequency": [0.5, 1, 2, 5, 10, 20, 50], "Luminance": [1, 2, 3, 4, 5, 10, 100], "Size": [0.5, 1, 2, 4, 8, 16, 32], "Eccentricity": [0]}, "vrr_params": {"frame_rate_min": 30, "frame_rate_max": 120, "vrr_total_time": 2, "fix_frame_rate": 60}, "time_display_params": {"time_one_pattern": 100, "time_blank_time": 10}}

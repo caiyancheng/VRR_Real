@@ -84,13 +84,14 @@ def compute_deltaL_L_all(luminance_list, size_list, vrr_f_list):
         json.dump(deltaL_L_json_dict, fp)
 
 def plot_deltaL_L(size_list, vrr_f_list):
-    with open(r'E:\Py_codes\VRR_Real/deltaL_L_LG_G1.json', 'r') as fp:
+    with open(r'../deltaL_L_LG_G1.json', 'r') as fp:
         deltaL_L_json_dict = json.load(fp)
     fig1, ax1 = plt.subplots()
     fig1.suptitle('Plot of deltaL vs Luminance')
     fig2, ax2 = plt.subplots()
     fig2.suptitle('Plot of deltaL/L vs Luminance')
 
+    deltaL_L_real = []
     for size_index in tqdm(range(len(size_list))):
         size_value = size_list[size_index]
         for vrr_f_index in range(len(vrr_f_list)):
@@ -99,13 +100,20 @@ def plot_deltaL_L(size_list, vrr_f_list):
             plot_luminance_list = deltaL_L_json_sub_dict['Luminance']
             plot_deltaL_list = deltaL_L_json_sub_dict['deltaL']
             plot_detlaL_L_list = deltaL_L_json_sub_dict['deltaL_L']
-            ax1.plot(plot_luminance_list, plot_deltaL_list, label=f'Size: {size_value}, VRR_f: {vrr_f_value}')
+            deltaL_L_real.append(plot_detlaL_L_list[-2:])
+            print('plot_deltaL/L', plot_detlaL_L_list[-2:])
+            ax1.plot(plot_luminance_list, plot_deltaL_list, marker='o', label=f'Size: {size_value}, VRR_f: {vrr_f_value}')
             # ax1.set_title(f'Size: {size_value}, Frequency of RR switch: {vrr_f_value}')
-            ax2.plot(plot_luminance_list, plot_detlaL_L_list, label=f'Size: {size_value}, VRR_f: {vrr_f_value}')
+            ax2.plot(plot_luminance_list, plot_detlaL_L_list, marker='o', label=f'Size: {size_value}, VRR_f: {vrr_f_value}')
             # ax2.set_title(f'Size: {size_value}, Frequency of RR switch: {vrr_f_value}')
+    print('Mean Real deltaL / L', np.array(deltaL_L_real).mean())
+    ax1.set_xscale('log')
+    ax1.set_yscale('log')
     ax1.set_xlabel('Luminance')
     ax1.set_ylabel('deltaL')
     ax1.legend()
+    ax2.set_xscale('log')
+    ax2.set_yscale('log')
     ax2.set_xlabel('Luminance')
     ax2.set_ylabel('deltaL/L')
     ax2.legend()

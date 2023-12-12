@@ -19,8 +19,8 @@ center_point_size_x = 0.002  # Adjust the size of the center white point as need
 center_point_size_y = 0.
 
 def microsecond_sleep(sleep_time):
-    end_time = time.perf_counter() + sleep_time
-    while time.perf_counter() < end_time:
+    end_time = time.perf_counter_ns()/1e9 + sleep_time
+    while time.perf_counter_ns()/1e9 < end_time:
         pass
 def start_opengl():
     global center_point_size_y
@@ -46,7 +46,7 @@ def vrr_one_block(glfw, window, vrr_params, c_params, time_display_params):
     winsound.Beep(6000, 100)  # Begin
 
     # glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
-    all_begin_time = time.perf_counter()
+    all_begin_time = time.perf_counter_ns()/1e9
     VRR_Begin = False
     # while not glfw.window_should_close(window):
     #     glClear(GL_COLOR_BUFFER_BIT)
@@ -75,21 +75,21 @@ def vrr_one_block(glfw, window, vrr_params, c_params, time_display_params):
 
     winsound.Beep(10000, 100)
     while not glfw.window_should_close(window):
-        frame_begin_time = time.perf_counter()
+        frame_begin_time = time.perf_counter_ns()/1e9
         if frame_begin_time - all_begin_time > time_display_params['time_one_pattern']:
             break
         if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
             break
         color = vrr_color
         if not VRR_Begin:
-            begin_vrr_time = time.perf_counter()
+            begin_vrr_time = time.perf_counter_ns()/1e9
             VRR_Begin = True
-        if time.perf_counter() - begin_vrr_time < interval_time:
+        if time.perf_counter_ns()/1e9 - begin_vrr_time < interval_time:
             frame_rate = vrr_params['frame_rate_min']
-        elif time.perf_counter() - begin_vrr_time < interval_time * 2:
+        elif time.perf_counter_ns()/1e9 - begin_vrr_time < interval_time * 2:
             frame_rate = vrr_params['frame_rate_max']
         else:
-            begin_vrr_time = time.perf_counter()
+            begin_vrr_time = time.perf_counter_ns()/1e9
             frame_rate = vrr_params['frame_rate_max']
         glColor3f(color[0], color[1], color[2])
         glBegin(GL_QUADS)
@@ -109,13 +109,13 @@ def vrr_one_block(glfw, window, vrr_params, c_params, time_display_params):
 
         glfw.swap_buffers(window)
 
-        end_time = time.perf_counter()
+        end_time = time.perf_counter_ns()/1e9
         sleep_time = (1.0 / frame_rate - (end_time - frame_begin_time))
         microsecond_sleep(sleep_time)
         glfw.poll_events()
 
     while not glfw.window_should_close(window):
-        frame_begin_time = time.perf_counter()
+        frame_begin_time = time.perf_counter_ns()/1e9
         if frame_begin_time - all_begin_time > time_display_params['time_one_pattern'] + time_display_params['time_blank_time']:
             break
         if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
@@ -132,7 +132,7 @@ def vrr_one_block(glfw, window, vrr_params, c_params, time_display_params):
 
         glfw.swap_buffers(window)
 
-        end_time = time.perf_counter()
+        end_time = time.perf_counter_ns()/1e9
         sleep_time = (1.0 / frame_rate - (end_time - frame_begin_time))
         microsecond_sleep(sleep_time)
         glfw.poll_events()
