@@ -1,4 +1,3 @@
-# 进阶版的衡量时间等等，使用Time.time读取真实时间，和我的Laptop对齐
 import winsound
 import json
 import glfw
