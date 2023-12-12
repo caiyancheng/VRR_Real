@@ -13,9 +13,9 @@ function [result_stela, result_stela_mod, result_barten_mod] = multiple_contrast
     result_barten_mod = trapz(rho, integrand_barten_mod(rho));
     
     % Multiply by delta_rho to account for the width of each interval
-    result_stela = result_stela * delta_rho;
-    result_stela_mod = result_stela_mod * delta_rho;
-    result_barten_mod = result_barten_mod * delta_rho;
+    result_stela = (result_stela * delta_rho).^0.5;
+    result_stela_mod = (result_stela_mod * delta_rho).^0.5;
+    result_barten_mod = (result_barten_mod * delta_rho).^0.5;
 end
 
 function value = S_stela(rho, L_b, size_value, t_frequency)
