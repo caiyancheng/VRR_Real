@@ -170,7 +170,6 @@ def vrr_exp_main(change_parameters, vrr_params, time_display_params, real_save_p
 
 
 if __name__ == "__main__":
-    # 这段代码即为完整代码
     change_parameters = {
         'VRR_Frequency': [0.5, 1, 2, 5, 10, 20, 50], #[2, 5, 10],
         'Luminance': [1, 2, 3, 4, 5, 10, 100], #[1, 2, 3, 4, 5, 10, 100],
