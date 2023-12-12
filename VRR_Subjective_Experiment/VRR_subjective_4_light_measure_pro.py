@@ -191,8 +191,8 @@ if __name__ == "__main__":
         'fix_frame_rate': 60,
     }
     time_display_params = {
-        'time_one_pattern': 70, #每个pattern显示60s
-        'time_blank_time': 4, #中间空10s
+        'time_one_pattern': 100, #each pattern 100s
+        'time_blank_time': 10,
     }
     save_path = r'B:\Py_codes\VRR_Real\VRR_Subjective_Experiment/Subjective_4_Light_Measure_set'
     current_time = datetime.now()
