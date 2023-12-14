@@ -170,29 +170,6 @@ def vrr_one_block(glfw, window, vrr_params, signal_params, random_vrr_period, c_
             # winsound.Beep(4000, 100)
             return 1
 
-
-def run_quest(luminance, size, vrr_f):
-    # 创建QuestHandler
-    quest_data = data.QuestHandler(startVal=1, startValSd=1, pThreshold=0.82, gamma=0.5, delta=0.01, nTrials=50)
-
-    # 在实验中使用QuestHandler
-    for _ in range(50):  # 这里的50是你想运行Quest的次数
-        response = vrr_one_block(glfw, window, vrr_params, signal_params, random_vrr_period, c_params)
-        if response == -1:
-            break
-        elif response == 2:
-            winsound.Beep(10000, 100)
-            print('Something Wrong! Return to the previous one.')
-            continue
-        else:
-            # 记录观察者选择结果
-            quest_data.addResponse(response)
-
-    # 获取Quest的估计阈值
-    threshold_estimate = quest_data.quantile()
-
-    return threshold_estimate
-
 def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_save_path, random_shuffle):
     # MOA will provide the initial color value
     with open(MOA_save_path, 'r')as fp:
@@ -264,7 +241,8 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         final_result_json_dict[f'V_{vrr_f}_S_{size}'] = {
             'Mean': quest_color_data.mean(),
             'Mode': quest_color_data.mode(),
-            'Quantile': quest_color_data.quantile(0.5)
+            'Quantile': quest_color_data.quantile(),
+            'Quantile_05': quest_color_data.quantile(0.5)
         }
 
     glfw.terminate()

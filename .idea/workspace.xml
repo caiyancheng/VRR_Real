@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/compute_size_real.py" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/compute_size_real.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/C_t_Prob_VRR_f_3.asv" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/C_t_Prob_VRR_f_3.asv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/C_t_Prob_VRR_f_3.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/C_t_Prob_VRR_f_3.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +224,7 @@
       <workItem from="1702306674196" duration="1164000" />
       <workItem from="1702403447893" duration="4162000" />
       <workItem from="1702509927044" duration="6828000" />
-      <workItem from="1702575386792" duration="8089000" />
+      <workItem from="1702575386792" duration="8835000" />
     </task>
     <servers />
   </component>

@@ -86,7 +86,7 @@ def vrr_one_block(glfw, window, vrr_params, c_params):
             begin_vrr_time = time.perf_counter_ns()/1e9
             frame_rate = vrr_params['frame_rate_max']
 
-        if keyboard.is_pressed("Y"):
+        if keyboard.is_pressed("space"):
             return color
         elif keyboard.is_pressed("W"):
             color = color + 0.02
