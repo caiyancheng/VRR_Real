@@ -12,7 +12,8 @@ beta = 3.5;
 c_t_subjective_path = '../Computational_Model/mu_results.csv';
 data = readtable(c_t_subjective_path);
 suffixes = {'stelaCSF', 'stelaCSF_mod', 'barten_mod', 'stelaCSF_transient', 'stelaCSF_mod_transient', ...
-    'stelaCSF_cyc_1', 'stelaCSF_mod_cyc_1', 'barten_mod_cyc_1', 'stelaCSF_1cpd', 'stelaCSF_mod_1cpd', 'barten_mod_1cpd'};
+    'stelaCSF_cyc_1', 'stelaCSF_mod_cyc_1', 'barten_mod_cyc_1', 'stelaCSF_1cpd', 'stelaCSF_mod_1cpd', 'barten_mod_1cpd',...
+    'stelaCSF_peak', 'stelaCSF_mod_peak', 'barten_mod_peak'};
 
 % Define other variables
 
@@ -21,7 +22,7 @@ stelacsf_mod_model = CSF_stelaCSF_mod();
 barten_mod_model = CSF_stmBartenVeridical();
 
 % initial_k_values = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]';
-initial_k_values = [2, 2, 2, 1000, 1000, 2, 2, 2, 2, 2, 2]';
+initial_k_values = [2, 2, 2, 1000, 1000, 2, 2, 2, 2, 2, 2, 2, 2, 2]';
 lb = zeros(size(initial_k_values));
 ub = Inf(size(initial_k_values));
 
@@ -56,6 +57,14 @@ for size_value = size_indices
         results(9,:) = stelacsf_model.sensitivity(csf_pars);
         results(10,:) = stelacsf_mod_model.sensitivity(csf_pars);
         results(11,:) = barten_mod_model.sensitivity(csf_pars);
+
+        peak_spatial_frequency = linspace( 1, 10, 100)';
+        for i = 1:length(vrr_f_CSF_list)
+            csf_pars_peak = struct('s_frequency', peak_spatial_frequency, 't_frequency', vrr_f_CSF_list(i), 'orientation', 0, 'luminance', luminance_value, 'area', size_value^2, 'eccentricity', 0);
+            results(12,i) = max(stelacsf_model.sensitivity(csf_pars_peak));
+            results(13,i) = max(stelacsf_mod_model.sensitivity(csf_pars_peak));
+            results(14,i) = max(barten_mod_model.sensitivity(csf_pars_peak));
+        end
         
         distance_matrix = pdist2(vrr_f_list', vrr_f_CSF_list);
         [~, closest_indices] = min(distance_matrix, [], 2);
@@ -84,25 +93,28 @@ for size_value = size_indices
         
         subplot(length(size_indices), length(luminance_indices), (find(size_indices == size_value)-1)*length(luminance_indices) + find(luminance_indices == luminance_value));
         hold on;
-        scatter(vrr_f_list, average_C_t_list, 'Marker', 'o', 'MarkerFaceColor', 'b', 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', 'Subjective Result');
         plot(vrr_f_CSF_list, C_t_s(1,:), 'r-', 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(1), fvals(1)));
         plot(vrr_f_CSF_list, C_t_s(2,:), 'g-', 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF_{mod} (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(2), fvals(2)));
         plot(vrr_f_CSF_list, C_t_s(3,:), 'b-', 'LineWidth', 1.5, 'DisplayName', sprintf('Barten_{mod} (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(3), fvals(3)));
-        plot(vrr_f_CSF_list, C_t_s(4,:), 'c-', 'LineWidth', 5, 'DisplayName', sprintf('stelaCSF_{transient} (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(4), fvals(4)));
-        plot(vrr_f_CSF_list, C_t_s(5,:), 'm-', 'LineWidth', 5, 'DisplayName', sprintf('stelaCSF_{mod}_{transient} (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(5), fvals(5)));
+        plot(vrr_f_CSF_list, C_t_s(4,:), 'c-', 'LineWidth', 5, 'DisplayName', sprintf('stelaCSF transient (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(4), fvals(4)));
+        plot(vrr_f_CSF_list, C_t_s(5,:), 'm-', 'LineWidth', 5, 'DisplayName', sprintf('stelaCSF_{mod} transient (Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(5), fvals(5)));
         plot(vrr_f_CSF_list, C_t_s(6,:), 'y-', 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF (*frequency Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(6), fvals(6)));
         plot(vrr_f_CSF_list, C_t_s(7,:), 'k-', 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF_{mod} (*frequency Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(7), fvals(7)));
         plot(vrr_f_CSF_list, C_t_s(8,:), 'Color', [0.5, 0.2, 0.8], 'LineWidth', 1.5, 'DisplayName', sprintf('Barten_{mod} (*frequency Energy) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(8), fvals(8)));
         plot(vrr_f_CSF_list, C_t_s(9,:), 'Color', [0.8, 0.4, 0.2], 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF (1 cpd) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(9), fvals(9)));
         plot(vrr_f_CSF_list, C_t_s(10,:), 'Color', [0.2, 0.6, 0.4], 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF_{mod} (1 cpd) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(10), fvals(10)));
         plot(vrr_f_CSF_list, C_t_s(11,:), 'Color', [0.1, 0.9, 0.3], 'LineWidth', 1.5, 'DisplayName', sprintf('Barten_{mod} (1 cpd) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(11), fvals(11)));
+        plot(vrr_f_CSF_list, C_t_s(12,:), 'Color', [0.4, 0.3, 0.6], 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF (Peak) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(12), fvals(12)));
+        plot(vrr_f_CSF_list, C_t_s(13,:), 'Color', [0.6, 0.2, 0.5], 'LineWidth', 1.5, 'DisplayName', sprintf('stelaCSF_{mod} (Peak) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(13), fvals(13)));
+        plot(vrr_f_CSF_list, C_t_s(14,:), 'Color', [0.8, 0.1, 0.7], 'LineWidth', 1.5, 'DisplayName', sprintf('Barten_{mod} (Peak) - k: %.4f, loss (*1e8): %.4f', optimized_k_values(14), fvals(14)));
+        scatter(vrr_f_list, average_C_t_list, 200, 'Marker', 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', 'Subjective Result');
 
         hold off;
         xlabel('Frequency of RR switch (Hz)');
         ylabel('C_t (Average across Observers)');
         title(['Size: ' num2str(size_value) '\times' num2str(size_value) ' degree, Luminance: ' num2str(luminance_value) ' nits']);
-        set(gca, 'XScale', 'log');
-        set(gca, 'YScale', 'log');
+        % set(gca, 'XScale', 'log');
+        % set(gca, 'YScale', 'log');
         xlim([1, 10]); % Specify the x-axis range
         % ylim([0, 0.03]); % Specify the y-axis range
         legend('show'); % 添加图例

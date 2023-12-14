@@ -1,6 +1,8 @@
 import math
 
 def compute_scale_from_degree(visual_degree, distance = 1):
+    if visual_degree == 'full':
+        return 1, 1
     screen_width_resolution = 3840
     screen_height_resolution = 2160
     screen_width = 1.2176
