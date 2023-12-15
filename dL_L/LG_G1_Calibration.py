@@ -40,7 +40,7 @@ def start_opengl():
 
 def get_color_thread():
     global Y, x, y
-    time.sleep(3)
+    time.sleep(1)
     measuring_speed = " "  # Set your measuring speed
     command = f"E:/Matlab_codes/matlab_toolboxes/display_calibration/Konica/Konica_Measure_Light/Debug/Konica_Measure_Light.exe {measuring_speed}"
     result = subprocess.run(command, text=True, capture_output=True, shell=True)
@@ -57,7 +57,7 @@ def get_color_thread():
         y = float(split_str[11])
 
 
-def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=1000):
+def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=100):
     x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
     x_scale, y_scale = compute_scale_from_degree(visual_degree=size_value)
     global Y, x, y
@@ -70,7 +70,7 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=1000):
     measurement_thread = threading.Thread(target=get_color_thread)
     measurement_thread.start()
     while not glfw.window_should_close(window):
-        if Y and x and y: # 如果已经收到了结果，推出
+        if Y: # 如果已经收到了结果，推出
             break
         begin_time = time.perf_counter_ns() / 1e9
         if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
@@ -78,6 +78,7 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=1000):
         real_display_t = begin_time - all_begin_time
         if real_display_t > maxtime:
             return [np.nan, np.nan, np.nan]
+        glClear(GL_COLOR_BUFFER_BIT)
         glColor3f(color_value, color_value, color_value)
         glBegin(GL_QUADS)
         glVertex2f(x_center - x_scale, y_center - y_scale)
@@ -94,7 +95,7 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=1000):
     return [Y, x, y]
 
 def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repeat_times, save_dir_path, random_shuffle):
-    pixel_all_values = np.arange(Pixel_value_range, Pixel_value_step)
+    pixel_all_values = np.arange(Pixel_value_range[0], Pixel_value_range[1], Pixel_value_step)
     setting_list = []
     for size_value in Size:
         for color_value in pixel_all_values:
@@ -107,6 +108,7 @@ def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repe
     json_log_data = {}
     for index in range(len(setting_list)):
         size_value, color_value, repeat_index = setting_list[index]
+        print('Size_value', size_value, 'Color_value', color_value, 'Repeat_index', repeat_index)
         log_data = {}
         for frame_rate in Refresh_rate:
             response = check_dl_L(size_value, color_value, frame_rate, glfw, window)
@@ -115,17 +117,17 @@ def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repe
             else:
                 log_data[str(frame_rate)] = response
         json_log_data[f'S_{size_value}_C_{color_value}_R_{repeat_index}'] = log_data
-    with open(os.path.join(save_dir_path, 'result.json'), 'r') as fp:
-        json.dump(fp)
+    with open(os.path.join(save_dir_path, 'result.json'), 'w') as fp:
+        json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
     Size = [1, 2, 4, 8, 16, 'full']
-    Pixel_value_range = [0,1]
-    Pixel_value_step = 0.01
+    Pixel_value_range = [0, 1]
+    Pixel_value_step = 0.005
     Refresh_rate = [30, 120]
-    repeat_times = 10
+    repeat_times = 1
 
-    save_dir_path = f"../VRR_Real/dL_L/LG_G1_KONICA_1"
+    save_dir_path = f"../dL_L/LG_G1_KONICA_1"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'Pixel_value_step': Pixel_value_step, 'Refresh_rate': Refresh_rate,
