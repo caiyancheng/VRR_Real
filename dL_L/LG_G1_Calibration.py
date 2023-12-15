@@ -64,31 +64,29 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=100):
     if not glfw.init():
         return
 
-    # # 展示2s的纯白画面
-    # all_begin_time = time.perf_counter_ns() / 1e9
-    # while not glfw.window_should_close(window):
-    #     if Y: # 如果已经收到了结果，推出
-    #         break
-    #     begin_time = time.perf_counter_ns() / 1e9
-    #     if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
-    #         return -1
-    #     real_display_t = begin_time - all_begin_time
-    #     if real_display_t > 2:
-    #         break
-    #     glClear(GL_COLOR_BUFFER_BIT)
-    #     glColor3f(0.5, 0.5, 0.5)
-    #     glBegin(GL_QUADS)
-    #     glVertex2f(x_center - x_scale, y_center - y_scale)
-    #     glVertex2f(x_center + x_scale, y_center - y_scale)
-    #     glVertex2f(x_center + x_scale, y_center + y_scale)
-    #     glVertex2f(x_center - x_scale, y_center + y_scale)
-    #     glEnd()
-    #     glfw.swap_buffers(window)
-    #
-    #     end_time = time.perf_counter_ns() / 1e9
-    #     sleep_time = (1.0 / frame_rate - (end_time - begin_time))
-    #     microsecond_sleep(sleep_time)
-    #     glfw.poll_events()
+    # 展示2s的纯白画面
+    all_begin_time = time.perf_counter_ns() / 1e9
+    while not glfw.window_should_close(window):
+        begin_time = time.perf_counter_ns() / 1e9
+        if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
+            return -1
+        real_display_t = begin_time - all_begin_time
+        if real_display_t > 2:
+            break
+        glClear(GL_COLOR_BUFFER_BIT)
+        glColor3f(0.5, 0.5, 0.5)
+        glBegin(GL_QUADS)
+        glVertex2f(x_center - x_scale, y_center - y_scale)
+        glVertex2f(x_center + x_scale, y_center - y_scale)
+        glVertex2f(x_center + x_scale, y_center + y_scale)
+        glVertex2f(x_center - x_scale, y_center + y_scale)
+        glEnd()
+        glfw.swap_buffers(window)
+
+        end_time = time.perf_counter_ns() / 1e9
+        sleep_time = (1.0 / frame_rate - (end_time - begin_time))
+        microsecond_sleep(sleep_time)
+        glfw.poll_events()
 
     all_begin_time = time.perf_counter_ns() / 1e9
     Y = x = y = None
@@ -155,8 +153,8 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
 
 if __name__ == "__main__":
     Size = [1, 16, 'full']
-    Pixel_value_range = [0, 1]
-    sample_numbers = 50
+    Pixel_value_range = [0.05, 1]
+    sample_numbers = 20
     scale = 'Log10' #Linear/Log10
     Refresh_rate = [30, 120]
     repeat_times = 1
