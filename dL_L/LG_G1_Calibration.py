@@ -154,14 +154,14 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
         json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
-    Size = [4, 'full']
+    Size = [1, 16, 'full']
     Pixel_value_range = [0, 1]
-    sample_numbers = 100
+    sample_numbers = 50
     scale = 'Log10' #Linear/Log10
     Refresh_rate = [30, 120]
     repeat_times = 1
     # 别忘了denser at darker
-    save_dir_path = f"../dL_L/LG_G1_KONICA_3"
+    save_dir_path = f"../dL_L/LG_G1_KONICA_4"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'sample_numbers': sample_numbers, 'scale': scale,
