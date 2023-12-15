@@ -121,13 +121,13 @@ def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repe
         json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
-    Size = [1, 2, 4, 8, 16, 'full']
+    Size = [4, 'full']
     Pixel_value_range = [0, 1]
-    Pixel_value_step = 0.005
+    Pixel_value_step = 0.02
     Refresh_rate = [30, 120]
     repeat_times = 1
 
-    save_dir_path = f"../dL_L/LG_G1_KONICA_1"
+    save_dir_path = f"../dL_L/LG_G1_KONICA_2"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'Pixel_value_step': Pixel_value_step, 'Refresh_rate': Refresh_rate,
