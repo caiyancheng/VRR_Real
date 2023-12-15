@@ -152,7 +152,7 @@ if __name__ == "__main__":
     Pixel_value_step = 0.05
     Refresh_rate = [30, 120]
     repeat_times = 1
-
+    # 别忘了denser at darker
     save_dir_path = f"../dL_L/LG_G1_KONICA_3"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
