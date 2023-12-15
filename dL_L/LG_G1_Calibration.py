@@ -123,7 +123,7 @@ def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repe
 if __name__ == "__main__":
     Size = [4, 'full']
     Pixel_value_range = [0, 1]
-    Pixel_value_step = 0.02
+    Pixel_value_step = 0.05
     Refresh_rate = [30, 120]
     repeat_times = 1
 
