@@ -119,8 +119,15 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=100):
         glfw.poll_events()
     return [Y, x, y]
 
-def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repeat_times, save_dir_path, random_shuffle):
-    pixel_all_values = np.arange(Pixel_value_range[0], Pixel_value_range[1], Pixel_value_step)
+def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate, repeat_times, save_dir_path, random_shuffle):
+    if scale == 'Linear':
+        pixel_all_values = np.linspace(Pixel_value_range[0], Pixel_value_range[1], num=sample_numbers)
+    elif scale == 'Log10':
+        if Pixel_value_range[0] == 0:
+            Pixel_value_range[0] = 0.001
+        pixel_all_values = np.logspace(np.log10(Pixel_value_range[0]), np.log10(Pixel_value_range[1]), num=sample_numbers)
+    else:
+        raise ValueError(f'the scale {scale} pattern is not included in this code')
     setting_list = []
     for size_value in Size:
         for color_value in pixel_all_values:
@@ -149,17 +156,18 @@ def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repe
 if __name__ == "__main__":
     Size = [4, 'full']
     Pixel_value_range = [0, 1]
-    Pixel_value_step = 0.05
+    sample_numbers = 100
+    scale = 'Log10' #Linear/Log10
     Refresh_rate = [30, 120]
     repeat_times = 1
     # 别忘了denser at darker
     save_dir_path = f"../dL_L/LG_G1_KONICA_3"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
-                   'Pixel_value_step': Pixel_value_step, 'Refresh_rate': Refresh_rate,
-                   'repeat_times': repeat_times}
+                   'sample_numbers': sample_numbers, 'scale': scale,
+                   'Refresh_rate': Refresh_rate, 'repeat_times': repeat_times}
     with open(os.path.join(save_dir_path, 'config.json'), 'w') as fp:
         json.dump(config_json, fp=fp)
-    check_dl_L_all(Size, Pixel_value_range, Pixel_value_step,
+    check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale,
                    Refresh_rate, repeat_times, save_dir_path,
                    random_shuffle=False)
