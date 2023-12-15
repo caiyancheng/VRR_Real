@@ -40,7 +40,7 @@ def start_opengl():
 
 def get_color_thread():
     global Y, x, y
-    time.sleep(1)
+    time.sleep(3)
     measuring_speed = " "  # Set your measuring speed
     command = f"E:/Matlab_codes/matlab_toolboxes/display_calibration/Konica/Konica_Measure_Light/Debug/Konica_Measure_Light.exe {measuring_speed}"
     result = subprocess.run(command, text=True, capture_output=True, shell=True)
@@ -63,9 +63,34 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=100):
     global Y, x, y
     if not glfw.init():
         return
-    glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
-    all_begin_time = time.perf_counter_ns() / 1e9
 
+    # # 展示2s的纯白画面
+    # all_begin_time = time.perf_counter_ns() / 1e9
+    # while not glfw.window_should_close(window):
+    #     if Y: # 如果已经收到了结果，推出
+    #         break
+    #     begin_time = time.perf_counter_ns() / 1e9
+    #     if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
+    #         return -1
+    #     real_display_t = begin_time - all_begin_time
+    #     if real_display_t > 2:
+    #         break
+    #     glClear(GL_COLOR_BUFFER_BIT)
+    #     glColor3f(0.5, 0.5, 0.5)
+    #     glBegin(GL_QUADS)
+    #     glVertex2f(x_center - x_scale, y_center - y_scale)
+    #     glVertex2f(x_center + x_scale, y_center - y_scale)
+    #     glVertex2f(x_center + x_scale, y_center + y_scale)
+    #     glVertex2f(x_center - x_scale, y_center + y_scale)
+    #     glEnd()
+    #     glfw.swap_buffers(window)
+    #
+    #     end_time = time.perf_counter_ns() / 1e9
+    #     sleep_time = (1.0 / frame_rate - (end_time - begin_time))
+    #     microsecond_sleep(sleep_time)
+    #     glfw.poll_events()
+
+    all_begin_time = time.perf_counter_ns() / 1e9
     Y = x = y = None
     measurement_thread = threading.Thread(target=get_color_thread)
     measurement_thread.start()
@@ -105,6 +130,7 @@ def check_dl_L_all(Size, Pixel_value_range, Pixel_value_step, Refresh_rate, repe
     if random_shuffle:
         random.shuffle(setting_list)
     glfw, window = start_opengl()
+    glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
     json_log_data = {}
     for index in range(len(setting_list)):
         size_value, color_value, repeat_index = setting_list[index]
@@ -127,7 +153,7 @@ if __name__ == "__main__":
     Refresh_rate = [30, 120]
     repeat_times = 1
 
-    save_dir_path = f"../dL_L/LG_G1_KONICA_2"
+    save_dir_path = f"../dL_L/LG_G1_KONICA_3"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'Pixel_value_step': Pixel_value_step, 'Refresh_rate': Refresh_rate,
@@ -136,4 +162,4 @@ if __name__ == "__main__":
         json.dump(config_json, fp=fp)
     check_dl_L_all(Size, Pixel_value_range, Pixel_value_step,
                    Refresh_rate, repeat_times, save_dir_path,
-                   random_shuffle=True)
+                   random_shuffle=False)
