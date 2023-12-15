@@ -191,7 +191,7 @@ if __name__ == "__main__":
         'VRR_Frequency': [0.5, 1, 2, 4, 8, 16],
         'Color_Value_adjust_range': [0, 1],
         'Size': [1, 16, 'full'],
-        'Repeat_times': 1,
+        'Repeat_times': 10,
     }
     vrr_params = {
         'frame_rate_min': 30,
@@ -200,7 +200,7 @@ if __name__ == "__main__":
         'fix_frame_rate': 60,
     }
     observer_params = {
-        'name': 'Yancheng_Cai_Test_1',
+        'name': 'Yancheng_Cai_Test_10',
         'age': 22,
         'gender': 'M',
     }
