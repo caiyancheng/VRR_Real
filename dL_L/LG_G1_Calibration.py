@@ -147,6 +147,7 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
                 return #有人想要退出了
             else:
                 log_data[str(frame_rate)] = response
+        print('Response', response)
         json_log_data[f'S_{size_value}_C_{color_value}_R_{repeat_index}'] = log_data
     with open(os.path.join(save_dir_path, 'result.json'), 'w') as fp:
         json.dump(json_log_data, fp)
@@ -154,12 +155,12 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
 if __name__ == "__main__":
     Size = [1, 16, 'full']
     Pixel_value_range = [0.05, 1]
-    sample_numbers = 20
+    sample_numbers = 30
     scale = 'Log10' #Linear/Log10
     Refresh_rate = [30, 120]
-    repeat_times = 1
+    repeat_times = 10
     # 别忘了denser at darker
-    save_dir_path = f"../dL_L/LG_G1_KONICA_4"
+    save_dir_path = f"../dL_L/LG_G1_KONICA_5"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'sample_numbers': sample_numbers, 'scale': scale,
