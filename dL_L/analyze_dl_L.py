@@ -3,7 +3,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 
-base_path = 'LG_G1_KONICA_4'
+base_path = 'LG_G1_KONICA_5'
 with open(os.path.join(base_path, 'result.json'), 'r') as fp:
     result_data = json.load(fp)
 with open(os.path.join(base_path, 'config.json'), 'r') as fp:
@@ -24,6 +24,9 @@ fig1, ax1 = plt.subplots(figsize=(10,5))
 fig2, ax2 = plt.subplots(figsize=(10,5))
 
 for size_value in size_values:
+    x_axis_L_repeats = []
+    y_axis_dl_repeats = []
+    y_axis_dl_L_repeats = []
     for repeat_time in range(repeat_times):
         x_axis_L = []
         y_axis_dl = []
@@ -35,15 +38,24 @@ for size_value in size_values:
             if np.isnan(luminance_30) or np.isnan(luminance_120):
                 print('NAN')
                 continue
-            if luminance_30 < 1 or luminance_120 < 1:
-                continue
+            # if luminance_30 < 1 or luminance_120 < 1:
+            #     continue
             L = (luminance_30 + luminance_120) / 2
+            # dl = np.abs(luminance_30 - luminance_120)
             dl = luminance_30 - luminance_120
             x_axis_L.append(L)
             y_axis_dl.append(dl)
             y_axis_dl_L.append(dl / L)
-        ax1.plot(x_axis_L, y_axis_dl, marker='o', markersize=8,label=f'Size_{size_value}_Repeat_{repeat_time}')
-        ax2.plot(x_axis_L, y_axis_dl_L, marker='o', markersize=8, label=f'Size_{size_value}_Repeat_{repeat_time}')
+        if len(x_axis_L) != 30:
+            continue
+        x_axis_L_repeats.append(x_axis_L)
+        y_axis_dl_repeats.append(y_axis_dl)
+        y_axis_dl_L_repeats.append(y_axis_dl_L)
+    x_axis_L_mean = np.array(x_axis_L_repeats).mean(axis=0)
+    y_axis_dl_mean = np.array(y_axis_dl_repeats).mean(axis=0)
+    y_axis_dl_L_mean = np.array(y_axis_dl_L_repeats).mean(axis=0)
+    ax1.plot(x_axis_L_mean, y_axis_dl_mean, marker='o', markersize=8,label=f'Size_{size_value}')
+    ax2.plot(x_axis_L_mean, y_axis_dl_L_mean, marker='o', markersize=8, label=f'Size_{size_value}')
 
 # Set labels for both figures
 ax1.set_xscale('log')
