@@ -139,8 +139,8 @@ def check_dl_L_all(MOA_exp_path, Quest_exp_path):
     for vrr_f_index in range(len(MOA_VRR_Fs)):
         for size_index in range(len(MOA_Sizes)):
             size_value = MOA_Sizes[size_index]
-            vrr_f_value = MOA_VRR_Fs[vrr_f_index][vrr_f_index]
-            color_value = MOA_result[f'V_{vrr_f_value}_S_{size_value}'].mean()
+            vrr_f_value = MOA_VRR_Fs[vrr_f_index]
+            color_value = np.array(MOA_result[f'V_{vrr_f_value}_S_{size_value}']).mean()
             response = check_dl_L(size_value, color_value, frame_rate, glfw, window)
             if response == -1:
                 return  # 有人想要退出了
@@ -149,7 +149,7 @@ def check_dl_L_all(MOA_exp_path, Quest_exp_path):
     for vrr_f_index in range(len(Quest_VRR_Fs)):
         for size_index in range(len(Quest_Sizes)):
             size_value = Quest_Sizes[size_index]
-            vrr_f_value = Quest_VRR_Fs[vrr_f_index][vrr_f_index]
+            vrr_f_value = Quest_VRR_Fs[vrr_f_index]
             color_value_mean = Quest_final_result[f'V_{vrr_f_value}_S_{size_value}']['Mean']
             color_value_mode = Quest_final_result[f'V_{vrr_f_value}_S_{size_value}']['Mode']
             color_value_quantile = Quest_final_result[f'V_{vrr_f_value}_S_{size_value}']['Quantile']
