@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import os
+from matplotlib.ticker import MaxNLocator, LogLocator
 
 MOA_exp_path = r'..\VRR_Subjective_MOA\Result_MOA_1\Observer_Yancheng_Cai_Test_10'
 Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_1\Observer_Yancheng_Cai_Test_10'
@@ -47,9 +48,10 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
 
 plt.figure(figsize=(10,12))
 # plt.figure()
-plt.title('Frequency of RR Switch VS Color Value')
+# plt.suptitle('Frequency of RR Switch VS Color Value')
+plt.figtext(0.5, 0.98, 'Critical Luminance under different sizes', ha='center', fontsize=12)
 for size_index in range(len(MOA_Sizes)):
-    plt.subplot(len(MOA_Sizes), 1, size_index+1)
+    ax = plt.subplot(len(MOA_Sizes), 1, size_index + 1)
     X_axis_vrr_f = np.array(MOA_VRR_Fs)
     MOA_Y_axis_luminance = MOA_result_luminance_array[:, size_index]
     Quest_Y_axis_luminance_mean = Quest_result_luminance_array_mean[:, size_index]
@@ -61,18 +63,24 @@ for size_index in range(len(MOA_Sizes)):
     plt.plot(X_axis_vrr_f, Quest_Y_axis_luminance_mode, marker='+', markersize=8, label='Quest experiment Mode')
     plt.plot(X_axis_vrr_f, Quest_Y_axis_luminance_quantile, marker='+', markersize=8, label='Quest experiment Quantile')
     plt.plot(X_axis_vrr_f, Quest_Y_axis_luminance_quantile_05, marker='+', markersize=8, label='Quest experiment Quantile_05')
-    plt.xlabel('Frequency of RR Switch (Hz)')
-    plt.ylabel('Luminance (nits)')
+    # ymin, ymax = ax.get_ylim()
     plt.xscale('log')
     plt.yscale('log')
-    plt.legend()
+    # ax.set_yticks([ymin, (ymin+ymax)/2, ymax])
+    # ax.get_yaxis().set_major_formatter(plt.ScalarFormatter())
+    # ax.yaxis.set_major_locator(LogLocator(subs=[1.0]))
+    # plt.ylim([0.2,3])
+    ax.text(0.5, 0.92, f'Size: {MOA_Sizes[size_index]}x{MOA_Sizes[size_index]} degrees', ha='center', transform=ax.transAxes, fontsize=10)
+plt.legend(bbox_to_anchor=(0.5, 3.5), loc='lower center', borderaxespad=0.0, borderpad=1.5, ncol=3, frameon=True, edgecolor='black')
+plt.xlabel('Frequency of RR Switch (Hz) - Log scale',fontsize=12)
+plt.figtext(0.02, 0.5, 'Luminance (nits) - Log scale', va='center', rotation='vertical', fontsize=12)
 plt.show()
 
 plt.figure(figsize=(8,16))
 # plt.figure()
-plt.title('Size Switch VS Color Value')
+plt.figtext(0.5, 0.98, 'Critical Luminance under different Frequency of RR Switch', ha='center', fontsize=15)
 for vrr_f_index in range(len(Quest_VRR_Fs)):
-    plt.subplot(len(Quest_VRR_Fs), 1, vrr_f_index+1)
+    ax = plt.subplot(len(Quest_VRR_Fs), 1, vrr_f_index+1)
     X_axis_size = np.array(MOA_Sizes)
     for size_index in range(len(X_axis_size)):
         if X_axis_size[size_index] == 'full':
@@ -87,9 +95,11 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
     plt.plot(X_axis_size, Quest_Y_axis_luminance_mode, marker='+', markersize=8, label='Quest experiment Mode')
     plt.plot(X_axis_size, Quest_Y_axis_luminance_quantile, marker='+', markersize=8, label='Quest experiment Quantile')
     plt.plot(X_axis_size, Quest_Y_axis_luminance_quantile_05, marker='+', markersize=8, label='Quest experiment Quantile_05')
-    plt.xlabel('Size (degree)')
-    plt.ylabel('Luminance (nits)')
-    plt.xscale('log')
+    # plt.xscale('log')
     plt.yscale('log')
-    plt.legend()
+    ax.text(0.5, 0.92, f'Frequency of RR Switch: {Quest_VRR_Fs[vrr_f_index]} Hz', ha='center',
+            transform=ax.transAxes, fontsize=8)
+plt.legend(bbox_to_anchor=(0.5, 7.2), loc='lower center', borderaxespad=0.0, borderpad=1.1, ncol=3, frameon=True, edgecolor='black')
+plt.xlabel('Size (degree)')
+plt.figtext(0.02, 0.5, 'Luminance (nits) - Log scale', va='center', rotation='vertical', fontsize=12)
 plt.show()

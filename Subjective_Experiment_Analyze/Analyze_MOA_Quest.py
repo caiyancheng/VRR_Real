@@ -39,9 +39,9 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
         Quest_result_color_array_quantile_05[vrr_f_index][size_index] = \
         Quest_final_result[f'V_{Quest_VRR_Fs[vrr_f_index]}_S_{Quest_Sizes[size_index]}']['Quantile_05']
 
-plt.figure(figsize=(10,12))
+plt.figure(figsize=(10,10))
 # plt.figure()
-plt.title('Frequency of RR Switch VS Color Value')
+plt.suptitle('Frequency of RR Switch VS Color Value')
 for size_index in range(len(MOA_Sizes)):
     plt.subplot(len(MOA_Sizes), 1, size_index+1)
     X_axis_vrr_f = np.array(MOA_VRR_Fs)
@@ -55,35 +55,35 @@ for size_index in range(len(MOA_Sizes)):
     plt.plot(X_axis_vrr_f, Quest_Y_axis_Color_mode, marker='+', markersize=8, label='Quest experiment Mode')
     plt.plot(X_axis_vrr_f, Quest_Y_axis_Color_quantile, marker='+', markersize=8, label='Quest experiment Quantile')
     plt.plot(X_axis_vrr_f, Quest_Y_axis_Color_quantile_05, marker='+', markersize=8, label='Quest experiment Quantile_05')
-    plt.xlabel('Frequency of RR Switch (Hz)')
-    plt.ylabel('Color Value')
+    plt.legend()
     plt.xscale('log')
     # plt.yscale('log')
-    plt.legend()
+plt.xlabel('Frequency of RR Switch (Hz)')
+plt.ylabel('Color Value')
 plt.show()
 
-plt.figure(figsize=(8,16))
-# plt.figure()
-plt.title('Size Switch VS Color Value')
-for vrr_f_index in range(len(Quest_VRR_Fs)):
-    plt.subplot(len(Quest_VRR_Fs), 1, vrr_f_index+1)
-    X_axis_size = np.array(MOA_Sizes)
-    for size_index in range(len(X_axis_size)):
-        if X_axis_size[size_index] == 'full':
-            X_axis_size[size_index] = 40
-    MOA_Y_axis_Color = MOA_result_color_array[vrr_f_index,]
-    Quest_Y_axis_Color_mean = Quest_result_color_array_mean[vrr_f_index,]
-    Quest_Y_axis_Color_mode = Quest_result_color_array_mode[vrr_f_index,]
-    Quest_Y_axis_Color_quantile = Quest_result_color_array_quantile[vrr_f_index,]
-    Quest_Y_axis_Color_quantile_05 = Quest_result_color_array_quantile_05[vrr_f_index,]
-    plt.plot(X_axis_size, MOA_Y_axis_Color, marker='o', markersize=8, label='MOA experiment')
-    plt.plot(X_axis_size, Quest_Y_axis_Color_mean, marker='+', markersize=8, label='Quest experiment Mean')
-    plt.plot(X_axis_size, Quest_Y_axis_Color_mode, marker='+', markersize=8, label='Quest experiment Mode')
-    plt.plot(X_axis_size, Quest_Y_axis_Color_quantile, marker='+', markersize=8, label='Quest experiment Quantile')
-    plt.plot(X_axis_size, Quest_Y_axis_Color_quantile_05, marker='+', markersize=8, label='Quest experiment Quantile_05')
-    plt.xlabel('Size (degree)')
-    plt.ylabel('Color Value')
-    # plt.xscale('log')
-    plt.yscale('log')
-    plt.legend()
-plt.show()
+# plt.figure(figsize=(8,16))
+# # plt.figure()
+# plt.title('Size Switch VS Color Value')
+# for vrr_f_index in range(len(Quest_VRR_Fs)):
+#     plt.subplot(len(Quest_VRR_Fs), 1, vrr_f_index+1)
+#     X_axis_size = np.array(MOA_Sizes)
+#     for size_index in range(len(X_axis_size)):
+#         if X_axis_size[size_index] == 'full':
+#             X_axis_size[size_index] = 40
+#     MOA_Y_axis_Color = MOA_result_color_array[vrr_f_index,]
+#     Quest_Y_axis_Color_mean = Quest_result_color_array_mean[vrr_f_index,]
+#     Quest_Y_axis_Color_mode = Quest_result_color_array_mode[vrr_f_index,]
+#     Quest_Y_axis_Color_quantile = Quest_result_color_array_quantile[vrr_f_index,]
+#     Quest_Y_axis_Color_quantile_05 = Quest_result_color_array_quantile_05[vrr_f_index,]
+#     plt.plot(X_axis_size, MOA_Y_axis_Color, marker='o', markersize=8, label='MOA experiment')
+#     plt.plot(X_axis_size, Quest_Y_axis_Color_mean, marker='+', markersize=8, label='Quest experiment Mean')
+#     plt.plot(X_axis_size, Quest_Y_axis_Color_mode, marker='+', markersize=8, label='Quest experiment Mode')
+#     plt.plot(X_axis_size, Quest_Y_axis_Color_quantile, marker='+', markersize=8, label='Quest experiment Quantile')
+#     plt.plot(X_axis_size, Quest_Y_axis_Color_quantile_05, marker='+', markersize=8, label='Quest experiment Quantile_05')
+#     plt.legend()
+# plt.xlabel('Size (degree)')
+# plt.ylabel('Color Value')
+# # plt.xscale('log')
+# plt.yscale('log')
+# plt.show()

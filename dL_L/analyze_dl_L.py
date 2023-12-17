@@ -41,8 +41,8 @@ for size_value in size_values:
             # if luminance_30 < 1 or luminance_120 < 1:
             #     continue
             L = (luminance_30 + luminance_120) / 2
-            # dl = np.abs(luminance_30 - luminance_120)
-            dl = luminance_30 - luminance_120
+            dl = np.abs(luminance_30 - luminance_120)
+            # dl = luminance_30 - luminance_120
             x_axis_L.append(L)
             y_axis_dl.append(dl)
             y_axis_dl_L.append(dl / L)
@@ -60,6 +60,8 @@ for size_value in size_values:
 # Set labels for both figures
 ax1.set_xscale('log')
 ax2.set_xscale('log')
+ax1.set_yscale('log')
+ax2.set_yscale('log')
 ax1.set_title('plot deltaL vs Luminance')
 ax1.set_xlabel('Luminance')
 ax1.set_ylabel('deltaL')

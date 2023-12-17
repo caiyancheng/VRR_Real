@@ -193,7 +193,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         print('VRR_Frequency', vrr_f, 'Size', size)
         MOA_result = np.array(MOA_result_dict[f'V_{vrr_f}_S_{size}'])
         MOA_mean = MOA_result.mean()
-        MOA_std = MOA_result.std()
+        MOA_std = MOA_result.std() * change_parameters['STD_multiple']
         x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
         interval_time = 1 / (2 * vrr_f)
@@ -260,6 +260,7 @@ if __name__ == "__main__":
         'Color_Value_adjust_range': [0, 1],
         'Size': [1, 16, 'full'],
         'Trail_Number': 30,
+        'STD_multiple': 5,
     }
     vrr_params = {
         'frame_rate_min': 30,
@@ -278,7 +279,7 @@ if __name__ == "__main__":
         'gender': 'M',
     }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_Quest/Result_Quest_1/'
+    save_base_path = r'../VRR_Subjective_Quest/Result_Quest_2/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
     MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_1/', f"Observer_{observer_params['name']}", 'result.json')
     os.makedirs(save_path, exist_ok=True)
