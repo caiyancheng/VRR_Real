@@ -44,15 +44,17 @@ def start_opengl():
     return glfw, window
 
 def temporal_flicker_meter_thread(record_params):
-    global measurements, start_ts
+    global measurements, start_ts, measure_done, sensor
+    num_measurements = int(record_params['num_flicker_meter_sample'])
+    sampling_frequency = int(num_measurements / record_params['time_flicker_meter_log'])
     time.sleep(3)
-    sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM5", 500000))
-    num_measurements = record_params['num_flicker_meter_sample']
-    sampling_frequency = num_measurements / record_params['time_flicker_meter_log']
     sensor.take_measurement(num_measurements=num_measurements, sampling_frequency=sampling_frequency)
     measurements, start_ts = sensor.get_results() #这个环节可能会卡住，所以要做好准备终结这个子线程
+    measure_done = True
+    print('Measure Finished!')
 
 def temporal_measure_one_block(glfw, window, vrr_params, c_params, record_params):
+    global measurements, start_ts, measure_done
     x_center, y_center, x_scale, y_scale, interval_time, vrr_color = c_params
 
     # 展示2s的纯白画面
@@ -80,20 +82,21 @@ def temporal_measure_one_block(glfw, window, vrr_params, c_params, record_params
 
     all_begin_time = time.perf_counter_ns() / 1e9
     measurements = start_ts = None
+    measure_done = False
     measurement_thread = threading.Thread(target=temporal_flicker_meter_thread, args=(record_params,))
     measurement_thread.start()
     begin_vrr_time = time.perf_counter_ns() / 1e9
     while not glfw.window_should_close(window):
-        if measurements: #测量结束
+        if measure_done: #测量结束
             return measurements, start_ts
         frame_begin_time = time.perf_counter_ns()/1e9
-        if frame_begin_time - all_begin_time > record_params['time_maximum']: #超时
-            print('Measure Failed! Time Out!')
-            try:
-                measurement_thread._stop()
-            except:
-                print('Stop function not exist. ChatGPT lies.')
-            return -1
+        # if frame_begin_time - all_begin_time > record_params['time_maximum']: #超时
+        #     print('Measure Failed! Time Out!')
+        #     try:
+        #         measurement_thread._stop()
+        #     except:
+        #         print('Stop function not exist. ChatGPT lies.')
+        #     return -1
         if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
             break
         color = vrr_color
@@ -141,10 +144,13 @@ def temporal_record_main(change_parameters, vrr_params, color_change_parameters,
 
     glfw, window = start_opengl()
     glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
+    global sensor
+    sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM5", 500000, timeout=record_params['time_maximum']))
 
     for index in range(len(setting_list)):
         size_value, vrr_f_value, color_value = setting_list[index]
         save_path_dir = os.path.join(real_save_path, f'S_{size_value}_V_{vrr_f_value}_C_{color_value}')
+        os.makedirs(save_path_dir, exist_ok=True)
 
         x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size_value)
@@ -157,16 +163,16 @@ def temporal_record_main(change_parameters, vrr_params, color_change_parameters,
                                        vrr_params=vrr_params,
                                        c_params=c_params,
                                        record_params=record_params)
-            while result == -1: #如果一直没有响应，就一直执行这个进程。
-                result = temporal_measure_one_block(glfw=glfw,
-                                                    window=window,
-                                                    vrr_params=vrr_params,
-                                                    c_params=c_params,
-                                                    record_params=record_params)
+            # while result == -1: #如果一直没有响应，就一直执行这个进程。
+            #     result = temporal_measure_one_block(glfw=glfw,
+            #                                         window=window,
+            #                                         vrr_params=vrr_params,
+            #                                         c_params=c_params,
+            #                                         record_params=record_params)
             print('Measure Success!!!')
             measurements, start_ts = result
             json_log_data = {
-                'measurements': measurements,
+                'measurements': measurements.tolist(),
                 'start_ts': start_ts,
             }
             with open(os.path.join(save_path_dir, f'{repeat_index}.json'), 'w') as fp:

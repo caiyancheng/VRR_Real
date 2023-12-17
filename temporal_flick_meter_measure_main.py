@@ -3,8 +3,8 @@ import temporal_light_sensor
 import matplotlib.pyplot as plt
 import numpy as np
 
-sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM4", 500000))
-num_measurements = 50000 #51999是极限，但是一般不建议超过50000，注意会卡住
+sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM5", 500000, timeout=10))
+num_measurements = 100000 #51999是极限，但是一般不建议超过50000，注意会卡住
 sampling_frequency = 50000
 sensor.take_measurement(num_measurements=num_measurements, sampling_frequency=sampling_frequency)
 
