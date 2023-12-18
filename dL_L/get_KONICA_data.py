@@ -52,3 +52,6 @@ def get_KONICA_data(base_path):
         y_axis_dl_sizes.append(y_axis_dl_repeats)
         y_axis_dl_L_sizes.append(y_axis_dl_L_repeats)
     return np.array(x_axis_L_sizes), np.array(y_axis_dl_sizes), np.array(y_axis_dl_L_sizes), size_values
+
+if __name__ == '__main__':
+    x_L_array, y_dl_array, y_dl_L_array = get_KONICA_data(base_path='LG_G1_KONICA_5')
