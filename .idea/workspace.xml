@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dL_L/dl_L_KNOICA_Flickermeter_Compare_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/VRR_Real.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VRR_Real.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/get_KONICA_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/get_KONICA_data.py" afterDir="false" />
-    </list>
+    <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -240,7 +233,7 @@
       <workItem from="1702696399156" duration="834000" />
       <workItem from="1702698740075" duration="735000" />
       <workItem from="1702787170015" duration="2983000" />
-      <workItem from="1702852101780" duration="8117000" />
+      <workItem from="1702852101780" duration="8242000" />
     </task>
     <servers />
   </component>
