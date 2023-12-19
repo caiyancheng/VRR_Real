@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_flicker_meter_sigmoid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/dl_L_KNOICA_Flickermeter_Compare_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/dl_L_KNOICA_Flickermeter_Compare_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_sigmoid.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_sigmoid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +236,7 @@
       <workItem from="1702698740075" duration="735000" />
       <workItem from="1702787170015" duration="2983000" />
       <workItem from="1702852101780" duration="9290000" />
-      <workItem from="1702917803398" duration="4907000" />
+      <workItem from="1702917803398" duration="6416000" />
     </task>
     <servers />
   </component>
@@ -381,7 +376,7 @@
     <SUITE FILE_PATH="coverage/VRR_Real$json2figure.coverage" NAME="json2figure Coverage Results" MODIFIED="1699825544310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Creat_Dataset_Generate" />
     <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Luminance_Psy_stelaCSF.coverage" NAME="Analyze_Luminance_Psy_stelaCSF Coverage Results" MODIFIED="1701966191898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/VRR_Real$plot_calibration.coverage" NAME="plot_calibration Coverage Results" MODIFIED="1700441548817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_flicker_meter_sigmoid.coverage" NAME="fit_dl_L_curve_flicker_meter_sigmoid Coverage Results" MODIFIED="1702946559637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_flicker_meter_sigmoid.coverage" NAME="fit_dl_L_curve_flicker_meter_sigmoid Coverage Results" MODIFIED="1702946863787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_sigmoid.coverage" NAME="fit_dl_L_curve_sigmoid Coverage Results" MODIFIED="1702946087214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_2.coverage" NAME="VRR_2 Coverage Results" MODIFIED="1702174878080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
     <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Frequency_Psy_stelaCSF.coverage" NAME="Analyze_Frequency_Psy_stelaCSF Coverage Results" MODIFIED="1701911701879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
