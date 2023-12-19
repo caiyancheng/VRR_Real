@@ -64,7 +64,7 @@ def get_Temporal_Flicker_Meter_data(root_path):
     return return_L_array, return_dL_array, return_abnormal_array
 
 if __name__ == '__main__':
-    return_L_array, return_dL_array, return_abnormal_array = get_Temporal_Flicker_Meter_data(root_path=r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L\2023-12-17-05-06-02')
+    return_L_array, return_dL_array, return_abnormal_array = get_Temporal_Flicker_Meter_data(root_path=r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_10s\2023-12-18-17-18-03')
     print('Abnormal Numbers', return_abnormal_array.sum())
     save_path = 'Temporal_Results'
     os.makedirs(save_path, exist_ok=True)
@@ -73,5 +73,5 @@ if __name__ == '__main__':
         'dL': return_dL_array.tolist(),
         'abnormal': return_abnormal_array.tolist()
     }
-    with open(os.path.join(save_path, 'dl_L_results.json'), 'w') as fp:
+    with open(os.path.join(save_path, 'dl_L_results_10s.json'), 'w') as fp:
         json.dump(json_result_dict, fp)

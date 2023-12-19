@@ -8,11 +8,12 @@ def sigmoid(x, k, x0):
     return 1 / (1 + np.exp(-k * (x - x0)))
 
 L_array, _, dl_L_array, size_values = get_KONICA_data(base_path='LG_G1_KONICA_5')
+dl_L_array = dl_L_array/2
 size_num, repeat_num, color_num = L_array.shape
 initial_guess_for_k = 1.0
 initial_guess_for_x0 = 0.0
 p0 = [initial_guess_for_k, initial_guess_for_x0]
-x_fit = np.linspace(np.min(np.log10(L_array))-2, np.max(np.log10(L_array))+2, 100)
+x_fit = np.linspace(np.min(np.log10(L_array)), np.max(np.log10(L_array)), 100)
 
 for i in range(size_num):
     current_L_array = L_array[i, :, :].mean(axis=0)
