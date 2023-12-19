@@ -183,7 +183,7 @@ if __name__ == "__main__": #必须要用多线程，否则会出现问题
     change_parameters = {
         'VRR_Frequency': [0.5, 1, 2, 4, 8, 16],
         'Size': [1, 16, 'full'],
-        'Repeat_times': 10, #每条应该记录10遍
+        'Repeat_times': 4, #每条应该记录10遍
     }
     color_change_parameters = {
         'Pixel_value_range': [0.05, 1],
@@ -197,9 +197,9 @@ if __name__ == "__main__": #必须要用多线程，否则会出现问题
         'fix_frame_rate': 60,
     }
     record_params = {
-        'time_flicker_meter_log': 2,
+        'time_flicker_meter_log': 10,
         'num_flicker_meter_sample': 50000,
-        'time_maximum': 10, #最多10s, 超出10s不再记录
+        'time_maximum': 17, #最多10s, 超出10s不再记录
     }
     save_path = r'Temporal_Flicker_Meter_log/deltaL_L'
     current_time = datetime.now()

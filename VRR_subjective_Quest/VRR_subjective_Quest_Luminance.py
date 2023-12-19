@@ -260,7 +260,7 @@ if __name__ == "__main__":
         'Color_Value_adjust_range': [0, 1],
         'Size': [1, 16, 'full'],
         'Trail_Number': 30,
-        'STD_multiple': 5,
+        'STD_multiple': 10,
     }
     vrr_params = {
         'frame_rate_min': 30,
