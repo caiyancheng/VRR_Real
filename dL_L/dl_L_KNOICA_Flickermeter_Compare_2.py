@@ -8,10 +8,10 @@ x_L_array, y_dl_array, y_dl_L_array, _ = get_KONICA_data(base_path='LG_G1_KONICA
 
 # root_path = r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_2s\2023-12-17-05-06-02'
 # root_path = r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_5s\2023-12-18-01-08-47'
-root_path = r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_10s\2023-12-18-17-18-03'
+root_path = r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_10s\2023-12-19-20-43-10'
 with open(os.path.join(root_path, 'config.json'), 'r') as fp:
     config_data = json.load(fp)
-with open(r'B:\Py_codes\VRR_Real\dL_L\Temporal_Results/dl_L_results_10s.json', 'r') as fp:
+with open(r'B:\Py_codes\VRR_Real\dL_L\Temporal_Results/dl_L_results_10s_5r.json', 'r') as fp:
     json_result_dict = json.load(fp)
 Temporal_L_array = np.array(json_result_dict['L'])
 Temporal_dL_array = np.array(json_result_dict['dL'])
