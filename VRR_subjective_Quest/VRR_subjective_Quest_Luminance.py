@@ -203,6 +203,8 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
 
         for quest_trail_index in range(change_parameters['Trail_Number']):  # 这里的50是你想运行Quest的次数
             next_color = -quest_color_data.next()
+            if next_color < 0.01:
+                next_color = 0.01
             vrr_color = [next_color, next_color, next_color]
             random_vrr_period = random.randint(0, 1)  # 0代表第一段闪烁，1代表第二段闪烁
             c_params = x_center, y_center, x_scale, y_scale, interval_time, vrr_color
@@ -227,7 +229,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
                     response = 1
                 else:
                     response = 0
-                quest_color_data.addResponse(response)
+                quest_color_data.addResponse(response, -next_color)
                 print('Ground Truth is', random_vrr_period, 'Observer Choice is', observer_choice)
                 experiment_record['Block_ID'].append(index)
                 experiment_record['VRR_Frequency'].append(vrr_f)
@@ -279,7 +281,7 @@ if __name__ == "__main__":
         'gender': 'M',
     }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_Quest/Result_Quest_2/'
+    save_base_path = r'../VRR_Subjective_Quest/Result_Quest_3/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
     MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_1/', f"Observer_{observer_params['name']}", 'result.json')
     os.makedirs(save_path, exist_ok=True)

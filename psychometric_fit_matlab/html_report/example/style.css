@@ -1,0 +1,7 @@
+body {background-color: #ffffd0;}
+h1   {color: blue;}
+.border_table { 
+padding: 20px;
+background-color: #ffffff;
+border: 1px solid black;
+}
