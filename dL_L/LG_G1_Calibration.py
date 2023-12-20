@@ -158,9 +158,9 @@ if __name__ == "__main__":
     sample_numbers = 30
     scale = 'Log10' #Linear/Log10
     Refresh_rate = [30, 120]
-    repeat_times = 10
+    repeat_times = 4
     # 别忘了denser at darker
-    save_dir_path = f"../dL_L/LG_G1_KONICA_5"
+    save_dir_path = f"../dL_L/LG_G1_KONICA_6"
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'sample_numbers': sample_numbers, 'scale': scale,

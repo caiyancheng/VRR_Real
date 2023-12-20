@@ -92,6 +92,30 @@ def calibration_color_size(rect_params, color_change_parameters, random_shuffle,
         x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size_value)
         Y = x = y = None
+
+        all_begin_time = time.perf_counter_ns() / 1e9
+        while not glfw.window_should_close(window):
+            begin_time = time.perf_counter_ns() / 1e9
+            if glfw.get_key(window, glfw.KEY_ESCAPE) == glfw.PRESS:
+                return -1
+            real_display_t = begin_time - all_begin_time
+            if real_display_t > 2:
+                break
+            glClear(GL_COLOR_BUFFER_BIT)
+            glColor3f(0.5, 0.5, 0.5)
+            glBegin(GL_QUADS)
+            glVertex2f(x_center - x_scale, y_center - y_scale)
+            glVertex2f(x_center + x_scale, y_center - y_scale)
+            glVertex2f(x_center + x_scale, y_center + y_scale)
+            glVertex2f(x_center - x_scale, y_center + y_scale)
+            glEnd()
+            glfw.swap_buffers(window)
+
+            end_time = time.perf_counter_ns() / 1e9
+            sleep_time = (1.0 / frame_rate - (end_time - begin_time))
+            microsecond_sleep(sleep_time)
+            glfw.poll_events()
+
         measurement_thread = threading.Thread(target=get_color_thread)
         measurement_thread.start()
         while not glfw.window_should_close(window):
@@ -138,7 +162,7 @@ if __name__ == "__main__":
 
     now = datetime.now()
     formatted_time = now.strftime("%Y_%m_%d_%H_%M_%S")
-    save_dir_path = f'E:\Py_codes\VRR_Real\G1_Calibration\py_display_calibration_results_2/LG-G1-Std-{formatted_time}'
+    save_dir_path = f'E:\Py_codes\VRR_Real\G1_Calibration\py_display_calibration_results_3/LG-G1-Std-{formatted_time}'
     os.makedirs(save_dir_path)
     config_json = {'rect_params': rect_params, 'color_change_parameters': color_change_parameters}
     with open(os.path.join(save_dir_path, 'config.json'), 'w') as fp:
