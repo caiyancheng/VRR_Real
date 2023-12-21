@@ -61,7 +61,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.analyze_dl_L">
+  <component name="RunManager" selected="Python.fit_dl_L_curve_sigmoid">
     <configuration name="LG_G1_Calibration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,8 +174,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.analyze_dl_L" />
         <item itemvalue="Python.fit_dl_L_curve_sigmoid" />
+        <item itemvalue="Python.analyze_dl_L" />
         <item itemvalue="Python.LG_G1_Calibration" />
         <item itemvalue="Python.VRR_generate_small_rect" />
         <item itemvalue="Python.Quest_get_C_t" />
