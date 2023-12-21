@@ -31,18 +31,36 @@ for vrr_f_i = 1:length(vrr_f_indices)
     end
 end
 
+% 拟合参数
+optimized_k_values = zeros(length(suffixes), 1);
+fvals = zeros(length(suffixes), 1);
+loss_size_scale = [1,1,1];
+for csf_model_i = 1:length(suffixes)
+   current_result = squeeze(results(csf_model_i, :, :));
+   current_initial_k_value = initial_k_values(csf_model_i);
+   % loss = nansum(nansum((1./(current_initial_k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_val);
+   objective_function = @(k_value) nansum(nansum((1./(k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_scale).*1e10;
+   lb = 0;  % 下界
+   ub = Inf; % 上界
+   options = optimset('Display', 'iter'); % 显示优化过程
+   [optimized_k_value, fval] = fmincon(@(k_value) objective_function(k_value), current_initial_k_value, [], [], [], [], lb, ub, [], options);
+   optimized_k_values(csf_model_i) = optimized_k_value;
+   fvals(csf_model_i) = fval./1e10;
+end
+
+disp(['Optimized k_values: ', num2str(optimized_k_values')]);
+disp(['Objective function value at optimum: ', num2str(fvals')]);
+C_t_s = 1./(optimized_k_values.*results);
+validIndices = isfinite(C_t_s);
+
 figure;
 color_display_list = ['r', 'g', 'b'];
+size_display_list = ['1', '16', 'full'];
 for size_i = 1:length(size_indices)
     if (size_i == 1)
-        display_name = 'Size 1*1 degree';
-    elseif (size_i == 2)
-        display_name = 'Size 16*16 degree';
-    elseif (size_i == 3)
-        display_name = 'Size 62.666 * 37.808 degree';
-    end
-    scatter(vrr_f_indices, average_C_t_matrix(:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', color_display_list(size_i), 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', display_name);
-    plot(vrr_f_indices, average_C_t_matrix(:, size_i), 'Color', color_display_list(size_i), 'LineWidth', 1.0, 'DisplayName', display_name);
+        display_name = 'Size 1*1 '
+    scatter(vrr_f_indices, average_C_t_matrix(:,size_i), 100, 'Marker', 'o', 'MarkerFaceColor', color_list(size_i), 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', ['Size ' size_display_list(size_i)]);
+    plot(vrr_f_indices, average_C_t_matrix(:, size_i), 'Color', color_list(size_i), 'LineWidth', 1.0);
     hold on;
 end
 set(gca, 'XScale', 'log');
