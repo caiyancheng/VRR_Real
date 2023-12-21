@@ -57,7 +57,7 @@ def get_color_thread():
         y = float(split_str[11])
 
 
-def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=100):
+def get_Luminance(size_value, color_value, frame_rate, glfw, window, maxtime=100):
     x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
     x_scale, y_scale = compute_scale_from_degree(visual_degree=size_value)
     global Y, x, y
@@ -117,7 +117,7 @@ def check_dl_L(size_value, color_value, frame_rate, glfw, window, maxtime=100):
         glfw.poll_events()
     return [Y, x, y]
 
-def check_dl_L_all(Quest_fit_result_path, Quest_json_save_path):
+def get_Luminance_all(Quest_fit_result_path, Quest_json_save_path):
     df = pd.read_csv(Quest_fit_result_path)
     glfw, window = start_opengl()
     glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
@@ -131,7 +131,7 @@ def check_dl_L_all(Quest_fit_result_path, Quest_json_save_path):
         color_value_threshold = row['threshold']
         if np.isnan(color_value_threshold):
             continue
-        response = check_dl_L(size_value, color_value_threshold, frame_rate, glfw, window)
+        response = get_Luminance(size_value, color_value_threshold, frame_rate, glfw, window)
         if response == -1:
             return  # 有人想要退出了
         else:
@@ -142,4 +142,4 @@ def check_dl_L_all(Quest_fit_result_path, Quest_json_save_path):
 if __name__ == "__main__":
     Quest_fit_result_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10/reorder_result_no16_D_thr_result.csv'
     Quest_json_save_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10/color2luminance.json'
-    check_dl_L_all(Quest_fit_result_path, Quest_json_save_path)
+    get_Luminance_all(Quest_fit_result_path, Quest_json_save_path)
