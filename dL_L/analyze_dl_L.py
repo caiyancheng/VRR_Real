@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 
 base_path = 'LG_G1_KONICA_8_Large_Size'
+# base_path = 'LG_G1_KONICA_5'
 with open(os.path.join(base_path, 'result.json'), 'r') as fp:
     result_data = json.load(fp)
 with open(os.path.join(base_path, 'config.json'), 'r') as fp:
@@ -43,6 +44,7 @@ for size_value in size_values:
             L = (luminance_30 + luminance_120) / 2
             # dl = np.abs(luminance_30 - luminance_120)
             dl = luminance_30 - luminance_120
+            dl = dl/2
             x_axis_L.append(L)
             y_axis_dl.append(dl)
             y_axis_dl_L.append(dl / L)

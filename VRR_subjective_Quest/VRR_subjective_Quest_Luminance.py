@@ -198,13 +198,13 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
         interval_time = 1 / (2 * vrr_f)
 
-        quest_color_data = data.QuestHandler(startVal=-MOA_mean, startValSd=MOA_std, pThreshold=0.75, beta=3.5,
-                                             gamma=0.5, delta=0.01, nTrials=change_parameters['Trail_Number'])
+        quest_color_data = data.QuestHandler(startVal=-MOA_mean**change_parameters['power_scale'], startValSd=MOA_std,
+                                             pThreshold=0.75, beta=3.5, gamma=0.5, delta=0.01,
+                                             nTrials=change_parameters['Trail_Number'],
+                                             maxVal=0, minVal=-1)
 
         for quest_trail_index in range(change_parameters['Trail_Number']):  # 这里的50是你想运行Quest的次数
-            next_color = -quest_color_data.next()
-            if next_color < 0.01:
-                next_color = 0.01
+            next_color = (-quest_color_data.next())**(1/change_parameters['power_scale'])
             vrr_color = [next_color, next_color, next_color]
             random_vrr_period = random.randint(0, 1)  # 0代表第一段闪烁，1代表第二段闪烁
             c_params = x_center, y_center, x_scale, y_scale, interval_time, vrr_color
@@ -258,11 +258,12 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
 if __name__ == "__main__":
     # 这段代码即为完整代码
     change_parameters = {
-        'VRR_Frequency': [0.5, 1, 2, 4, 8, 16],
+        'VRR_Frequency': [0.5, 1, 2, 4, 8],
         'Color_Value_adjust_range': [0, 1],
         'Size': [1, 16, 'full'],
         'Trail_Number': 30,
         'STD_multiple': 10,
+        'power_scale': 2.2,
     }
     vrr_params = {
         'frame_rate_min': 30,

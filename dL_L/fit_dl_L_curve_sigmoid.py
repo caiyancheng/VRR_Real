@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from get_KONICA_data import get_KONICA_data
+import json
 
 # Sigmoid函数
 def sigmoid(x, k, x0):
@@ -13,7 +14,7 @@ size_num, repeat_num, color_num = L_array.shape
 initial_guess_for_k = 1.0
 initial_guess_for_x0 = 0.0
 p0 = [initial_guess_for_k, initial_guess_for_x0]
-x_fit = np.linspace(np.min(np.log10(L_array)), np.max(np.log10(L_array)), 100)
+x_fit = np.linspace(np.min(np.log10(L_array))-2, np.max(np.log10(L_array))+2, 100)
 
 for i in range(size_num):
     current_L_array = L_array[i, :, :].mean(axis=0)
@@ -32,6 +33,11 @@ current_dl_L_array = dl_L_array.mean(axis=1).flatten()
 x = np.log10(current_L_array)
 y = current_dl_L_array
 popt, pcov = curve_fit(sigmoid, x, y, p0=p0)
+
+json_save = {'popt': popt.tolist(), 'pcov': pcov.tolist()}
+with open(r'KONICA_Fit_result_sigmoid.json', 'w') as fp:
+    json.dump(json_save, fp)
+
 
 # 绘制拟合曲线
 plt.plot(x_fit, sigmoid(x_fit, *popt), label=f'Fit - All Sizes', linestyle='--')
