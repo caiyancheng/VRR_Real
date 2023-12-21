@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from get_KONICA_data import get_KONICA_data
 
-L_array, _, dl_L_array, size_values = get_KONICA_data(base_path='LG_G1_KONICA_5')
+L_array, _, dl_L_array, size_values = get_KONICA_data(base_path='LG_G1_KONICA_8_Large_Size')
 dl_L_array = dl_L_array/2
 size_num, repeat_num, color_num = L_array.shape
 
