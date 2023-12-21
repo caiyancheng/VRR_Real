@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/dL_L/LG_G1_Calibration.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/LG_G1_Calibration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly.py" afterDir="false" />
-    </list>
+    <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +61,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.LG_G1_Calibration">
+  <component name="RunManager" selected="Python.analyze_dl_L">
     <configuration name="LG_G1_Calibration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,7 +128,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="compute_degree_from_size" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="analyze_dl_L" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,12 +136,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dL_L" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/compute_degree_from_size.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/analyze_dl_L.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,7 +150,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="compute_size_real" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="fit_dl_L_curve_sigmoid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -161,12 +158,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dL_L" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/compute_size_real.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/fit_dl_L_curve_sigmoid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.analyze_dl_L" />
+        <item itemvalue="Python.fit_dl_L_curve_sigmoid" />
         <item itemvalue="Python.LG_G1_Calibration" />
         <item itemvalue="Python.VRR_generate_small_rect" />
         <item itemvalue="Python.Quest_get_C_t" />
-        <item itemvalue="Python.compute_degree_from_size" />
-        <item itemvalue="Python.compute_size_real" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +246,7 @@
       <workItem from="1703083481121" duration="4172000" />
       <workItem from="1703100360471" duration="1616000" />
       <workItem from="1703110634697" duration="10969000" />
-      <workItem from="1703185676278" duration="1013000" />
+      <workItem from="1703185676278" duration="1619000" />
     </task>
     <servers />
   </component>
