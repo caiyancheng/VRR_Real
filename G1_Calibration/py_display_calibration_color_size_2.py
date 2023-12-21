@@ -155,17 +155,20 @@ if __name__ == "__main__":
         'Repeat': 5,
     }
     color_change_parameters = {
-        'Pixel_value_range': [0.05, 1],
+        'Pixel_value_range': [0.8, 1],
         'sample_numbers': 30,
         'scale': 'Log10'
     }
 
     now = datetime.now()
     formatted_time = now.strftime("%Y_%m_%d_%H_%M_%S")
-    save_dir_path = f'E:\Py_codes\VRR_Real\G1_Calibration\py_display_calibration_results_3/LG-G1-Std-{formatted_time}'
+    save_dir_path = f'E:\Py_codes\VRR_Real\G1_Calibration\py_display_calibration_results_try/LG-G1-Std-{formatted_time}'
     os.makedirs(save_dir_path)
     config_json = {'rect_params': rect_params, 'color_change_parameters': color_change_parameters}
     with open(os.path.join(save_dir_path, 'config.json'), 'w') as fp:
         json.dump(config_json, fp=fp)
 
-    calibration_color_size(rect_params, color_change_parameters, save_dir_path)
+    calibration_color_size(rect_params=rect_params,
+                           color_change_parameters=color_change_parameters,
+                           random_shuffle=False,
+                           save_dir_path=save_dir_path)
