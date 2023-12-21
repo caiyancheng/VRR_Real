@@ -15,6 +15,6 @@ def compute_scale_from_degree(visual_degree, distance = 1):
     return W_scale, H_scale
 
 if __name__ == "__main__":
-    visual_degree = 4
+    visual_degree = 37.8
     W_scale, H_scale = compute_scale_from_degree(visual_degree=visual_degree)
     print('W_scale', W_scale, 'H_scale', H_scale)

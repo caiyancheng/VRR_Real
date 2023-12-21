@@ -49,6 +49,10 @@ x = np.log10(current_L_array)
 y = current_dl_L_array
 popt, pcov = curve_fit(sigmoid, x, y, p0=p0)
 
+json_save = {'popt': popt.tolist(), 'pcov': pcov.tolist()}
+with open(r'TFM_Fit_result.json', 'w') as fp:
+    json.dump(json_save, fp)
+
 # 绘制拟合曲线
 plt.plot(x_fit, sigmoid(x_fit, *popt), label=f'Fit - All Sizes', linewidth=4, color='red')
 
