@@ -69,14 +69,14 @@ end
 % 拟合参数
 optimized_k_values = zeros(length(suffixes), 1);
 fvals = zeros(length(suffixes), 1);
-
+loss_size_scale = [1,1,1];
 for csf_model_i = 1:length(suffixes)
    current_result = squeeze(results(csf_model_i, :, :));
    current_initial_k_value = initial_k_values(csf_model_i);
-   loss = nansum(nansum((1./(current_initial_k_value.*current_result) - average_C_t_matrix).^2.*valids));
-   objective_function = @(k_value) nansum(nansum((1./(k_value.*current_result) - average_C_t_matrix).^2.*valids)).*1e10;
+   % loss = nansum(nansum((1./(current_initial_k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_val);
+   objective_function = @(k_value) nansum(nansum((1./(k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_scale).*1e10;
    lb = 0;  % 下界
-   ub = 5000; % 上界
+   ub = Inf; % 上界
    options = optimset('Display', 'iter'); % 显示优化过程
    [optimized_k_value, fval] = fmincon(@(k_value) objective_function(k_value), current_initial_k_value, [], [], [], [], lb, ub, [], options);
    optimized_k_values(csf_model_i) = optimized_k_value;
@@ -89,13 +89,13 @@ C_t_s = 1./(optimized_k_values.*results);
 validIndices = isfinite(C_t_s);
 
 figure;
-
+ha = tight_subplot(length(size_indices), 1, [.06 .01],[.1 .1],[.05 .33]);
 for size_i = 1:length(size_indices)-1
-    subplot(length(size_indices), 1, size_i);
+    axes(ha(size_i));
     title(['Size: ' num2str(size_indices(size_i)), '\times' num2str(size_indices(size_i)) ' degree']);
-    xlabel('Frequency of RR Switch (Hz)');
-    % set(gca, 'XScale', 'log');
-    ylabel('C_t (Average across Observers)');
+    % xlabel('Frequency of RR Switch (Hz)');
+    set(gca, 'XScale', 'log');
+    ylabel('C_t','FontSize',12);
     hold on;
     scatter(vrr_f_indices, average_C_t_matrix(:,size_i), 200, 'Marker', 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', 'k', 'LineWidth', 1.0);
     scatter(vrr_f_indices, C_t_s(1,:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', 'r');
@@ -114,20 +114,20 @@ for size_i = 1:length(size_indices)-1
     scatter(vrr_f_indices, C_t_s(14,:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', [0.8, 0.1, 0.7]);
     scatter(vrr_f_indices, C_t_s(15,:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', [0.3, 0.6, 0.3]);
     scatter(vrr_f_indices, C_t_s(16,:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', [0.9, 0.7, 0.1]);
-    hAxis = gca;
-    axisPos = get(hAxis, 'Position');
-    axisPos(1) = axisPos(1) - 0.1 * axisPos(3);
-    set(hAxis, 'Position', axisPos);
 
 end
-
 size_i = length(size_indices);
-subplot(length(size_indices), 1, size_i);
+axes(ha(size_i));
 title('Size: 62.666 \times 37.808 degree');
 hold on;
-xlabel('Frequency of RR Switch (Hz)');
-% set(gca, 'XScale', 'log');
-ylabel('C_t (Average across Observers)');
+xlabel('Frequency of RR Switch (Hz)','FontSize',12);
+set(ha,'YTick',[0.005, 0.01, 0.02, 0.04, 0.08, 0.16]); 
+set(ha,'YTickLabel',[0.005, 0.01, 0.02, 0.04, 0.08, 0.16]); 
+set(ha,'XTick',[0.5, 1, 2, 4, 8]); 
+set(ha,'XTickLabel',[0.5, 1, 2, 4, 8]); 
+% set(ha,'YTickLabel','C_t (Average across Observers)')
+set(gca, 'XScale', 'log');
+ylabel('C_t','FontSize',12);
 scatter(vrr_f_indices, average_C_t_matrix(:,size_i), 200, 'Marker', 'o', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', 'Subjective Result');
 scatter(vrr_f_indices, C_t_s(1,:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', 'r', 'DisplayName', sprintf('stelaCSF (Energy) - k: %.4f, loss: %.4f', optimized_k_values(1), fvals(1)));
 scatter(vrr_f_indices, C_t_s(2,:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', 'g', 'DisplayName', sprintf('stelaCSF_{mod} (Energy) - k: %.4f, loss: %.4f', optimized_k_values(2), fvals(2)));
@@ -149,20 +149,18 @@ hold off;
 % xlabel('Size (degree^2)');
 % ylabel('C_t (Average across Observers)');
 % title(['Size: ' num2str(size_value) '\times' num2str(size_value) ' degree, Luminance: ' num2str(luminance_value) ' nits']);
-% set(gca, 'XScale', 'log');
+set(gca, 'XScale', 'log');
 % set(gca, 'YScale', 'log');
 % xlim([1, 10]);
-hAxis = gca;
-axisPos = get(hAxis, 'Position');
-axisPos(1) = axisPos(1) - 0.1 * axisPos(3);
-set(hAxis, 'Position', axisPos);
-
-hLegend = legend('show');
+hLegend = legend('show','FontSize',9);
 set(hLegend, 'Location', 'eastoutside', 'Orientation', 'vertical'); % Move legend outside and set its orientation
 % legend('boxoff'); % Turn off legend box
 
 % Adjust the legend size (modify these values as needed)
 legendPos = get(hLegend, 'Position');
-legendPos(4) = legendPos(4) * 3;
-legendPos(2) = 0;
+legendPos(4) = legendPos(4) * 1.5;
+legendPos(1) = 0.85 - legendPos(3)/2;
+legendPos(2) = 0.5 - legendPos(4)/2;
+
+
 set(hLegend, 'Position', legendPos);
