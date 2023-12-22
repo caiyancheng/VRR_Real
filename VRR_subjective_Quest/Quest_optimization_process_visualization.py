@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import json
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_3\Observer_Yancheng_Cai_Test_10'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
 with open(os.path.join(Quest_exp_path, 'final_result.json'), 'r') as fp:

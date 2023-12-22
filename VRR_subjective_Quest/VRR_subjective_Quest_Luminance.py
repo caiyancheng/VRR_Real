@@ -201,7 +201,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         quest_color_data = data.QuestHandler(startVal=-MOA_mean**change_parameters['power_scale'], startValSd=MOA_std,
                                              pThreshold=0.75, beta=3.5, gamma=0.5, delta=0.01,
                                              nTrials=change_parameters['Trail_Number'],
-                                             maxVal=0, minVal=-1)
+                                             maxVal=-0.04**change_parameters['power_scale'], minVal=-1)
 
         for quest_trail_index in range(change_parameters['Trail_Number']):  # 这里的50是你想运行Quest的次数
             next_color = (-quest_color_data.next())**(1/change_parameters['power_scale'])
@@ -262,7 +262,7 @@ if __name__ == "__main__":
         'Color_Value_adjust_range': [0, 1],
         'Size': [1, 16, 'full'],
         'Trail_Number': 30,
-        'STD_multiple': 10,
+        'STD_multiple': 3,
         'power_scale': 2.2,
     }
     vrr_params = {
