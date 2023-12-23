@@ -153,7 +153,7 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
         json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
-    Size = [1, 16, 'full']
+    Size = [0.5, 1, 16, 'full']
     Pixel_value_range = [0.05, 1]
     sample_numbers = 30
     scale = 'Log10' #Linear/Log10

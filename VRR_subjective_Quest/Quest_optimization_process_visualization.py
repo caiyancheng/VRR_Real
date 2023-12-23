@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import json
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_3\Observer_Yancheng_Cai_Test_10'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_4\Observer_Yancheng_Cai_2'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
 with open(os.path.join(Quest_exp_path, 'final_result.json'), 'r') as fp:
@@ -35,6 +35,7 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
             # y_decision.append(log_df['Response'])
         plt.plot(x_trail_num, y_color, marker='o', markersize=8)
 # plt.xlabel('Trail ID',fontsize=12)
-plt.figtext(0.02, 0.5, 'Threshold Color Value', va='center', rotation='vertical', fontsize=12)
-plt.figtext(0.5, 0.05, 'Trail ID', ha='center', fontsize=12)
+# plt.ylabel('Threshold Color Value',fontsize=12)
+plt.figtext(0.02, 0.5, 'Threshold Color Value', va='center', rotation='vertical', fontsize=15)
+plt.figtext(0.5, 0.05, 'Trail ID', ha='center', fontsize=15)
 plt.show()
