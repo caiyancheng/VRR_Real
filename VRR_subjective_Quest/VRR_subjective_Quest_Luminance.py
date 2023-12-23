@@ -193,7 +193,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         print('VRR_Frequency', vrr_f, 'Size', size)
         MOA_result = np.array(MOA_result_dict[f'V_{vrr_f}_S_{size}'])
         MOA_mean = MOA_result.mean()
-        MOA_std = MOA_result.std() * change_parameters['STD_multiple']
+        MOA_std = 0.015380745877557448 * change_parameters['STD_multiple']
         x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
         interval_time = 1 / (2 * vrr_f)
@@ -206,7 +206,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         for quest_trail_index in range(change_parameters['Trail_Number']):  # 这里的50是你想运行Quest的次数
             next_color = (-quest_color_data.next())**(1/change_parameters['power_scale'])
             vrr_color = [next_color, next_color, next_color]
-            random_vrr_period = random.randint(0, 1)  # 0代表第一段闪烁，1代表第二段闪烁
+            random_vrr_period = random.choice([0, 1])  # 0代表第一段闪烁，1代表第二段闪烁
             c_params = x_center, y_center, x_scale, y_scale, interval_time, vrr_color
             observer_choice = vrr_one_block(glfw=glfw,
                                             window=window,
@@ -229,7 +229,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
                     response = 1
                 else:
                     response = 0
-                quest_color_data.addResponse(response, -next_color)
+                quest_color_data.addResponse(response)
                 print('Ground Truth is', random_vrr_period, 'Observer Choice is', observer_choice)
                 experiment_record['Block_ID'].append(index)
                 experiment_record['VRR_Frequency'].append(vrr_f)
@@ -246,7 +246,10 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
             'Quantile_05': -quest_color_data.quantile(0.5)
         }
         index = index + 1
-
+        df = pd.DataFrame(experiment_record)
+        df.to_csv(os.path.join(save_path, 'result_in_progress.csv'), index=False)
+        with open(os.path.join(save_path, 'result_in_progress.json'), 'w') as fp:
+            json.dump(final_result_json_dict, fp)
     glfw.terminate()
     df = pd.DataFrame(experiment_record)
     df.to_csv(os.path.join(save_path, 'result.csv'), index=False)
@@ -256,13 +259,12 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
 
 
 if __name__ == "__main__":
-    # 这段代码即为完整代码
     change_parameters = {
         'VRR_Frequency': [0.5, 1, 2, 4, 8],
         'Color_Value_adjust_range': [0, 1],
-        'Size': [1, 16, 'full'],
+        'Size': [0.5, 1, 16, 'full'],
         'Trail_Number': 30,
-        'STD_multiple': 3,
+        'STD_multiple': 1,
         'power_scale': 2.2,
     }
     vrr_params = {
@@ -277,14 +279,19 @@ if __name__ == "__main__":
         'signal_time': 0.2,
     }
     observer_params = {
-        'name': 'Yancheng_Cai_Test_10',
+        'name': 'Yancheng_Cai_2',
         'age': 22,
         'gender': 'M',
     }
+    # observer_params = {
+    #     'name': 'Rafal_2',
+    #     'age': 45,
+    #     'gender': 'M',
+    # }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_Quest/Result_Quest_3/'
+    save_base_path = r'Result_Quest_4/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
-    MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_1/', f"Observer_{observer_params['name']}", 'result.json')
+    MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_3/', f"Observer_{observer_params['name']}", 'result.json')
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,
                    'vrr_params': vrr_params,

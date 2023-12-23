@@ -1,3 +1,5 @@
+# Compare to the previous version
+
 # Observer Change Luminance, VRR_f and Size is fixed by the program.
 import winsound
 import json
@@ -86,7 +88,8 @@ def vrr_one_block(glfw, window, vrr_params, c_params):
         else:
             begin_vrr_time = time.perf_counter_ns()/1e9
             frame_rate = vrr_params['frame_rate_max']
-
+        if keyboard.is_pressed("control"):
+            frame_rate =  vrr_params['fix_frame_rate']
         if keyboard.is_pressed("space"):
             return color
         elif keyboard.is_pressed("up") or keyboard.is_pressed("up arrow"):
@@ -207,18 +210,18 @@ if __name__ == "__main__":
         'vrr_total_time': 2,
         'fix_frame_rate': 60,
     }
-    # observer_params = {
-    #     'name': 'Yancheng_Cai_10',
-    #     'age': 22,
-    #     'gender': 'M',
-    # }
+    observer_params = {
+        'name': 'Yancheng_Cai_2',
+        'age': 22,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Rafal_10',
     #     'age': 45,
     #     'gender': 'M',
     # }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_2/'
+    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_3/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,

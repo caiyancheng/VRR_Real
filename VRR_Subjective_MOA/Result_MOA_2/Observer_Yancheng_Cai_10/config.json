@@ -1,0 +1,1 @@
+{"change_parameters": {"VRR_Frequency": [0.5, 1], "Color_Value_adjust_range": [0, 1], "Size": [0.5, 1], "Repeat_times": 2}, "vrr_params": {"frame_rate_min": 30, "frame_rate_max": 120, "vrr_total_time": 2, "fix_frame_rate": 60}, "observer_params": {"name": "Yancheng_Cai_10", "age": 22, "gender": "M"}}
