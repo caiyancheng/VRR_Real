@@ -55,7 +55,7 @@ def get_color_thread():
         y = float(split_str[11])
 
 def calibration_color_size(rect_params, color_change_parameters, random_shuffle, save_dir_path):
-    global glfw, window
+    global glfw, window, Y, x, y
     scale = color_change_parameters['scale']
     Pixel_value_range = color_change_parameters['Pixel_value_range']
     sample_numbers = color_change_parameters['sample_numbers']
@@ -84,6 +84,7 @@ def calibration_color_size(rect_params, color_change_parameters, random_shuffle,
     csv_data = {}
     csv_data['size'] = []
     csv_data['color'] = []
+    csv_data['repeat'] = []
     csv_data['Y'] = []
     csv_data['x'] = []
     csv_data['y'] = []
@@ -138,12 +139,15 @@ def calibration_color_size(rect_params, color_change_parameters, random_shuffle,
             glfw.poll_events()
         csv_data['size'].append(size_value)
         csv_data['color'].append(color_value)
+        csv_data['repeat'].append(repeat_value)
         csv_data['Y'].append(Y)
         csv_data['x'].append(x)
         csv_data['y'].append(y)
+        df = pd.DataFrame(csv_data)
+        df.to_csv(os.path.join(save_dir_path, 'result_in_progress.csv'), index=False)
     glfw.terminate()
     df = pd.DataFrame(csv_data)
-    df.to_csv(os.path.join(save_dir_path, 'result_data.csv'), index=False)
+    df.to_csv(os.path.join(save_dir_path, 'final_result.csv'), index=False)
 
 
 
@@ -152,11 +156,11 @@ if __name__ == "__main__":
         'x_center': 0,
         'y_center': 0,
         'Size': [0.5, 1, 16, 'full'],
-        'Repeat': 5,
+        'Repeat': 2,
     }
     color_change_parameters = {
         'Pixel_value_range': [0.05, 1],
-        'sample_numbers': 30,
+        'sample_numbers': 100,
         'scale': 'Log10'
     }
 
