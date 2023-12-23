@@ -142,6 +142,6 @@ def get_Luminance_all(Quest_fit_result_path, Quest_json_save_path):
 
 if __name__ == "__main__":
     root_path = r'..\VRR_subjective_Quest\Result_Quest_4\Observer_Yancheng_Cai_2'
-    Quest_fit_result_path = os.path.join(root_path, 'reorder_result.csv')
+    Quest_fit_result_path = os.path.join(root_path, 'reorder_result_D_thr.csv')
     Quest_json_save_path = os.path.join(root_path, 'color2luminance.json')
     get_Luminance_all(Quest_fit_result_path, Quest_json_save_path)
