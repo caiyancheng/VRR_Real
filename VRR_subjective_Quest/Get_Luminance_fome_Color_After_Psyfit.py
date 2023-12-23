@@ -15,6 +15,7 @@ import pandas as pd
 from G1_Calibration.compute_size_real import compute_scale_from_degree
 from G1_Calibration.compute_x_y_location import compute_x_y_from_eccentricity
 import random
+import os
 
 def microsecond_sleep(sleep_time):
     end_time = time.perf_counter_ns() / 1e9 + sleep_time
@@ -140,6 +141,7 @@ def get_Luminance_all(Quest_fit_result_path, Quest_json_save_path):
         json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
-    Quest_fit_result_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10/reorder_result_no16_D_thr_result.csv'
-    Quest_json_save_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10/color2luminance.json'
+    root_path = r'..\VRR_subjective_Quest\Result_Quest_4\Observer_Yancheng_Cai_2'
+    Quest_fit_result_path = os.path.join(root_path, 'reorder_result.csv')
+    Quest_json_save_path = os.path.join(root_path, 'color2luminance.json')
     get_Luminance_all(Quest_fit_result_path, Quest_json_save_path)

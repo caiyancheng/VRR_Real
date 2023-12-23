@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_4\Observer_Yancheng_Cai_2'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
 df = pd.read_csv(os.path.join(Quest_exp_path, 'result.csv'))
@@ -33,5 +33,5 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
                 #     new_csv_log[key].append(subset[key].item())
                 new_csv_log[key].append(subset[key].item())
 new_df = pd.DataFrame(new_csv_log)
-new_df.to_csv(os.path.join(Quest_exp_path, 'reorder_result_no16.csv'), index=False)
+new_df.to_csv(os.path.join(Quest_exp_path, 'reorder_result.csv'), index=False)
 
