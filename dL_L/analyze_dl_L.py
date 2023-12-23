@@ -3,7 +3,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 
-base_path = 'LG_G1_KONICA_8_Large_Size'
+base_path = 'LG_G1_KONICA_10'
 # base_path = 'LG_G1_KONICA_5'
 with open(os.path.join(base_path, 'result.json'), 'r') as fp:
     result_data = json.load(fp)
@@ -21,8 +21,8 @@ size_values = config_data['Size']
 repeat_times = config_data['repeat_times']
 
 # Create two separate figures and axes
-fig1, ax1 = plt.subplots(figsize=(10,5))
-fig2, ax2 = plt.subplots(figsize=(10,5))
+fig1, ax1 = plt.subplots(figsize=(7,5))
+fig2, ax2 = plt.subplots(figsize=(7,5))
 
 for size_value in size_values:
     x_axis_L_repeats = []

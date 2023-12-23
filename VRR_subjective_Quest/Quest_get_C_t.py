@@ -7,10 +7,9 @@ import pandas as pd
 
 with open(r'B:\Py_codes\VRR_Real\dL_L/KONICA_Fit_result_sigmoid.json', 'r') as fp:
     fit_result = json.load(fp)
-popt = fit_result['popt']
 def sigmoid(x, k, x0):
     return 1 / (1 + np.exp(-k * (x - x0)))
-def L_to_C_t(Luminance):
+def L_to_C_t(Luminance, popt):
     C_t = sigmoid(np.log10(Luminance), *popt)
     return C_t
 
@@ -44,6 +43,7 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
         size_value = Quest_Sizes[size_index]
         filtered_df = df[(df['Size_Degree'] == str(size_value)) & (df['VRR_Frequency'] == vrr_f_value)]
         Color_value = filtered_df['threshold'].item()
+        popt = fit_result[f'size_{size_value}']['popt']
         if np.isnan(Color_value):
             continue
         if size_value != 'full':
@@ -53,7 +53,7 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
             size_value_new = 'full'
             C_t_result_csv['Size_Degree'].append(-1) #-1 means full
         Luminance = color2luminance[f'S_{size_value_new}_C_{Color_value}'][0]
-        C_t = L_to_C_t(Luminance)
+        C_t = L_to_C_t(Luminance = Luminance, popt = popt)
         C_t_result_csv['VRR_Frequency'].append(vrr_f_value)
         C_t_result_csv['Luminance'].append(Luminance)
         C_t_result_csv['C_t'].append(C_t)
