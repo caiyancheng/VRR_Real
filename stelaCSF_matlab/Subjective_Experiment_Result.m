@@ -1,4 +1,4 @@
-size_indices = [1, 16, -1]; %-1 means full
+size_indices = [0.5, 1, 16, -1]; %-1 means full
 vrr_f_indices = [0.5, 1, 2, 4, 8];
 num_obs = 1;
 num_points = 1000;
