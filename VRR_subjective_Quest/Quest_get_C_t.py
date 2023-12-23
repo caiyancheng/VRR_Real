@@ -5,7 +5,7 @@ import json
 import os
 import pandas as pd
 
-with open(r'B:\Py_codes\VRR_Real\dL_L/TFM_Fit_result.json', 'r') as fp:
+with open(r'B:\Py_codes\VRR_Real\dL_L/KONICA_Fit_result_sigmoid.json', 'r') as fp:
     fit_result = json.load(fp)
 popt = fit_result['popt']
 def sigmoid(x, k, x0):
