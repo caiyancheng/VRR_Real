@@ -20,10 +20,10 @@ def L_to_C_t(Luminance):
 # plt.plot(np.log10(Luminance_array), C_t)
 # plt.show()
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_2'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_4\Observer_Yancheng_Cai_2'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
-df = pd.read_csv(os.path.join(Quest_exp_path, 'reorder_result_no16_D_thr_result.csv')) #这里是一堆Color Value
+df = pd.read_csv(os.path.join(Quest_exp_path, 'reorder_result_D_thr.csv')) #这里是一堆Color Value
 with open(os.path.join(Quest_exp_path, 'color2luminance.json'), 'r') as fp:
     color2luminance = json.load(fp)
 
@@ -58,4 +58,4 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
         C_t_result_csv['Luminance'].append(Luminance)
         C_t_result_csv['C_t'].append(C_t)
 df = pd.DataFrame(C_t_result_csv)
-df.to_csv(os.path.join(Quest_exp_path, 'reorder_result_no16_D_thr_result_C_t.csv'), index=False)
+df.to_csv(os.path.join(Quest_exp_path, 'reorder_result_D_thr_C_t.csv'), index=False)

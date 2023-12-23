@@ -69,7 +69,7 @@ end
 % 拟合参数
 optimized_k_values = zeros(length(suffixes), 1);
 fvals = zeros(length(suffixes), 1);
-loss_size_scale = [1,1,1,1];
+loss_size_scale = [1,1,1];
 for csf_model_i = 1:length(suffixes)
    current_result = squeeze(results(csf_model_i, :, :));
    current_initial_k_value = initial_k_values(csf_model_i);
@@ -121,7 +121,7 @@ axes(ha(size_i));
 title('Size: 62.666 \times 37.808 degree');
 hold on;
 xlabel('Frequency of RR Switch (Hz)','FontSize',12);
-set(ha,'YTick',[0.001,0.005, 0.01, 0.05, 0.1]); 
+set(ha,'YTick',[0.005, 0.01, 0.02, 0.04, 0.08, 0.16]); 
 set(ha,'YTickLabel',[0.005, 0.01, 0.02, 0.04, 0.08, 0.16]); 
 set(ha,'XTick',[0.5, 1, 2, 4, 8]); 
 set(ha,'XTickLabel',[0.5, 1, 2, 4, 8]); 

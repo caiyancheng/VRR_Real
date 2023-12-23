@@ -5,7 +5,7 @@ num_points = 1000;
 c = 1;
 beta = 3.5;
 
-c_t_subjective_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_2\Observer_Yancheng_Cai_Test_10/reorder_result_no16_D_thr_result_C_t.csv';
+c_t_subjective_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_4\Observer_Yancheng_Cai_2/reorder_result_D_thr_C_t.csv';
 data = readtable(c_t_subjective_path);
 average_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果
 
@@ -32,29 +32,34 @@ for vrr_f_i = 1:length(vrr_f_indices)
 end
 
 figure;
-color_display_list = ['r', 'g', 'b'];
+color_display_list = ['r', 'g', 'b', 'k'];
 for size_i = 1:length(size_indices)
     if (size_i == 1)
-        display_name = 'Size 1*1 degree';
+        display_name = 'Size 0.5*0.5 degree';
     elseif (size_i == 2)
-        display_name = 'Size 16*16 degree';
+        display_name = 'Size 1*1 degree';
     elseif (size_i == 3)
+        display_name = 'Size 16*16 degree';
+    elseif (size_i == 4)
         display_name = 'Size 62.666 * 37.808 degree';
     end
     scatter(vrr_f_indices, average_C_t_matrix(:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', color_display_list(size_i), 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', display_name);
-    plot(vrr_f_indices, average_C_t_matrix(:, size_i), 'Color', color_display_list(size_i), 'LineWidth', 1.0, 'DisplayName', display_name);
     hold on;
+    plot(vrr_f_indices, average_C_t_matrix(:, size_i), 'Color', color_display_list(size_i), 'LineWidth', 1.0, 'DisplayName', display_name);
 end
 set(gca, 'XScale', 'log');
+xticks(vrr_f_indices);
 xlabel('Frequency of RR Switch (Hz)','FontSize',12);
 ylabel('C_t','FontSize',12);
 hold off;
-hLegend = legend('show','FontSize',9);
+hLegend = legend('show','FontSize',12);
 set(hLegend, 'Location', 'eastoutside', 'Orientation', 'vertical');
 legendPos = get(hLegend, 'Position');
-legendPos(4) = legendPos(4) * 1.5;
-legendPos(1) = 0.85 - legendPos(3)/2;
+legendPos(4) = legendPos(4) * 2.9;
+legendPos(1) = 0.89 - legendPos(3)/2;
 legendPos(2) = 0.5 - legendPos(4)/2;
-
-
 set(hLegend, 'Position', legendPos);
+
+currentPosition = get(gca, 'Position');
+newPosition = [currentPosition(1) - 0.08 * currentPosition(3), currentPosition(2), currentPosition(3)*0.9, currentPosition(4)];
+set(gca, 'Position', newPosition);
