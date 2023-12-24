@@ -1,0 +1,62 @@
+duration_indices = [0.1, 0.2, 0.4, 0.8, 1.6, 3.2]; %-1 means full
+vrr_f_indices = [0.5, 2, 8];
+num_obs = 1;
+num_points = 1000;
+c = 1;
+beta = 3.5;
+
+c_t_subjective_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_duration_1\Observer_Yancheng_Cai_2/reorder_result_D_thr_C_t.csv';
+data = readtable(c_t_subjective_path);
+average_C_t_matrix = zeros(length(duration_indices), length(vrr_f_indices)); %主观实验的结果
+valids = zeros(length(duration_indices), length(vrr_f_indices));
+size_value = 16;
+for duration_i = 1:length(duration_indices)
+    duration_value = duration_indices(duration_i);
+    for vrr_f_i = 1:length(vrr_f_indices)
+        vrr_f_value = vrr_f_indices(vrr_f_i);
+        filtered_data = data(data.Duration == duration_value & data.VRR_Frequency == vrr_f_value, :);
+        if (height(filtered_data) >= 1)
+            valids(duration_i, vrr_f_i) = 1;
+        else
+            valids(duration_i, vrr_f_i) = 0;
+            continue
+        end
+        valid_data = filtered_data(~isnan(filtered_data.C_t), :);
+        average_C_t = mean(valid_data.C_t);
+        luminance = mean(valid_data.Luminance);
+        % if (size_value == -1)
+        %     area_value = 62.666 * 37.808;
+        % else
+        %     area_value = size_value^2;
+        % end
+        average_C_t_matrix(duration_i, vrr_f_i) = average_C_t;
+    end
+end
+
+figure;
+color_display_list = ['r', 'g', 'b', 'k'];
+for vrr_f_i = 1:length(vrr_f_indices)
+    display_name = ['Frequency of RR Switch (Hz): ' num2str(vrr_f_indices(vrr_f_i)) 'Hz'];
+    valid_indices = valids(:, vrr_f_i) == 1;
+    hold on;
+    plot(duration_indices(valid_indices), average_C_t_matrix(valid_indices, vrr_f_i), ...
+        'Color', color_display_list(vrr_f_i), 'LineWidth', 1.0, 'DisplayName', display_name, ...
+        'Marker', 'o', 'MarkerSize', 8, 'MarkerFaceColor', color_display_list(vrr_f_i), ...
+        'MarkerEdgeColor', 'k');
+end
+set(gca, 'XScale', 'log');
+xticks(duration_indices);
+xlabel('Duration (s)','FontSize',12);
+ylabel('C_t','FontSize',12);
+hold off;
+hLegend = legend('show','FontSize',12);
+set(hLegend, 'Location', 'eastoutside', 'Orientation', 'vertical');
+legendPos = get(hLegend, 'Position');
+legendPos(4) = legendPos(4) * 2.9;
+legendPos(1) = 0.87 - legendPos(3)/2;
+legendPos(2) = 0.5 - legendPos(4)/2;
+set(hLegend, 'Position', legendPos);
+
+currentPosition = get(gca, 'Position');
+newPosition = [currentPosition(1) - 0.11 * currentPosition(3), currentPosition(2), currentPosition(3)*0.9, currentPosition(4)];
+set(gca, 'Position', newPosition);

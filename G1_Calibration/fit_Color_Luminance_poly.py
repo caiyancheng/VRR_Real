@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import json
 from Read_Calibration_result import read_calibration_result
 
-degree = 2
+degree = 7
 base_path = r'py_display_calibration_results_new\LG-G1-Std-2023_12_23_16_14_06'
 # base_path = r'py_display_calibration_results_new\LG-G1-Std-2023_12_23_17_49_24'
 pixel_all_values, Luminance_array, size_list = read_calibration_result(base_path=base_path)
@@ -22,7 +22,7 @@ for size_index in range(len(size_list)):
     fitted_curve = np.polyval(coefficients, x_fit)
     plt.scatter(x, y, label=f'Size {size_value}')
     plt.plot(x_fit, fitted_curve, label=f'Fit - Size {size_value}', linestyle='--')
-    json_save[f'size_{size_value}'] = {'popt': coefficients.tolist()}
+    json_save[f'size_{size_value}'] = {'coefficients': coefficients.tolist()}
 #Fit all:
 # x = np.tile(pixel_all_values, size_num)
 # y = np.log10(Luminance_array.mean(axis=-1).flatten())
