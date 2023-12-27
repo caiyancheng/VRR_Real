@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Quest_get_C_t_duration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/csv_file_remake_duration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Calibration/fit_Color_Luminance_poly.py" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Calibration/fit_Color_Luminance_poly.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_duration.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_duration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psychometric_fit_matlab/fit_psych_Quest_color.m" beforeDir="false" afterPath="$PROJECT_DIR$/psychometric_fit_matlab/fit_psych_Quest_color.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/MOA_get_C_t.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dL_L/fit_Lmean_Color_poly.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dL_L/get_KONICA_data_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dL_L/get_KONICA_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/get_KONICA_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,6 +258,7 @@
       <workItem from="1703297541344" duration="514000" />
       <workItem from="1703298240174" duration="310000" />
       <workItem from="1703301091199" duration="3333000" />
+      <workItem from="1703615087884" duration="991000" />
     </task>
     <servers />
   </component>
