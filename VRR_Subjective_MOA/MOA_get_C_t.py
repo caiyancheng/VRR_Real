@@ -14,51 +14,40 @@ def L_to_C_t(Luminance, popt):
     return C_t
 
 degree = 4 #degree的意思是这到底是几次函数拟合的
-with open(f'..\G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_{degree}.json', 'r') as fp:
+# with open(f'..\G1_Calibration/KONICA_Color_Luminance_Fit_result_poly_{degree}.json', 'r') as fp:
+#     fit_set = json.load(fp)
+with open(f'..\dL_L/KONICA_Lmean_Color_Fit_result_poly_{degree}.json', 'r') as fp:
     fit_set = json.load(fp)
 def color_to_L(coefficients, color):
     luminance = 10**np.polyval(coefficients, color)
     return luminance
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_duration_1\Observer_Yancheng_Cai_2'
-with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
-    Quest_config = json.load(fp)
-df = pd.read_csv(os.path.join(Quest_exp_path, 'reorder_result_D_thr.csv')) #这里是一堆Color Value
+MOA_exp_path = r'..\VRR_Subjective_MOA/Result_MOA_3/Observer_Rafal_2'
+with open(os.path.join(MOA_exp_path, 'config.json'), 'r') as fp:
+    MOA_config = json.load(fp)
+with open(os.path.join(MOA_exp_path, 'result.json'), 'r') as fp:
+    MOA_result = json.load(fp)
 
-Quest_Durations = Quest_config['change_parameters']['Duration']
-Quest_VRR_Fs = Quest_config['change_parameters']['VRR_Frequency']
-C_t_result_csv = {}
-C_t_result_csv['Duration'] = []
-C_t_result_csv['Size_Degree'] = []
-C_t_result_csv['VRR_Frequency'] = []
-C_t_result_csv['Luminance'] = []
-C_t_result_csv['C_t'] = []
+MOA_Sizes = MOA_config['change_parameters']['Size']
+MOA_VRR_Fs = MOA_config['change_parameters']['VRR_Frequency']
+C_t_result_json = {}
 
-for duration_index in range(len(Quest_Durations)):
-    duration_value = Quest_Durations[duration_index]
-    for vrr_f_index in range(len(Quest_VRR_Fs)):
-        vrr_f_value = Quest_VRR_Fs[vrr_f_index]
-        size_value = 16
-        filtered_df = df[(df['Duration'] == duration_value) & (df['VRR_Frequency'] == vrr_f_value)]
-        Color_value = filtered_df['threshold'].item()
-        if np.isnan(Color_value):
-            print('Invalid')
-            continue
+for size_index in range(len(MOA_Sizes)):
+    size_value = MOA_Sizes[size_index]
+    for vrr_f_index in range(len(MOA_VRR_Fs)):
+        vrr_f_value = MOA_VRR_Fs[vrr_f_index]
+        color_value_list = MOA_result[f'V_{vrr_f_value}_S_{size_value}']
+        color_value = np.array(color_value_list).mean()
         # if Color_value < 0.04:
         #     Color_value = 0.04
         coefficients = fit_set[f'size_{size_value}']['coefficients']
         popt = fit_result[f'size_{size_value}']['popt']
-        if size_value != 'full':
-            size_value_new = float(size_value)
-            C_t_result_csv['Size_Degree'].append(size_value)
-        else:
-            size_value_new = 'full'
-            C_t_result_csv['Size_Degree'].append(-1) #-1 means full
-        Luminance = color_to_L(coefficients=coefficients, color=Color_value)
-        C_t_result_csv['Duration'].append(duration_value)
-        C_t_result_csv['VRR_Frequency'].append(vrr_f_value)
-        C_t_result_csv['Luminance'].append(Luminance)
-        C_t = L_to_C_t(Luminance = Luminance, popt = popt)
-        C_t_result_csv['C_t'].append(C_t)
-df = pd.DataFrame(C_t_result_csv)
-df.to_csv(os.path.join(Quest_exp_path, 'reorder_result_D_thr_C_t.csv'), index=False)
+        Luminance = color_to_L(coefficients=coefficients, color=color_value)
+        C_t = L_to_C_t(Luminance=Luminance, popt=popt)
+        C_t_result_json[f'V_{vrr_f_value}_S_{size_value}'] = {
+            'Luminance': Luminance,
+            'C_t': C_t,
+        }
+
+with open(os.path.join(MOA_exp_path, 'result_MOA_C_t.json'), 'w') as fp:
+    json.dump(C_t_result_json, fp=fp)

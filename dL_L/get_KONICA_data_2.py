@@ -20,6 +20,7 @@ def get_KONICA_data(base_path):
     size_values = config_data['Size']
     repeat_times = config_data['repeat_times']
 
+    x_color_array = np.array(pixel_all_values)
     x_axis_L_sizes = []
     y_axis_dl_sizes = []
     y_axis_dl_L_sizes = []
@@ -41,7 +42,7 @@ def get_KONICA_data(base_path):
                 # if luminance_30 < 1 or luminance_120 < 1:
                 #     continue
                 L = (luminance_30 + luminance_120) / 2
-                dl = np.abs(luminance_30 - luminance_120)
+                dl = np.abs(luminance_30 - luminance_120) / 2
                 # dl = luminance_30 - luminance_120
                 x_axis_L.append(L)
                 y_axis_dl.append(dl)
@@ -52,8 +53,8 @@ def get_KONICA_data(base_path):
         x_axis_L_sizes.append(x_axis_L_repeats)
         y_axis_dl_sizes.append(y_axis_dl_repeats)
         y_axis_dl_L_sizes.append(y_axis_dl_L_repeats)
-    return np.array(x_axis_L_sizes), np.array(y_axis_dl_sizes), np.array(y_axis_dl_L_sizes), size_values
+    return x_color_array, np.array(x_axis_L_sizes), np.array(y_axis_dl_sizes), np.array(y_axis_dl_L_sizes), size_values
 
 
 if __name__ == '__main__':
-    x_L_array, y_dl_array, y_dl_L_array = get_KONICA_data(base_path='LG_G1_KONICA_5')
+    x_C_array, x_L_array, y_dl_array, y_dl_L_array, sizes = get_KONICA_data(base_path='LG_G1_KONICA_5')
