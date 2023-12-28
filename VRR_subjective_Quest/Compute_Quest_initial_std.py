@@ -2,7 +2,7 @@ import numpy as np
 import json
 import os
 
-root_path = r'B:\Py_codes\VRR_Real\VRR_Subjective_MOA\Result_MOA_3\Observer_Yancheng_Cai_2'
+root_path = r'B:\Py_codes\VRR_Real\VRR_Subjective_MOA\Result_MOA_disk_1\Observer_Yancheng_Cai_2'
 
 with open(os.path.join(root_path, 'config.json'), 'r') as fp:
     config_data = json.load(fp)
