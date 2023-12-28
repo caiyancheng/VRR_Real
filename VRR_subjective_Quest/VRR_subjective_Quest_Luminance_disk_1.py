@@ -284,10 +284,10 @@ def vrr_one_block_disk(glfw, window, vrr_params, signal_params, random_vrr_perio
 
         glfw.swap_buffers(window)
         glfw.poll_events()
-        if keyboard.is_pressed('1'):
+        if keyboard.is_pressed('left arrow'):
             # winsound.Beep(4000, 100)
             return 0
-        if keyboard.is_pressed('2'):
+        if keyboard.is_pressed('right arrow'):
             # winsound.Beep(4000, 100)
             return 1
 
@@ -431,9 +431,14 @@ if __name__ == "__main__":
         'signal_2_color': [0.01, 0.01, 0.01],
         'signal_time': 0.2,
     }
+    # observer_params = {
+    #     'name': 'Yancheng_Cai_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
     observer_params = {
-        'name': 'Yancheng_Cai_2',
-        'age': 22,
+        'name': 'Ali_2',
+        'age': 29,
         'gender': 'M',
     }
     # observer_params = {
@@ -458,4 +463,4 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=True)
+                 continue_exp=False)

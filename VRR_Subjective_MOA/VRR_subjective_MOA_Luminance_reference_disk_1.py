@@ -221,7 +221,7 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle):
             x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
             x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
             interval_time = 1 / (2 * vrr_f)
-            initial_color = 0.5
+            initial_color = random.uniform(0, 0.3)
             color_range = change_parameters['Color_Value_adjust_range']
             c_params = x_center, y_center, x_scale, y_scale, interval_time, initial_color, color_range
             if size == 'full':
@@ -273,7 +273,7 @@ if __name__ == "__main__":
         'VRR_Frequency': [0.5, 1, 2, 4, 8],
         'Color_Value_adjust_range': [0, 1],
         'Size': [0.5, 1, 16, 'full'],
-        'Repeat_times': 2,
+        'Repeat_times': 1,
     }
     vrr_params = {
         'frame_rate_min': 30,
@@ -281,9 +281,14 @@ if __name__ == "__main__":
         'vrr_total_time': 2,
         'fix_frame_rate': 60,
     }
+    # observer_params = {
+    #     'name': 'Yancheng_Cai_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
     observer_params = {
-        'name': 'Yancheng_Cai_2',
-        'age': 22,
+        'name': 'Ali_2',
+        'age': 29,
         'gender': 'M',
     }
     # observer_params = {
@@ -292,7 +297,7 @@ if __name__ == "__main__":
     #     'gender': 'M',
     # }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_1/'
+    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_3/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,
