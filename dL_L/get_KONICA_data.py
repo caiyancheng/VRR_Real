@@ -3,7 +3,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 
-def get_KONICA_data(base_path):
+def get_KONICA_data(base_path, abs=True):
     with open(os.path.join(base_path, 'result.json'), 'r') as fp:
         result_data = json.load(fp)
     with open(os.path.join(base_path, 'config.json'), 'r') as fp:
@@ -40,8 +40,10 @@ def get_KONICA_data(base_path):
                 # if luminance_30 < 1 or luminance_120 < 1:
                 #     continue
                 L = (luminance_30 + luminance_120) / 2
-                dl = np.abs(luminance_30 - luminance_120)
-                # dl = luminance_30 - luminance_120
+                if abs:
+                    dl = np.abs(luminance_30 - luminance_120)
+                else:
+                    dl = luminance_30 - luminance_120
                 x_axis_L.append(L)
                 y_axis_dl.append(dl)
                 y_axis_dl_L.append(dl / L)

@@ -32,6 +32,8 @@ def generate_image_for_sizes(size_list, save_path):
     for size_value in size_list:
         x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
         x_scale, y_scale = compute_scale_from_degree(visual_degree=size_value)
+        x_scale = x_scale/2
+        y_scale = y_scale/2
         img = generate_image(x_center, y_center, x_scale, y_scale, screen_width, screen_height)
         img.save(os.path.join(save_path, f'Size_{size_value}_disk.png'))
 

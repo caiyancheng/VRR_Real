@@ -4,7 +4,7 @@ import os
 import matplotlib.pyplot as plt
 from dL_L.get_KONICA_data import get_KONICA_data
 
-x_L_array, y_dl_array, y_dl_L_array, _ = get_KONICA_data(base_path='LG_G1_KONICA_5')
+x_L_array, y_dl_array, y_dl_L_array, _ = get_KONICA_data(base_path='LG_G1_KONICA_10')
 
 # root_path = r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_2s\2023-12-17-05-06-02'
 # root_path = r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_5s\2023-12-18-01-08-47'

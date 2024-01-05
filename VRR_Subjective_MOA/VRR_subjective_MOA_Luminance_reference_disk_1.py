@@ -286,16 +286,16 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
-    observer_params = {
-        'name': 'Ali_2',
-        'age': 29,
-        'gender': 'M',
-    }
     # observer_params = {
-    #     'name': 'Rafal_10',
-    #     'age': 45,
+    #     'name': 'Ali_2',
+    #     'age': 29,
     #     'gender': 'M',
     # }
+    observer_params = {
+        'name': 'Rafal_2',
+        'age': 46,
+        'gender': 'M',
+    }
     print(change_parameters)
     save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_3/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")

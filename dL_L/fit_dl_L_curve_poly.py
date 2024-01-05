@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from get_KONICA_data import get_KONICA_data
 import json
 
-degree = 5
+degree = 4
 
 L_array, _, dl_L_array, size_values = get_KONICA_data(base_path='LG_G1_KONICA_10')
 dl_L_array = dl_L_array/2
@@ -31,7 +31,7 @@ current_dl_L_array = dl_L_array.mean(axis=1).flatten()
 x = np.log10(current_L_array)
 y = current_dl_L_array
 coefficients = np.polyfit(x, y, degree)
-json_save = {'popt': coefficients.tolist()}
+json_save = {'coefficients': coefficients.tolist()}
 with open(f'KONICA_Fit_result_poly_{degree}.json', 'w') as fp:
     json.dump(json_save, fp)
 
@@ -61,7 +61,7 @@ current_dl_L_array = dl_L_array.mean(axis=1).flatten()
 x = np.log10(current_L_array)
 y = current_dl_L_array
 coefficients = np.polyfit(x, y, degree)
-json_save = {'popt': coefficients.tolist()}
+json_save = {'coefficients': coefficients.tolist()}
 with open(f'KONICA_Fit_result_poly_{degree}.json', 'w') as fp:
     json.dump(json_save, fp)
 

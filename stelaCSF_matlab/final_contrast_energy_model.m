@@ -1,0 +1,41 @@
+function [L_thr_stela, L_thr_stela_mod, L_thr_barten_mod, C_t_stela, C_t_stela_mod, C_t_barten_mod] = final_contrast_energy_model(t_frequency, area_value, radius, E_thr, fit_poly_degree) 
+    % delta_rho = 0.01;  % Width of each small interval
+    % num_rho_points = 1000;
+    % rho = linspace(0, num_rho_points * delta_rho, num_rho_points)';  % Transpose to make it a column vector
+    initial_L_thr = 3;
+    initial_E = integral(@(rho) 2 * pi * get_contrast_from_Luminance(initial_L_thr, fit_poly_degree, radius)^2 * ((D(rho, r) .* S_stela(rho, L_thr, area_value, t_frequency)).^2) .* rho, 0, inf);
+    lb = 0.04;
+    ub = 10;
+    integrand_stela = @(L_thr) integral(@(rho) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stela(rho, L_thr, area_value, t_frequency)).^2) .* rho, 0, inf);
+    integrand_stela_mod = @(L_thr) integral(@(rho) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stela_mod(rho, L_thr, area_value, t_frequency)).^2) .* rho, 0, inf);
+    integrand_barten_mod = @(L_thr) integral(@(rho) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_barten_mod(rho, L_thr, area_value, t_frequency)).^2) .* rho, 0, inf);
+    options = optimset('Display', 'off');  % 关闭输出优化过程
+    [L_thr_stela, min_difference_stela] = fminunc(abs(integrand_stela - E_thr), initial_L_thr, options, optimset('lb', lb, 'ub', ub));
+    [L_thr_stela_mod, min_difference_stela_mod] = fminunc(abs(integrand_stela_mod - E_thr), initial_L_thr, options, optimset('lb', lb, 'ub', ub));
+    [L_thr_barten_mod, min_difference_barten_mod] = fminunc(abs(integrand_barten_mod - E_thr), initial_L_thr, options, optimset('lb', lb, 'ub', ub));
+    C_t_stela = get_contrast_from_Luminance(L_thr_stela, fit_poly_degree, radius);
+    C_t_stela_mod = get_contrast_from_Luminance(L_thr_stela_mod, fit_poly_degree, radius);
+    C_t_barten_mod = get_contrast_from_Luminance(L_thr_barten_mod, fit_poly_degree, radius);
+end
+
+function value = S_stela(rho, L_b, area_value, t_frequency)
+    stelacsf_model = CSF_stelaCSF();
+    csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);
+    value = stelacsf_model.sensitivity(csf_pars);
+end
+
+function value = S_stela_mod(rho, L_b, area_value, t_frequency)
+    stelacsf_mod_model = CSF_stelaCSF_mod();
+    csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);
+    value = stelacsf_mod_model.sensitivity(csf_pars);
+end
+
+function value = S_barten_mod(rho, L_b, area_value, t_frequency)
+    barten_mod_model = CSF_stmBartenVeridical();
+    csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);
+    value = barten_mod_model.sensitivity(csf_pars);
+end
+
+function fft_D_value = D(rho, r)
+    fft_D_value = r * sinc(2*rho*r);
+end

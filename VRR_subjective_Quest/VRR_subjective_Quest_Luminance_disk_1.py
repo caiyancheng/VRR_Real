@@ -156,10 +156,10 @@ def vrr_one_block_square(glfw, window, vrr_params, signal_params, random_vrr_per
 
         glfw.swap_buffers(window)
         glfw.poll_events()
-        if keyboard.is_pressed('1'):
+        if keyboard.is_pressed('left arrow'):
             # winsound.Beep(4000, 100)
             return 0
-        if keyboard.is_pressed('2'):
+        if keyboard.is_pressed('right arrow'):
             # winsound.Beep(4000, 100)
             return 1
 
@@ -325,13 +325,13 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         setting_params = setting_list[index]
         vrr_f, size = setting_params
         print('VRR_Frequency', vrr_f, 'Size', size)
-        if continue_exp and f'V_{vrr_f}_S_{size}' in final_result_json_dict.keys():
-            print('Jump')
-            index = index + 1
-            continue
-        #删除experiment_record中要做实验的所有值
-        filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[2] != size]
-        experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
+        # if continue_exp and f'V_{vrr_f}_S_{size}' in final_result_json_dict.keys():
+        #     print('Jump')
+        #     index = index + 1
+        #     continue
+        # #删除experiment_record中要做实验的所有值
+        # filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[2] != size]
+        # experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
 
         print('VRR_Frequency', vrr_f, 'Size', size)
         MOA_result = np.array(MOA_result_dict[f'V_{vrr_f}_S_{size}'])
@@ -436,16 +436,16 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
-    observer_params = {
-        'name': 'Ali_2',
-        'age': 29,
-        'gender': 'M',
-    }
     # observer_params = {
-    #     'name': 'Rafal_2',
-    #     'age': 45,
+    #     'name': 'Ali_2',
+    #     'age': 29,
     #     'gender': 'M',
     # }
+    observer_params = {
+        'name': 'Rafal_2',
+        'age': 46,
+        'gender': 'M',
+    }
     print(change_parameters)
     save_base_path = r'Result_Quest_disk_3/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
