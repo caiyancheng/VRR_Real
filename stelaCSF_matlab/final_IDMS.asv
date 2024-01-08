@@ -1,0 +1,88 @@
+size_indices = [0.5, 1, 16, -1]; %-1 means full
+vrr_f_indices = [0.5, 1, 2, 4, 8];
+
+S_IDMS = @(omega) abs(148.7 * ((1 + 2 * 1i * pi * omega * 0.00267).^(-15) - 0.882 * (1 + 2 * 1i * pi * omega * 1.834 * 0.00267).^(-16)));
+
+initial_k = 1;
+
+average_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果
+high_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果上界
+low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果下界
+valids = zeros(length(vrr_f_indices), length(size_indices)); %这些主观实验是否有效
+Ct_results_IDMS_fit = zeros(length(vrr_f_indices), length(size_indices));
+
+for size_i = 1:length(size_indices)
+    size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = (62.666+37.808)/4;
+    else
+        area_value = pi*size_value^2;
+        radius = size_value;
+    end
+    for vrr_f_i = 1:length(vrr_f_indices)
+        vrr_f_value = vrr_f_indices(vrr_f_i);
+        % Subjective Experiment Result
+        filtered_data = data(data.Size_Degree == size_value & data.VRR_Frequency == vrr_f_value, :);
+        if (height(filtered_data) >= 1)
+            valids(vrr_f_i, size_i) = 1;
+        else
+            continue
+        end
+        valid_data = filtered_data(~isnan(filtered_data.C_t), :);
+        average_C_t = mean(valid_data.C_t);
+        high_C_t = mean(valid_data.C_t_high);
+        low_C_t = mean(valid_data.C_t_low);
+        average_C_t_matrix(vrr_f_i, size_i) = average_C_t;
+        high_C_t_matrix(vrr_f_i, size_i) = high_C_t;
+        low_C_t_matrix(vrr_f_i, size_i) = low_C_t;
+
+        Ct_results_IDMS_fit(vrr_f_i,size_i) = 1/S_IDMS(vrr_f_value);
+    end
+end
+
+%拟合阶段
+loss_function_IDMS = @(k_IDMS) loss_IDMS(k_IDMS, size_indices, vrr_f_indices, average_C_t_matrix, Ct_results_IDMS_fit);
+lb = 1e-5;
+ub = Inf;
+[optimized_k_IDMS, fval] = fmincon(loss_function_IDMS, initial_k, [], [], [], [], lb, ub, [], options);
+
+%正式运算阶段
+vrr_f_range = logspace(log10(0.2), log10(10), 100);
+figure;
+ha = tight_subplot(1, 1, [.04 .02],[.2 .03],[.05 .05]);
+set(ha,'YTick',[0.001,0.005, 0.01, 0.05, 0.1]); 
+set(ha,'YTickLabel',[0.001,0.005, 0.01, 0.05, 0.1]); 
+set(ha,'XTick',[0.5, 1, 2, 4, 8]); 
+set(ha,'XTickLabel',[0.5, 1, 2, 4, 8]);
+color = ['r', 'g', 'b', 'm'];
+for size_i = 1:length(size_indices)
+    size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = (62.666+37.808)/4;
+        display_name = 'Subjective Result - Size: 62.7^{\circ}*37.8^{\circ}';
+    else
+        area_value = pi*size_value^2;
+        radius = size_value;
+        display_name = ['Subjective Result - Size: disk radius' num2str(size_value) '^{\circ}'];
+    end
+    hold on;
+    xlabel('Frequency of RR Switch (Hz)','FontSize',12);
+    set(gca, 'XScale', 'log');
+    set(gca, 'YScale', 'log');
+    scatter(x_axis, average_C_t_matrix(:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', color(size_i), 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', display_name);
+    errorbar(x_axis, average_C_t_matrix(:, size_i), error_lower, error_upper, 'LineStyle', 'none', 'Color', 'k', 'LineWidth', 1.0, 'DisplayName', 'Psychometric function fitting error bar');
+    plot(x_axis_range, CSF_results_range(4,:,size_i), '-o', 'LineWidth', 1, 'Color', 'c', 'MarkerSize', 3, 'DisplayName', suffixes{4});
+    grid on;
+end
+hLegend = legend('show','FontSize',9);
+
+function [loss] = loss_IDMS(k_IDMS, size_indices, vrr_f_indices, average_C_t_matrix, Ct_results_IDMS_fit)
+    loss = 0;
+    for size_i = 1:length(size_indices)
+        for vrr_f_i = 1:length(vrr_f_indices)
+            loss = loss + (log10(Ct_results_IDMS_fit(vrr_f_i,size_i)/k_IDMS)-log10(average_C_t_matrix(vrr_f_i,size_i)))^2;
+        end
+    end
+end

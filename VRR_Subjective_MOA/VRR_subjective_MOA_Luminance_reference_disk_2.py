@@ -271,7 +271,7 @@ if __name__ == "__main__":
     # 这段代码即为完整代码
     change_parameters = {
         'VRR_Frequency': [0.5, 2, 8],
-        'Color_Value_adjust_range': [0, 1],
+        'Color_Value_adjust_range': [0, 0.2],
         'Size': [0.5, 1, 16, 'full'],
         'Repeat_times': 1,
     }

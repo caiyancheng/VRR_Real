@@ -8,7 +8,7 @@ observer_path_list = os.listdir(Quest_root_path)
 gather_dict = {}
 gather_dict_creat = False
 for observer_path in observer_path_list:
-    if observer_path.endswith('.csv') or observer_path.endswith('.png'):
+    if observer_path.endswith('.csv') or observer_path.endswith('.png')  or observer_path.endswith('Rafal_2'):
         continue
     Quest_file_path = os.path.join(Quest_root_path, observer_path, 'reorder_result_D_thr_C_t.csv')
     csv_dict = pd.read_csv(Quest_file_path).to_dict(orient='list')

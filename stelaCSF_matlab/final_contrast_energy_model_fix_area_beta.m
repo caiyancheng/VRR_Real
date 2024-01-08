@@ -1,12 +1,12 @@
 function [L_thr_stela, L_thr_stela_mod, L_thr_barten_mod, C_t_stela, C_t_stela_mod, C_t_barten_mod] = ...
-    final_contrast_energy_model_fix_area(t_frequency, radius, E_thr, fit_poly_degree, fix_area, Luminance_lb, Luminance_ub) 
+    final_contrast_energy_model_fix_area_beta(t_frequency, radius, E_thr, fit_poly_degree, fix_area, Luminance_lb, Luminance_ub, beta) 
     delta_rho = 0.01;  % Width of each small interval
     num_rho_points = 5000;
     rho_sum = linspace(0, num_rho_points * delta_rho, num_rho_points)';  % Transpose to make it a column vector
     initial_L_thr = 1;
-    integrand_stela = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stela(rho, L_thr, fix_area, t_frequency)).^2) .* rho;
-    integrand_stela_mod = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stela_mod(rho, L_thr, fix_area, t_frequency)).^2) .* rho;
-    integrand_barten_mod = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_barten_mod(rho, L_thr, fix_area, t_frequency)).^2) .* rho;
+    integrand_stela = @(rho, L_thr) 2 * pi * (2 * pi * radius)^(1/beta) * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stela(rho, L_thr, fix_area, t_frequency)).^2) .* rho;
+    integrand_stela_mod = @(rho, L_thr) 2 * pi * (2 * pi * radius)^(1/beta) * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stela_mod(rho, L_thr, fix_area, t_frequency)).^2) .* rho;
+    integrand_barten_mod = @(rho, L_thr) 2 * pi * (2 * pi * radius)^(1/beta) * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_barten_mod(rho, L_thr, fix_area, t_frequency)).^2) .* rho;
     E_stela = @(L_thr) delta_rho * sum(integrand_stela(rho_sum, L_thr));
     E_stela_mod = @(L_thr) delta_rho * sum(integrand_stela_mod(rho_sum, L_thr));
     E_barten_mod = @(L_thr) delta_rho * sum(integrand_barten_mod(rho_sum, L_thr));

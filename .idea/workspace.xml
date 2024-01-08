@@ -5,56 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/G1_Calibration/compute_spatial_frequency.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GL_picture/gabor_try.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plot_figures/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plot_figures/plot_vrr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plot_figures/plot_vrr_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plot_figures/plot_vrr_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Gabor_visual.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_blur_edge.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_gabor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Compute_Quest_initial_std_gabor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_gabor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/csv_file_remake_gabor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/gather_Quest_C_t_result.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_size.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dL_L/plot_dl_L_KONICA.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dL_L/plot_dl_L_KONICA_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs_size.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_0.5_disk.png" beforeDir="false" afterPath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_0.5_disk.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_16_disk.png" beforeDir="false" afterPath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_16_disk.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_1_disk.png" beforeDir="false" afterPath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_1_disk.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_full_disk.png" beforeDir="false" afterPath="$PROJECT_DIR$/GL_picture/Disk_Sizes/Size_full_disk.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GL_picture/disk_sizes.py" beforeDir="false" afterPath="$PROJECT_DIR$/GL_picture/disk_sizes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/实验说明.docx" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/实验说明.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Ali_2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00001_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00001_stairs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00002.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00002_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00002_stairs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00003.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00003_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00003_stairs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00004.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00004.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00004_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00004_stairs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00005.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00005.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00005_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/fit_00005_stairs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/reorder_result_D_thr.html" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_3/Observer_Yancheng_Cai_2/report/reorder_result_D_thr.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/KONICA_Fit_result_poly_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/KONICA_Fit_result_poly_3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/KONICA_Fit_result_poly_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/KONICA_Fit_result_poly_4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/KONICA_Fit_result_poly_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/KONICA_Fit_result_poly_5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/dl_L_KNOICA_Flickermeter_Compare_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/dl_L_KNOICA_Flickermeter_Compare_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/get_KONICA_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/get_KONICA_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/psychometric_fit_matlab/fit_psych_Quest_color.m" beforeDir="false" afterPath="$PROJECT_DIR$/psychometric_fit_matlab/fit_psych_Quest_color.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/gather_Quest_C_t_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/gather_Quest_C_t_result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_Quest_disk_C_t_x_vrr_f_1.asv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_Quest_disk_C_t_x_vrr_f_1.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/final_Quest_disk_C_t_x_vrr_f_1.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model.asv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_fix_area.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_fix_area.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_transient.asv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_transient.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_transient.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_transient_fix_area.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/final_contrast_energy_model_transient_fix_area.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab/get_contrast_from_Luminance.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab/get_contrast_from_Luminance.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +76,29 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.fit_dl_L_curve_poly_noabs">
+  <component name="RunManager" selected="Python.fit_Color_Luminance_poly">
+    <configuration name="fit_Color_Luminance_poly" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/fit_Color_Luminance_poly.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="fit_dl_L_curve_poly_noabs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,6 +113,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="fit_dl_L_curve_poly_noabs_size" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dL_L" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs_size.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,57 +187,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plot_dl_L_KONICA_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dL_L" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/plot_dl_L_KONICA_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="plot_vrr_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Plot_figures" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Plot_figures/plot_vrr_3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fit_Color_Luminance_poly" />
+        <item itemvalue="Python.fit_dl_L_curve_poly_noabs_size" />
         <item itemvalue="Python.fit_dl_L_curve_poly_noabs" />
         <item itemvalue="Python.plot_Luminance_different_observers_x_vrrf" />
         <item itemvalue="Python.plot_Luminance_different_observers_x_size" />
-        <item itemvalue="Python.plot_dl_L_KONICA_2" />
-        <item itemvalue="Python.plot_vrr_3" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +273,8 @@
       <workItem from="1703959731325" duration="4957000" />
       <workItem from="1704037607349" duration="20683000" />
       <workItem from="1704147842767" duration="24979000" />
-      <workItem from="1704294091193" duration="14751000" />
+      <workItem from="1704294091193" duration="21746000" />
+      <workItem from="1704655936003" duration="1501000" />
     </task>
     <servers />
   </component>
@@ -405,10 +370,6 @@
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/dL_L/get_KONICA_data.py</url>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dL_L/fit_Lmean_Color_poly.py</url>
           <line>10</line>
           <option name="timeStamp" value="136" />
@@ -442,6 +403,21 @@
           <url>file://$PROJECT_DIR$/Plot_figures/plot_vrr_2.py</url>
           <line>96</line>
           <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs_size.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VRR_subjective_Quest/gather_Quest_C_t_result.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/G1_Calibration/fit_Color_Luminance_poly.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="184" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -497,8 +473,9 @@
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_2.coverage" NAME="VRR_2 Coverage Results" MODIFIED="1703208133683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Gabor_visual.coverage" NAME="Gabor_visual Coverage Results" MODIFIED="1704161346685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_MOA" />
     <SUITE FILE_PATH="coverage/VRR_Real$deltaL_L.coverage" NAME="deltaL_L Coverage Results" MODIFIED="1702055484189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_poly_noabs_size.coverage" NAME="fit_dl_L_curve_poly_noabs_size Coverage Results" MODIFIED="1704586737212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/VRR_Real$compute_size_distance.coverage" NAME="compute_size_distance Coverage Results" MODIFIED="1701027542268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_Color_Luminance_poly.coverage" NAME="fit_Color_Luminance_poly Coverage Results" MODIFIED="1703381218662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_Color_Luminance_poly.coverage" NAME="fit_Color_Luminance_poly Coverage Results" MODIFIED="1704656175881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_MOA_Luminance_reference.coverage" NAME="VRR_subjective_MOA_Luminance_reference Coverage Results" MODIFIED="1703263775728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_MOA" />
     <SUITE FILE_PATH="coverage/VRR_Real$draw_temporal_flicker_meter.coverage" NAME="draw_temporal_flicker_meter Coverage Results" MODIFIED="1702047682023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/VRR_Real$temporal_light_sensor.coverage" NAME="temporal_light_sensor Coverage Results" MODIFIED="1699895782475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -525,7 +502,7 @@
     <SUITE FILE_PATH="coverage/VRR_Real$Fit_Psychometric_function_simple.coverage" NAME="Fit_Psychometric_function_simple Coverage Results" MODIFIED="1701961758334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Computational_Model" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$analyze_dl_L.coverage" NAME="analyze_dl_L Coverage Results" MODIFIED="1704058369797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Size_2.coverage" NAME="Analyze_Size_2 Coverage Results" MODIFIED="1702225876327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_poly_noabs.coverage" NAME="fit_dl_L_curve_poly_noabs Coverage Results" MODIFIED="1704391060449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_poly_noabs.coverage" NAME="fit_dl_L_curve_poly_noabs Coverage Results" MODIFIED="1704561729296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$disk.coverage" NAME="disk Coverage Results" MODIFIED="1703693217664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GL_picture" />
     <SUITE FILE_PATH="coverage/VRR_Real$Fit_Psychometric_all.coverage" NAME="Fit_Psychometric_all Coverage Results" MODIFIED="1701962796769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$py_display_calibration_color_size_2.coverage" NAME="py_display_calibration_color_size_2 Coverage Results" MODIFIED="1703216055771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />

@@ -7,8 +7,10 @@ function contrast = get_contrast_from_Luminance(Luminance, fit_poly_degree, size
         coefficients = jsonData.size_1.coefficients;
     elseif (size_value == 16)
         coefficients = jsonData.size_16.coefficients;
-    elseif (size_value == -1)
+    elseif (size_value == (62.666+37.808)/4)
         coefficients = jsonData.size_full.coefficients;
+    else
+        coefficients = jsonData.size_all.coefficients;
     end
     contrast = abs(polyval(coefficients, log10(Luminance)));
 end
