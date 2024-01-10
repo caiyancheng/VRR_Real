@@ -15,7 +15,9 @@ data = readtable(c_t_subjective_path);
 suffixes = {'stelaCSF (Fundamental Frequency)', 'stelaCSF_{HF} (Fundamental Frequency)', 'BartenCSF_{HF} (Fundamental Frequency)', ...
             'stelaCSF transient (Fundamental Frequency)', 'stelaCSF_{HF} transient (Fundamental Frequency)', ...
             'stelaCSF (Peak)', 'stelaCSF_{HF} (Peak)', 'BartenCSF_{HF} (Peak)', ...
-            'stelaCSF transient (Peak)', 'stelaCSF_{HF} transient (Peak)'};
+            'stelaCSF transient (Peak)', 'stelaCSF_{HF} transient (Peak)', ...
+            'stelaCSF (1 cpd)', 'stelaCSF_{HF} (1 cpd)', 'BartenCSF_{HF} (1 cpd)', ...
+            'stelaCSF transient (1 cpd)', 'stelaCSF_{HF} transient (1 cpd)'};
 
 stelacsf_model = CSF_stelaCSF();
 stelacsf_mod_model = CSF_stelaCSF_mod();
@@ -31,7 +33,7 @@ high_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实
 low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果下界
 valids = zeros(length(vrr_f_indices), length(size_indices)); %这些主观实验是否有效
 peak_spatial_frequency = logspace(log10(0.5), log10(10), 100)'; %peak部分
-initial_k_scale_values = [1.6544, 1.7040, 1.0257, 21.9889, 35.8821, 0.8539, 0.8676, 0.5272, 20.2182, 32.9925]';
+initial_k_scale_values = [1.6544, 1.7040, 1.0257, 21.9889, 35.8821, 0.8539, 0.8676, 0.5272, 20.2182, 32.9925, 1, 1, 1, 1, 1]';
 
 
 optimize_need = 1;
@@ -136,10 +138,40 @@ if (optimize_need == 1)
     optimized_k_scale_values(10) = optimized_k_scale_value;
     fvals(10) = fval./loss_multiple_factor;
 
-    writematrix(optimized_k_scale_values, 'optimized_k_scale_values_x_vrr_f_1_F_P.csv');
-    writematrix(fvals, 'fvals_x_vrr_f_1_F_P.csv');
+    objective_function_11 = @(k_scale) final_stela_1cpd_loss(size_indices, vrr_f_indices, average_C_t_matrix, k_scale, fit_poly_degree, Luminance_lb, Luminance_ub, peak_spatial_frequency).*loss_multiple_factor;
+    loss_initial_11 = objective_function_11(initial_k_scale_values(11));
+    [optimized_k_scale_value, fval] = fmincon(@(k_scale) objective_function_11(k_scale), initial_k_scale_values(11), [], [], [], [], lb, ub, [], options);
+    optimized_k_scale_values(11) = optimized_k_scale_value;
+    fvals(11) = fval./loss_multiple_factor;
+
+    objective_function_12 = @(k_scale) final_stela_mod_1cpd_loss(size_indices, vrr_f_indices, average_C_t_matrix, k_scale, fit_poly_degree, Luminance_lb, Luminance_ub, peak_spatial_frequency).*loss_multiple_factor;
+    loss_initial_12 = objective_function_12(initial_k_scale_values(12));
+    [optimized_k_scale_value, fval] = fmincon(@(k_scale) objective_function_12(k_scale), initial_k_scale_values(12), [], [], [], [], lb, ub, [], options);
+    optimized_k_scale_values(12) = optimized_k_scale_value;
+    fvals(12) = fval./loss_multiple_factor;
+
+    objective_function_13 = @(k_scale) final_barten_mod_1cpd_loss(size_indices, vrr_f_indices, average_C_t_matrix, k_scale, fit_poly_degree, Luminance_lb, Luminance_ub, peak_spatial_frequency).*loss_multiple_factor;
+    loss_initial_13 = objective_function_13(initial_k_scale_values(13));
+    [optimized_k_scale_value, fval] = fmincon(@(k_scale) objective_function_13(k_scale), initial_k_scale_values(13), [], [], [], [], lb, ub, [], options);
+    optimized_k_scale_values(13) = optimized_k_scale_value;
+    fvals(13) = fval./loss_multiple_factor;
+
+    objective_function_14= @(k_scale) final_stela_transient_1cpd_loss(size_indices, vrr_f_indices, average_C_t_matrix, k_scale, fit_poly_degree, Luminance_lb, Luminance_ub, peak_spatial_frequency).*loss_multiple_factor;
+    loss_initial_14 = objective_function_14(initial_k_scale_values(14));
+    [optimized_k_scale_value, fval] = fmincon(@(k_scale) objective_function_14(k_scale), initial_k_scale_values(14), [], [], [], [], lb, ub, [], options);
+    optimized_k_scale_values(14) = optimized_k_scale_value;
+    fvals(14) = fval./loss_multiple_factor;
+
+    objective_function_15= @(k_scale) final_stela_mod_transient_1cpd_loss(size_indices, vrr_f_indices, average_C_t_matrix, k_scale, fit_poly_degree, Luminance_lb, Luminance_ub, peak_spatial_frequency).*loss_multiple_factor;
+    loss_initial_15 = objective_function_15(initial_k_scale_values(15));
+    [optimized_k_scale_value, fval] = fmincon(@(k_scale) objective_function_15(k_scale), initial_k_scale_values(15), [], [], [], [], lb, ub, [], options);
+    optimized_k_scale_values(15) = optimized_k_scale_value;
+    fvals(15) = fval./loss_multiple_factor;
+
+    writematrix(optimized_k_scale_values, 'optimized_k_scale_values_x_vrr_f_1_F_P_revise_1.csv');
+    writematrix(fvals, 'fvals_x_vrr_f_1_F_P_revise_1.csv');
 else
-    optimized_k_scale_values = readmatrix('optimized_k_scale_values_x_vrr_f_1_F_P.csv');
+    optimized_k_scale_values = readmatrix('optimized_k_scale_values_x_vrr_f_1_F_P_revise_1.csv');
 end
 
 if (csv_generate == 1)
@@ -176,9 +208,9 @@ if (csv_generate == 1)
                 area_value, radius, optimized_k_scale_values(10), fit_poly_degree, Luminance_lb, Luminance_ub, peak_spatial_frequency);
         end
     end
-    writematrix(Ct_results_range, 'Ct_results_range_x_vrr_f_1_F_P.csv');
+    writematrix(Ct_results_range, 'Ct_results_range_x_vrr_f_1_F_P_revise_1.csv');
 else
-    Ct_results_range_flat = readmatrix('Ct_results_range_x_vrr_f_1_F_P.csv');
+    Ct_results_range_flat = readmatrix('Ct_results_range_x_vrr_f_1_F_P_revise_1.csv');
     Ct_results_range = reshape(Ct_results_range_flat, [length(suffixes), length(continuous_vrr_f_range), length(size_indices)]);
 end
 
