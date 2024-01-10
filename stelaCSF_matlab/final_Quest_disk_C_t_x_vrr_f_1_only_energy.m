@@ -42,7 +42,7 @@ initial_E_thr_values = [0.271706705875821, 0.175973530164629, 1.10003922892297, 
                         0.0877530770189669, 0.0707837284360293, 0.797774332855692, 0.00407515851336185, 0.00154290482096361]';
 
 
-optimize_need = 0;
+optimize_need = 1;
 csv_generate = 1;
 for size_i = 1:length(size_indices)
     size_value = size_indices(size_i);
@@ -50,8 +50,8 @@ for size_i = 1:length(size_indices)
         area_value = 62.666 * 37.808;
         radius = (62.666+37.808)/4;
     else
-        area_value = pi*size_value^2;
-        radius = size_value;
+        radius = size_value/2;
+        area_value = pi*radius^2;
     end
     for vrr_f_i = 1:length(vrr_f_indices)
         vrr_f_value = vrr_f_indices(vrr_f_i);
@@ -197,8 +197,8 @@ if (csv_generate == 1)
             area_value = 62.666 * 37.808;
             radius = (37.808+62.666)/4;
         else
-            area_value = pi*size_value^2;
-            radius = size_value;
+            radius = size_value/2;
+            area_value = pi*radius^2;
         end
         for vrr_f_range_i = 1:length(continuous_vrr_f_range)
             vrr_f_range_value = continuous_vrr_f_range(vrr_f_range_i);

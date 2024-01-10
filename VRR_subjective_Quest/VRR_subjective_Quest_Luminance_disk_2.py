@@ -325,13 +325,14 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
         setting_params = setting_list[index]
         vrr_f, size = setting_params
         print('VRR_Frequency', vrr_f, 'Size', size)
-        # if continue_exp and f'V_{vrr_f}_S_{size}' in final_result_json_dict.keys():
-        #     print('Jump')
-        #     index = index + 1
-        #     continue
-        # #删除experiment_record中要做实验的所有值
-        # filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[2] != size]
-        # experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
+        if continue_exp and f'V_{vrr_f}_S_{size}' in final_result_json_dict.keys():
+            print('Jump')
+            index = index + 1
+            continue
+        #删除experiment_record中要做实验的所有值
+        # if continue_exp:
+        #     filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[2] != size]
+        #     experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
 
         print('VRR_Frequency', vrr_f, 'Size', size)
         MOA_result = np.array(MOA_result_dict[f'V_{vrr_f}_S_{size}'])
@@ -384,6 +385,10 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
                     response = 0
                 quest_color_data.addResponse(response)
                 print('Ground Truth is', random_vrr_period, 'Observer Choice is', observer_choice)
+                if random_vrr_period == observer_choice:
+                    winsound.Beep(10000, 100) #Correct
+                else:
+                    winsound.Beep(1000, 100) #Wrong
                 experiment_record['Block_ID'].append(index)
                 experiment_record['VRR_Frequency'].append(vrr_f)
                 experiment_record['Size_Degree'].append(size)
@@ -413,7 +418,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
 
 if __name__ == "__main__":
     change_parameters = {
-        'VRR_Frequency': [0.5, 2, 8],
+        'VRR_Frequency': [0.5, 2, 4, 8],
         'Color_Value_adjust_range': [0, 0.1],
         'Size': [0.5, 1, 16, 'full'],
         'Trail_Number': 40,
@@ -432,15 +437,30 @@ if __name__ == "__main__":
         'signal_2_color': [0.01, 0.01, 0.01],
         'signal_time': 0.2,
     }
-    observer_params = {
-        'name': 'Yancheng_Cai_2',
-        'age': 22,
-        'gender': 'M',
-    }
+    # observer_params = {
+    #     'name': 'Yancheng_Cai_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
     # observer_params = {
     #     'name': 'Ali_2',
     #     'age': 29,
     #     'gender': 'M',
+    # }
+    # observer_params = {
+    #     'name': 'Dounia_2',
+    #     'age': 23,
+    #     'gender': 'F',
+    # }
+    observer_params = {
+        'name': 'Ale_2',
+        'age': 30,
+        'gender': 'M',
+    }
+    # observer_params = {
+    #     'name': 'Maliha_2',
+    #     'age': 29,
+    #     'gender': 'F',
     # }
     # observer_params = {
     #     'name': 'Rafal_2',
@@ -450,7 +470,7 @@ if __name__ == "__main__":
     print(change_parameters)
     save_base_path = r'Result_Quest_disk_4/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
-    MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_disk_3/', f"Observer_{observer_params['name']}", 'result.json')
+    MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_disk_4/', f"Observer_{observer_params['name']}", 'result.json')
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,
                    'vrr_params': vrr_params,

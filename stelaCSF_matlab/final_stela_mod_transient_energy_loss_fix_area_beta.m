@@ -6,7 +6,7 @@ function loss_sum = final_stela_mod_transient_energy_loss_fix_area_beta(size_ind
         if (size_value == -1)
             radius = (37.808+62.666)/4;
         else
-            radius = size_value;
+            radius = size_value/2;
         end
         for vrr_f_i = 1:length(vrr_f_indices)
             vrr_f_value = vrr_f_indices(vrr_f_i);

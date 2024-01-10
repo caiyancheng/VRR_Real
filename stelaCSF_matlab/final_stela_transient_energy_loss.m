@@ -7,8 +7,8 @@ function loss_sum = final_stela_transient_energy_loss(size_indices, vrr_f_indice
             area_value = 62.666 * 37.808;
             radius = (37.808+62.666)/4;
         else
-            area_value = pi*size_value^2;
-            radius = size_value;
+            radius = size_value/2;
+            area_value = pi*radius^2;
         end
         for vrr_f_i = 1:length(vrr_f_indices)
             vrr_f_value = vrr_f_indices(vrr_f_i);

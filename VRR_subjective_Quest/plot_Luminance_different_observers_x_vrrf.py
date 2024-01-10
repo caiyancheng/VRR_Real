@@ -4,8 +4,8 @@ import pandas as pd
 import json
 import os
 
-Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_3'
-Observer_list = ['Yancheng_Cai', 'Ali']
+Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
+Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali']
 
 plt.figure(figsize=(8,9))
 for Observer in Observer_list:
@@ -29,10 +29,13 @@ for Observer in Observer_list:
                 sub_df = df[(df["VRR_Frequency"] == vrr_f_value) & (df["Size_Degree"] == -1)]
             else:
                 sub_df = df[(df["VRR_Frequency"] == vrr_f_value)&(df["Size_Degree"] == size_value)]
-            vrr_f_list.append(vrr_f_value)
-            luminance_list.append(sub_df['Luminance'].item())
-            luminance_high_list.append(sub_df['Luminance_high'].item())
-            luminance_low_list.append(sub_df['Luminance_low'].item())
+            if len(sub_df) == 1:
+                vrr_f_list.append(vrr_f_value)
+                luminance_list.append(sub_df['Luminance'].item())
+                luminance_high_list.append(sub_df['Luminance_high'].item())
+                luminance_low_list.append(sub_df['Luminance_low'].item())
+            else:
+                continue
         error_bar = np.array([luminance_list, luminance_high_list]) - np.array([luminance_low_list, luminance_list])
         plt.errorbar(vrr_f_list, np.array(luminance_list), yerr=error_bar, fmt='-o', label=f'Observer {Observer}')
         # 其他绘图参数，可以根据需要进行修改
@@ -41,6 +44,7 @@ for Observer in Observer_list:
         plt.yscale('log')
         plt.xticks(vrr_f_list, [str(v) for v in vrr_f_list])
         plt.ylabel('Luminance')
+        plt.xlim([0.4, 10])
         plt.ylim([0.5,7])
         plt.title(f'Size {size_value}')
         plt.grid(True)

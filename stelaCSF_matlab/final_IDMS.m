@@ -1,5 +1,5 @@
 size_indices = [0.5, 1, 16, -1]; %-1 means full
-vrr_f_indices = [0.5, 1, 2, 4, 8];
+vrr_f_indices = [0.5, 2, 4, 8];
 vrr_f_range = logspace(log10(0.25), log10(16), 100);
 
 S_IDMS = @(omega) abs(148.7 * ((1 + 2 * 1i * pi * omega * 0.00267).^(-15) - 0.882 * (1 + 2 * 1i * pi * omega * 1.834 * 0.00267).^(-16)));
@@ -12,7 +12,7 @@ low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实�
 valids = zeros(length(vrr_f_indices), length(size_indices)); %这些主观实验是否有效
 Ct_results_IDMS_fit = zeros(length(vrr_f_indices), length(size_indices));
 Ct_results_IDMS_plot = zeros(length(vrr_f_range), length(size_indices));
-c_t_subjective_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_3/D_thr_C_t_gather.csv';
+c_t_subjective_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4/D_thr_C_t_gather.csv';
 data = readtable(c_t_subjective_path);
 for size_i = 1:length(size_indices)
     size_value = size_indices(size_i);

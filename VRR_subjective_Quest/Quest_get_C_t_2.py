@@ -20,7 +20,7 @@ def color_to_L(coefficients, color):
     luminance = 10**np.polyval(coefficients, color)
     return luminance
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_disk_3\Observer_Ali_2'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_disk_4\Observer_Ale_2'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
 df = pd.read_csv(os.path.join(Quest_exp_path, 'reorder_result_D_thr.csv')) #这里是一堆Color Value
