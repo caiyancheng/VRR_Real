@@ -1,23 +1,29 @@
 
-
 if ~exist( 'CSF_stelaCSF', 'class' )
     addpath( fullfile( pwd, '..', '..', 'csf_datasets', 'models' ) );
 end
 
-%csf_model = CSF_stmBartenDetection();
-csf_model = CSF_stelaCSF();
+%energy_func = @flicker_disc_energy;
+energy_func = @flicker_disc_energy_spatial;
+
+%csf_model = CSF_stelaCSF();
+csf_model = CSF_Barten_HF();
+%csf_model = CSF_castleCSF();
 
 OMEGAs = [0.5 1 2 4 8];
 
 figure(1);
+html_change_figure_print_size( gcf, 16, 10 );
 clf;
 hh = [];
-r = linspace( 0.02, 30, 1024 );
-area = pi*r.^2;
+%r = linspace( 0.02, 30, 1024 );
+%area = pi*r.^2;
+area = logspace( log10(0.01), log10(8000), 1024 );
+r = sqrt(area/pi);
 
 for ff=1:length(OMEGAs)
 
-    E = flicker_disc_energy_spatial( csf_model, OMEGAs(ff), r );
+    E = energy_func( csf_model, OMEGAs(ff), r );
 
     hh(ff) = plot( area, E, 'DisplayName', sprintf( '%g Hz', OMEGAs(ff) ) );
     hold on;
@@ -33,7 +39,13 @@ grid on
 xlim( [area(1) area(end)] );
 set( gca, 'YScale', 'log' );
 %ylim( [500 15000] );
+
+fname = [ 'plot_area_' csf_model.short_name() '.png' ];
+exportgraphics( gcf, fname );
+
+
 figure(2);
+html_change_figure_print_size( gcf, 16, 10 );
 clf;
 
 hh = [];
@@ -42,7 +54,7 @@ AREAs = [0.8 3.1 800 2400];
 
 for ff=1:length(AREAs)
 
-    E = flicker_disc_energy_spatial( csf_model, omega, sqrt(AREAs(ff)/pi));
+    E = energy_func( csf_model, omega, sqrt(AREAs(ff)/pi));
 
     if ff==4
         lstyle = '--';
@@ -64,5 +76,7 @@ ylabel( 'Energy' );
 grid on
 %xlim( [area(1) area(end)] );
 
+fname = [ 'plot_freq_' csf_model.short_name() '.png' ];
+exportgraphics( gcf, fname );
 
 
