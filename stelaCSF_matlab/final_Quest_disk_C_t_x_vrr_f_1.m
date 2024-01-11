@@ -12,13 +12,13 @@ data = readtable(c_t_subjective_path);
 suffixes = {'stelaCSF (Energy)', 'stelaCSF_{mod} (Energy)', 'barten_{mod} (Energy)', ...
             'stelaCSF transient (Energy)', 'stelaCSF_{mod} transient (Energy)', ...
             'stelaCSF (Energy fix area)', 'stelaCSF_{mod} (Energy fix area)', 'barten_{mod} (Energy fix area)', ...
-            'stelaCSF transient (Energy fix area)', 'stelaCSF_{mod} transient (Energy fix area)', ...
-            'stelaCSF 1cpd', 'stelaCSF_{mod} 1cpd', 'barten_{mod} 1cpd', ...
-            'stelaCSF 1cpd transient', 'stelaCSF_{mod} 1cpd transient', ...
-            'stelaCSF peak', 'stelaCSF_{mod} peak', 'barten_{mod} peak', ...
-            'stelaCSF peak transient', 'stelaCSF_{mod} peak transient', ...
-            'stelaCSF FSF', 'stelaCSF_{mod} FSF', 'barten_{mod} FSF', ...
-            'stelaCSF FSF transient', 'stelaCSF_{mod} FSF transient'};
+            'stelaCSF transient (Energy fix area)', 'stelaCSF_{mod} transient (Energy fix area)'};
+            % 'stelaCSF 1cpd', 'stelaCSF_{mod} 1cpd', 'barten_{mod} 1cpd', ...
+            % 'stelaCSF 1cpd transient', 'stelaCSF_{mod} 1cpd transient', ...
+            % 'stelaCSF peak', 'stelaCSF_{mod} peak', 'barten_{mod} peak', ...
+            % 'stelaCSF peak transient', 'stelaCSF_{mod} peak transient', ...
+            % 'stelaCSF FSF', 'stelaCSF_{mod} FSF', 'barten_{mod} FSF', ...
+            % 'stelaCSF FSF transient', 'stelaCSF_{mod} FSF transient'};
 
 stelacsf_model = CSF_stelaCSF();
 stelacsf_mod_model = CSF_stelaCSF_mod();
@@ -26,24 +26,25 @@ stelacsf_transient_model = CSF_stelaCSF_transient();
 stelacsf_mod_transient_model = CSF_stelaCSF_mod_transient();
 barten_mod_model = CSF_stmBartenVeridical();
 
-initial_E_thr_values = ones(10)' * 1000;
-lb_E_thr = zeros(size(initial_k_values));
-ub_E_thr = Inf(size(initial_k_values));
-
-initial_k_values = ones(10)' * 1000;
-lb_k = zeros(size(initial_k_values));
-ub_k = Inf(size(initial_k_values));
-
 CSF_results_fit = zeros(length(suffixes), length(vrr_f_indices), length(size_indices));
-CSF_results_all = zeros(length(suffixes), length(continuous_vrr_f_range), length(size_indices));
+CSF_results_range = zeros(length(suffixes), length(continuous_vrr_f_range), length(size_indices));
 average_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果
-high_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
-low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果
+high_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果上界
+low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices)); %主观实验的结果下界
 valids = zeros(length(vrr_f_indices), length(size_indices)); %这些主观实验是否有效
-peak_spatial_frequency = logspace(log10(0.2), log10(10), 100);
+peak_spatial_frequency = logspace(log10(0.2), log10(10), 100); %peak部分
+% initial_E_thr_values = ones(10)' * 1000;
+initial_E_thr_values = [0.2074, 0.1991, 0.7065, 6.4205e-04, 2.4111e-04, 0.2603, 0.2499, 0.8811, 8.0630e-04, 3.0279e-04]';
 
 for size_i = 1:length(size_indices)
     size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = 37.808/2;
+    else
+        area_value = pi*size_value^2;
+        radius = size_value;
+    end
     for vrr_f_i = 1:length(vrr_f_indices)
         vrr_f_value = vrr_f_indices(vrr_f_i);
         % Subjective Experiment Result
@@ -58,93 +59,104 @@ for size_i = 1:length(size_indices)
         high_C_t = mean(valid_data.C_t_high);
         low_C_t = mean(valid_data.C_t_low);
 
-        if (size_value == -1)
-            area_value = 62.666 * 37.808;
-            radius = 37.808/2;
-        else
-            area_value = pi*size_value^2;
-            radius = size_value;
-        end
+        
         average_C_t_matrix(vrr_f_i, size_i) = average_C_t;
         high_C_t_matrix(vrr_f_i, size_i) = high_C_t;
         low_C_t_matrix(vrr_f_i, size_i) = low_C_t;
 
-        [CSF_results_fit(1,vrr_f_i,size_i), CSF_results_fit(2,vrr_f_i,size_i), CSF_results_fit(3,vrr_f_i,size_i)] = ...
-            final_contrast_energy_model(vrr_f_value, area_value, radius, initial_E_thr_value, fit_poly_degree);
-        [CSF_results_fit(4,vrr_f_i,size_i), CSF_results_fit(5,vrr_f_i,size_i)] = ...
-            final_contrast_energy_model_transient(vrr_f_value, area_value, radius, initial_E_thr_value, fit_poly_degree);
-        [CSF_results_fit(6,vrr_f_i,size_i), CSF_results_fit(7,vrr_f_i,size_i), CSF_results_fit(8,vrr_f_i,size_i)] = ...
-            final_contrast_energy_model_fix_area(vrr_f_value, radius, initial_E_thr_value, fit_poly_degree, area_fix);
-        [CSF_results_fit(9,vrr_f_i,size_i), CSF_results_fit(10,vrr_f_i,size_i)] = ...
-            final_contrast_energy_model_transient_fix_area(vrr_f_value, radius, initial_E_thr_value, fit_poly_degree, area_fix);
+        [~,~,~,CSF_results_fit(1,vrr_f_i,size_i), CSF_results_fit(2,vrr_f_i,size_i), CSF_results_fit(3,vrr_f_i,size_i)] = ...
+            final_contrast_energy_model(vrr_f_value, area_value, radius, initial_E_thr_values(1:3), fit_poly_degree);
+        [~,~,CSF_results_fit(4,vrr_f_i,size_i), CSF_results_fit(5,vrr_f_i,size_i)] = ...
+            final_contrast_energy_model_transient(vrr_f_value, area_value, radius, initial_E_thr_values(4:5), fit_poly_degree);
+        [~,~,~,CSF_results_fit(6,vrr_f_i,size_i), CSF_results_fit(7,vrr_f_i,size_i), CSF_results_fit(8,vrr_f_i,size_i)] = ...
+            final_contrast_energy_model_fix_area(vrr_f_value, radius, initial_E_thr_values(6:8), fit_poly_degree, area_fix);
+        [~,~,CSF_results_fit(9,vrr_f_i,size_i), CSF_results_fit(10,vrr_f_i,size_i)] = ...
+            final_contrast_energy_model_transient_fix_area(vrr_f_value, radius, initial_E_thr_values(9:10), fit_poly_degree, area_fix);
 
-        csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance, 'area', area_value, 'eccentricity', 0);
-        CSF_results_fit(11,vrr_f_i,size_i) = stelacsf_model.sensitivity(csf_pars);
-        CSF_results_fit(12,vrr_f_i,size_i) = stelacsf_mod_model.sensitivity(csf_pars);
-        CSF_results_fit(13,vrr_f_i,size_i) = barten_mod_model.sensitivity(csf_pars);
-        CSF_results_fit(14,vrr_f_i,size_i) = stelacsf_transient_model.sensitivity(csf_pars);
-        CSF_results_fit(15,vrr_f_i,size_i) = stelacsf_mod_transient_model.sensitivity(csf_pars);
-
-        csf_pars_peak = struct('s_frequency', peak_spatial_frequency, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance, 'area', area_value, 'eccentricity', 0);
-        CSF_results_fit(16,vrr_f_i,size_i) = max(stelacsf_model.sensitivity(csf_pars_peak));
-        CSF_results_fit(17,vrr_f_i,size_i) = max(stelacsf_mod_model.sensitivity(csf_pars_peak));
-        CSF_results_fit(18,vrr_f_i,size_i) = max(barten_mod_model.sensitivity(csf_pars_peak));
-        CSF_results_fit(19,vrr_f_i,size_i) = max(stelacsf_transient_model.sensitivity(csf_pars_peak));
-        CSF_results_fit(20,vrr_f_i,size_i) = max(stelacsf_mod_transient_model.sensitivity(csf_pars_peak));
+        % csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance, 'area', area_value, 'eccentricity', 0);
+        % CSF_results_fit(11,vrr_f_i,size_i) = stelacsf_model.sensitivity(csf_pars);
+        % CSF_results_fit(12,vrr_f_i,size_i) = stelacsf_mod_model.sensitivity(csf_pars);
+        % CSF_results_fit(13,vrr_f_i,size_i) = barten_mod_model.sensitivity(csf_pars);
+        % CSF_results_fit(14,vrr_f_i,size_i) = stelacsf_transient_model.sensitivity(csf_pars);
+        % CSF_results_fit(15,vrr_f_i,size_i) = stelacsf_mod_transient_model.sensitivity(csf_pars);
+        % 
+        % csf_pars_peak = struct('s_frequency', peak_spatial_frequency, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance, 'area', area_value, 'eccentricity', 0);
+        % CSF_results_fit(16,vrr_f_i,size_i) = max(stelacsf_model.sensitivity(csf_pars_peak));
+        % CSF_results_fit(17,vrr_f_i,size_i) = max(stelacsf_mod_model.sensitivity(csf_pars_peak));
+        % CSF_results_fit(18,vrr_f_i,size_i) = max(barten_mod_model.sensitivity(csf_pars_peak));
+        % CSF_results_fit(19,vrr_f_i,size_i) = max(stelacsf_transient_model.sensitivity(csf_pars_peak));
+        % CSF_results_fit(20,vrr_f_i,size_i) = max(stelacsf_mod_transient_model.sensitivity(csf_pars_peak));
     end
 end
 
-% 拟合参数
+% 拟合参数,尤其是那10个E
+loss_multiple_factor = 1e10;
+
 optimized_E_thr_values = zeros(10, 1);
 fvals = zeros(10, 1);
 for csf_model_i = 1:10
-   current_result = squeeze(results(csf_model_i, :, :));
-   current_initial_E_thr_value = initial_E_thr_values(csf_model_i);
-   objective_function = @(E_thr_value) nansum(nansum((1./(k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_scale).*1e10;
+   % current_result = squeeze(results(csf_model_i, :, :));
+   % current_initial_E_thr_value = initial_E_thr_values(csf_model_i);
+   objective_function = @(E_thr_value) final_all_energy_loss(size_indices, vrr_f_indices, average_C_t_matrix, E_thr_value, fit_poly_degree).*loss_multiple_factor;
    lb = 0;  % 下界
    ub = Inf; % 上界
-   options = optimset('Display', 'iter'); % 显示优化过程
-   [optimized_k_value, fval] = fmincon(@(k_value) objective_function(k_value), current_initial_k_value, [], [], [], [], lb, ub, [], options);
-   optimized_k_values(csf_model_i) = optimized_k_value;
-   fvals(csf_model_i) = fval./1e10;
+   options = optimset('Display', 'off'); % 显示优化过程
+   [optimized_E_thr_value, fval] = fmincon(@(E_thr_value) objective_function(E_thr_value), current_initial_E_thr_value, [], [], [], [], lb, ub, [], options);
+   optimized_E_thr_values(csf_model_i) = optimized_E_thr_value;
+   fvals(csf_model_i) = fval./loss_multiple_factor;
 end
 
-optimized_k_values = zeros(length(suffixes), 1);
-fvals = zeros(length(suffixes), 1);
-loss_size_scale = [1,1,1,1];
-for csf_model_i = 1:length(suffixes)
-   current_result = squeeze(results(csf_model_i, :, :));
+optimized_k_values = zeros(15, 1);
+fvals = zeros(15, 1);
+initial_k_values = ones(10)' * 1000;
+for csf_model_i = 11:length(suffixes)
+   current_result = squeeze(CSF_results_fit(csf_model_i, :, :));
    current_initial_k_value = initial_k_values(csf_model_i);
-   % loss = nansum(nansum((1./(current_initial_k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_val);
-   objective_function = @(k_value) nansum(nansum((1./(k_value.*current_result) - average_C_t_matrix).^2.*valids).*loss_size_scale).*1e10;
+   objective_function = @(k_value) nansum(nansum((1./(k_value.*current_result) - average_C_t_matrix).^2.*valids)).*loss_multiple_factor;
    lb = 0;  % 下界
    ub = Inf; % 上界
-   options = optimset('Display', 'iter'); % 显示优化过程
+   options = optimset('Display', 'off'); % 显示优化过程
    [optimized_k_value, fval] = fmincon(@(k_value) objective_function(k_value), current_initial_k_value, [], [], [], [], lb, ub, [], options);
    optimized_k_values(csf_model_i) = optimized_k_value;
-   fvals(csf_model_i) = fval./1e10;
+   fvals(csf_model_i) = fval./loss_multiple_factor;
 end
 
-for vrr_f_range_i = 1:length(continuous_vrr_f_range)
+% 为画图做准备
+for size_i = 1:length(size_indices)
+    size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = 37.808/2;
+    else
+        area_value = pi*size_value^2;
+        radius = size_value;
+    end
+    for vrr_f_range_i = 1:length(continuous_vrr_f_range)
         vrr_f_range_value = continuous_vrr_f_range(vrr_f_range_i);
-        [CSF_results(1,vrr_f_range_i,size_i), CSF_results(2,vrr_f_range_i,size_i), CSF_results(3,vrr_f_range_i,size_i)] = ...
-            final_contrast_energy_model(vrr_f_range_value, size_value, radius, initial_E_thr_value, fit_poly_degree);
-        [CSF_results(4,vrr_f_range_i,size_i), CSF_results(5,vrr_f_range_i,size_i)] = ...
-            final_contrast_energy_model(vrr_f_range_value, size_value, radius, initial_E_thr_value, fit_poly_degree);
-        [results(6,vrr_f_i,size_i), results(7,vrr_f_i,size_i), results(8,vrr_f_i,size_i)] = multiple_contrast_energy_detectors_cyc_1_no_multiply(luminance, c, beta, num_points, vrr_f_value, area_value);
+        [~,~,~,CSF_results_range(1,vrr_f_range_i,size_i), CSF_results_range(2,vrr_f_range_i,size_i), CSF_results_range(3,vrr_f_range_i,size_i)] = ...
+            final_contrast_energy_model(vrr_f_value, area_value, radius, initial_E_thr_value, fit_poly_degree);
+        [~,~,CSF_results_range(4,vrr_f_range_i,size_i), CSF_results_range(5,vrr_f_range_i,size_i)] = ...
+            final_contrast_energy_model_transient(vrr_f_value, area_value, radius, initial_E_thr_value, fit_poly_degree);
+        [~,~,~,CSF_results_range(6,vrr_f_range_i,size_i), CSF_results_range(7,vrr_f_range_i,size_i), CSF_results_range(8,vrr_f_range_i,size_i)] = ...
+            final_contrast_energy_model_fix_area(vrr_f_value, radius, initial_E_thr_value, fit_poly_degree, area_fix);
+        [~,~,CSF_results_range(9,vrr_f_range_i,size_i), CSF_results_range(10,vrr_f_range_i,size_i)] = ...
+            final_contrast_energy_model_transient_fix_area(vrr_f_value, radius, initial_E_thr_value, fit_poly_degree, area_fix);
+
         csf_pars = struct('s_frequency', 1, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance, 'area', area_value, 'eccentricity', 0);
-        results(9,vrr_f_i,size_i) = stelacsf_model.sensitivity(csf_pars);
-        results(10,vrr_f_i,size_i) = stelacsf_mod_model.sensitivity(csf_pars);
-        results(11,vrr_f_i,size_i) = barten_mod_model.sensitivity(csf_pars);
+        CSF_results_range(11,vrr_f_range_i,size_i) = stelacsf_model.sensitivity(csf_pars);
+        CSF_results_range(12,vrr_f_range_i,size_i) = stelacsf_mod_model.sensitivity(csf_pars);
+        CSF_results_range(13,vrr_f_range_i,size_i) = barten_mod_model.sensitivity(csf_pars);
+        CSF_results_range(14,vrr_f_range_i,size_i) = stelacsf_transient_model.sensitivity(csf_pars);
+        CSF_results_range(15,vrr_f_range_i,size_i) = stelacsf_mod_transient_model.sensitivity(csf_pars);
 
         csf_pars_peak = struct('s_frequency', peak_spatial_frequency, 't_frequency', vrr_f_value, 'orientation', 0, 'luminance', luminance, 'area', area_value, 'eccentricity', 0);
-        results(12,vrr_f_i,size_i) = max(stelacsf_model.sensitivity(csf_pars_peak));
-        results(13,vrr_f_i,size_i) = max(stelacsf_mod_model.sensitivity(csf_pars_peak));
-        results(14,vrr_f_i,size_i) = max(barten_mod_model.sensitivity(csf_pars_peak));
-        results(15,vrr_f_i,size_i) = max(stelacsf_transient_model.sensitivity(csf_pars_peak));
-        results(16,vrr_f_i,size_i) = max(stelacsf_mod_transient_model.sensitivity(csf_pars_peak));
+        CSF_results_range(16,vrr_f_range_i,size_i) = max(stelacsf_model.sensitivity(csf_pars_peak));
+        CSF_results_range(17,vrr_f_range_i,size_i) = max(stelacsf_mod_model.sensitivity(csf_pars_peak));
+        CSF_results_range(18,vrr_f_range_i,size_i) = max(barten_mod_model.sensitivity(csf_pars_peak));
+        CSF_results_range(19,vrr_f_range_i,size_i) = max(stelacsf_transient_model.sensitivity(csf_pars_peak));
+        CSF_results_range(20,vrr_f_range_i,size_i) = max(stelacsf_mod_transient_model.sensitivity(csf_pars_peak));
     end
-
+end
 disp(['Optimized k_values: ', num2str(optimized_k_values')]);
 disp(['Objective function value at optimum: ', num2str(fvals')]);
 C_t_s = 1./(optimized_k_values.*results);

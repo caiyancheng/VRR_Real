@@ -198,16 +198,25 @@ def vrr_one_block_square(glfw, window, vrr_params, c_params):
         glfw.poll_events()
 
 
-def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle):
+def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle, continue_exp):
     #如果是连续调节，其实都不需要预先校准了，直接在最后得出pixel value进行一个校准就可以了
-    experiment_record = {'Block_ID': [], 'VRR_Frequency': [], 'Observer_color_value': [],
-                         'Size_Degree': [], 'Repeat_ID': []}
-    experiment_json_dict = {}
+    if continue_exp:
+        if not os.path.exists(os.path.join(save_path, 'result_in_progress.json')):
+            raise ValueError('Unable to continue, necessary files are missing!')
+        else:
+            print('Continue!')
+            with open(os.path.join(save_path, 'result_in_progress.json'), 'r') as fp:
+                experiment_json_dict = json.load(fp)
+            df = pd.read_csv(os.path.join(save_path, 'result_in_progress.csv'))
+            experiment_record = df.to_dict(orient='list')
+    else:
+        experiment_record = {'Block_ID': [], 'VRR_Frequency': [], 'Observer_color_value': [],
+                             'Size_Degree': [], 'Repeat_ID': []}
+        experiment_json_dict = {}
     glfw, window = start_opengl()
     setting_list = []
     for vrr_f in change_parameters['VRR_Frequency']:
         for size in change_parameters['Size']:
-            experiment_json_dict[f'V_{vrr_f}_S_{size}'] = []
             setting_params = vrr_f, size
             setting_list.append(setting_params)
 
@@ -218,6 +227,12 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle):
         while index < len(setting_list):
             setting_params = setting_list[index]
             vrr_f, size = setting_params
+            print('VRR_Frequency', vrr_f, 'Size', size)
+            if continue_exp and f'V_{vrr_f}_S_{size}' in experiment_json_dict.keys():
+                print('Jump')
+                index = index + 1
+                continue
+            experiment_json_dict[f'V_{vrr_f}_S_{size}'] = []
             x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
             x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
             interval_time = 1 / (2 * vrr_f)
@@ -270,8 +285,8 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle):
 if __name__ == "__main__":
     # 这段代码即为完整代码
     change_parameters = {
-        'VRR_Frequency': [0.5, 2, 8],
-        'Color_Value_adjust_range': [0, 1],
+        'VRR_Frequency': [0.5, 2, 4, 8],
+        'Color_Value_adjust_range': [0, 0.2],
         'Size': [0.5, 1, 16, 'full'],
         'Repeat_times': 1,
     }
@@ -281,11 +296,26 @@ if __name__ == "__main__":
         'vrr_total_time': 2,
         'fix_frame_rate': 60,
     }
+    # observer_params = {
+    #     'name': 'Yancheng_Cai_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
+    # observer_params = {
+    #     'name': 'Dounia_2',
+    #     'age': 23,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'Yancheng_Cai_2',
-        'age': 22,
+        'name': 'Ale_2',
+        'age': 30,
         'gender': 'M',
     }
+    # observer_params = {
+    #     'name': 'Maliha_2',
+    #     'age': 29,
+    #     'gender': 'F',
+    # }
     # observer_params = {
     #     'name': 'Ali_2',
     #     'age': 29,
@@ -308,4 +338,5 @@ if __name__ == "__main__":
     vrr_exp_main(change_parameters=change_parameters,
                  vrr_params=vrr_params,
                  save_path=save_path,
-                 random_shuffle=True)
+                 random_shuffle=True,
+                 continue_exp=False)
