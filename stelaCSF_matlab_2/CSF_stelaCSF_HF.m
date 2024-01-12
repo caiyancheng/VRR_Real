@@ -1,6 +1,6 @@
 classdef CSF_stelaCSF_HF < CSF_base
 
-    % stelaCSF for CFF predictions as submitted for HVEI 2024 CFF paper:
+    % moded stela for CFF predictions:
     % 1) transient channel's luminance dependency
     % 2) transient channel's bandwidth
 
@@ -25,11 +25,11 @@ classdef CSF_stelaCSF_HF < CSF_base
 
         function name = short_name( obj )
             % A short name that could be used as a part of a file name
-            name = 'stelaCSF-HF';
+            name = 'stela-csf-mod';
         end
 
         function name = full_name( obj )
-            name = 'stelaCSF-HF';
+            name = 'stelaCSF-mod';
         end
 
         % Return contrast sensitivity for a given set of parameters. 
@@ -80,9 +80,11 @@ classdef CSF_stelaCSF_HF < CSF_base
             rho = csf_pars.s_frequency;
             omega = csf_pars.t_frequency;
             lum = csf_pars.luminance;
-            A = pi*(sigma).^2; % Stimulus area
 
             [R_sust, R_trans] = get_sust_trans_resp(obj, omega, ecc);
+
+            A = pi*(sigma).^2; % Stimulus area
+
             S_sust = obj.csf_achrom( rho, A, lum, ecc, obj.par.ach_sust );
             S_trans = obj.csf_achrom( rho, A, lum, ecc, obj.par.ach_trans );
 
@@ -140,7 +142,7 @@ classdef CSF_stelaCSF_HF < CSF_base
             sigma_trans = obj.par.sigma_trans;
 
             R_sust = exp( -omega.^beta_sust / (sigma_sust) );
-            R_trans = exp( -abs(omega.^beta_trans-omega_0^beta_trans).^2 ./ (sigma_trans .*(1 + obj.par.S1.*ecc).^obj.par.S2));
+            R_trans = exp( -abs(omega.^beta_trans-omega_0^beta_trans).^2 ./ (sigma_trans .* ( 1 + obj.par.S1 .* ecc) .^ obj.par.S2) );
         end
 
         % Achromatic CSF model
@@ -296,24 +298,22 @@ classdef CSF_stelaCSF_HF < CSF_base
         function p = get_default_par()
 
             p = CSF_base.get_dataset_par();
-
-            % fitting based on the run: stela-csf_all_2022-04-16_16-48
-            p.ach_sust.S_max = [ 52.4 38.3934 0.00384626 1.77512e-07 8.53881e+12  ];
-            p.ach_sust.f_max = [ 1.56613 0.00986767 152.155  ];
-            p.ach_sust.bw = 0.000152407;
-            p.ach_sust.a = 0.037964;
-            p.ach_trans.S_max = [ 170876 211229 0.331393 ];
-            p.ach_trans.f_max = 4.93292e-05;
-            p.ach_trans.bw = 3.04824;
-            p.ach_trans.a = 0.000271025;
-            p.sigma_trans = 0.117546;
-            p.sigma_sust = 1.13939;
-            p.ecc_drop = 0.0257177;
-            p.ecc_drop_nasal = 0.0152548;
-            p.ecc_drop_f = 0.0185132;
-            p.ecc_drop_f_nasal = 0.0156611;
-            p.S1 = 8.19924e-07;
-            p.S2 = 19791.1;
+	        p.ach_sust.S_max = [ 69.2026 144.747 0.155582 7.09705e-07 7.91791e+09 ];
+	        p.ach_sust.f_max = [ 1.51079 9.40093 0.287417 ];
+	        p.ach_sust.bw = 0.000220052;
+	        p.ach_sust.a = 0.0517392;
+	        p.ach_trans.S_max = [ 20825.9 168.778 0.587553 ];
+	        p.ach_trans.f_max = 9.6569e-05;
+	        p.ach_trans.bw = 2.9598;
+	        p.ach_trans.a = 0.000271836;
+	        p.sigma_trans = 0.117623;
+	        p.sigma_sust = 2.16508;
+	        p.ecc_drop = 0.0257862;
+	        p.ecc_drop_nasal = 0.0154559;
+	        p.ecc_drop_f = 0.0186447;
+	        p.ecc_drop_f_nasal = 0.0156339;
+	        p.S1 = 0.000169327;
+	        p.S2 = 94.8073;
 
 
         end

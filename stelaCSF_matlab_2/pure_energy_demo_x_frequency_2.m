@@ -1,11 +1,11 @@
-size = 16;
+size = 0.5;
 radius = size/2;
 area_value = pi*radius^2;
 fit_poly_degree = 4;
-luminance_value = 1;
+luminance_value = 5;
 vrr_f_contiuous = logspace(log10(0.2),log10(20),100);
 delta_rho = 0.01;
-num_rho_points = 5000;
+num_rho_points = 10000;
 rho_sum = linspace(0, num_rho_points * delta_rho, num_rho_points)';
 E_stelaCSF_all = zeros(1,length(vrr_f_contiuous));
 E_stelaCSF_HF_all = zeros(1,length(vrr_f_contiuous));
@@ -39,9 +39,9 @@ for vrr_f_index = 1:length(vrr_f_contiuous)
     E_castleCSF = delta_rho * sum(integrand_castleCSF(rho_sum, luminance_value));
     E_castleCSF_all(vrr_f_index) = E_castleCSF;
 
-    integrand_A_Daly = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_A_Daly(rho, L_thr, area_value, vrr_f_value)).^2) .* rho;
-    E_A_Daly = delta_rho * sum(integrand_A_Daly(rho_sum, luminance_value));
-    E_A_Daly_all(vrr_f_index) = E_A_Daly;
+    % integrand_A_Daly = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_A_Daly(rho, L_thr, area_value, vrr_f_value)).^2) .* rho;
+    % E_A_Daly = delta_rho * sum(integrand_A_Daly(rho_sum, luminance_value));
+    % E_A_Daly_all(vrr_f_index) = E_A_Daly;
 
     integrand_stelaCSF_transient = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_stelaCSF_transient(rho, L_thr, area_value, vrr_f_value)).^2) .* rho;
     E_stelaCSF_transient = delta_rho * sum(integrand_stelaCSF_transient(rho_sum, luminance_value));
@@ -59,7 +59,7 @@ plot(vrr_f_contiuous, E_stelaCSF_HF_all, 'DisplayName', 'stelaCSF_{HF}');
 plot(vrr_f_contiuous, E_Barten_HF_all, 'DisplayName', 'BartenCSF_{HF}');
 plot(vrr_f_contiuous, E_Barten_Original_all, 'DisplayName', 'BartenCSF_{Original}');
 plot(vrr_f_contiuous, E_castleCSF_all, 'DisplayName', 'castleCSF');
-plot(vrr_f_contiuous, E_A_Daly_all, 'DisplayName', 'DalyCSF');
+% plot(vrr_f_contiuous, E_A_Daly_all, 'DisplayName', 'DalyCSF');
 plot(vrr_f_contiuous, E_stelaCSF_transient_all, 'DisplayName', 'stelaCSF transient');
 plot(vrr_f_contiuous, E_stelaCSF_HF_transient_all, 'DisplayName', 'stelaCSF_{HF} transient');
 xlabel('Frequency of RR Switch (Hz)');
@@ -98,11 +98,11 @@ function value = S_castleCSF(rho, L_b, area_value, t_frequency)
     value = castleCSF_model.sensitivity(csf_pars);
 end
 
-function value = S_A_Daly(rho, L_b, area_value, t_frequency)
-    A_Daly_model = CSF_A_Daly();
-    csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);
-    value = A_Daly_model.sensitivity(csf_pars);
-end
+% function value = S_A_Daly(rho, L_b, area_value, t_frequency)
+%     A_Daly_model = CSF_A_Daly();
+%     csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);
+%     value = A_Daly_model.sensitivity(csf_pars);
+% end
 
 function value = S_stelaCSF_transient(rho, L_b, area_value, t_frequency)
     stelaCSF_transient_model = CSF_stelaCSF_transient();

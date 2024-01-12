@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_disk_4\Observer_Hongyun_Gao_2'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_disk_4\Observer_Yaru_2'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
 df = pd.read_csv(os.path.join(Quest_exp_path, 'result.csv'))
@@ -20,8 +20,6 @@ Trail_number = Quest_config['change_parameters']['Trail_Number']
 ordered_indices = []
 for vrr_f_index in range(len(Quest_VRR_Fs)):
     vrr_f_value = Quest_VRR_Fs[vrr_f_index]
-    if vrr_f_value == 16:
-        continue
     for size_index in range(len(Quest_Sizes)):
         size_value = Quest_Sizes[size_index]
         for trail_id in range(Trail_number):

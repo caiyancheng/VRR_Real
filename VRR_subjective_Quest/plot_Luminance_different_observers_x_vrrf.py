@@ -5,7 +5,7 @@ import json
 import os
 
 Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
-Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Dounia']#, 'Zhen']
+Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru']#, 'Zhen']
 
 plt.figure(figsize=(8,9))
 for Observer in Observer_list:

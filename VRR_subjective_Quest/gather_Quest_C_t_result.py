@@ -7,7 +7,9 @@ Quest_root_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4
 observer_path_list = os.listdir(Quest_root_path)
 gather_dict = {}
 gather_dict_creat = False
-observer_name_list = ['Observer_Yancheng_Cai_2', 'Observer_Ale_2', 'Observer_Ali_2', 'Observer_Maliha_2'] #, 'Observer_Hongyun_Gao_2', 'Observer_Zhen_2']
+# Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru']#, 'Zhen']
+observer_name_list = ['Observer_Yancheng_Cai_2', 'Observer_Ale_2', 'Observer_Ali_2', 'Observer_Maliha_2',
+                      'Observer_Shushan_2', 'Observer_Hongyun_Gao_2', 'Observer_Zhen_2', 'Observer_Yaru_2']
 for observer_path in observer_path_list:
     # if observer_path.endswith('.csv') or observer_path.endswith('.png')  or observer_path.endswith('Rafal_2'):
     #     continue

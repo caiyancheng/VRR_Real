@@ -157,12 +157,11 @@ classdef CSF_Barten_Original < CSF_base
         function p = get_default_par()
             
             p         = CSF_base.get_dataset_par();
-            
-            p.k       = 3;
-            p.sigma0  = 0.50;
-            p.u00     = 7;
-            p.tau10   = 0.032;
-            p.tau20   = 0.018;
+	        p.k = 1.44871;
+	        p.sigma0 = 0.724444;
+	        p.u00 = 14.9944;
+	        p.tau10 = 0.0366304;
+	        p.tau20 = 0.0117484;
 
         end
         

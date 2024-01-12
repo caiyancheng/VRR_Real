@@ -219,7 +219,6 @@ classdef CSF_Barten_HF < CSF_base
         function p = get_default_par()
             
             p         = CSF_base.get_dataset_par();
-
             p.k       = 7.13817;
             p.sigma0  = 0.384239;
             p.u0      = 2.45004;

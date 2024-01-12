@@ -467,11 +467,11 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'F',
     # }
-    observer_params = {
-        'name': 'Shushan_2',
-        'age': 25,
-        'gender': 'M',
-    }
+    # observer_params = {
+    #     'name': 'Shushan_2',
+    #     'age': 25,
+    #     'gender': 'M',
+    # }
     # observer_params = {
     #     'name': 'Hongyun_Gao_2',
     #     'age': 31,
@@ -482,6 +482,11 @@ if __name__ == "__main__":
     #     'age': 29,
     #     'gender': 'F',
     # }
+    observer_params = {
+        'name': 'Yaru_2',
+        'age': 26,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Rafal_2',
     #     'age': 46,
@@ -504,5 +509,5 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=True,
-                 use_mean_MOA=True)
+                 continue_exp=False,
+                 use_mean_MOA=False)
