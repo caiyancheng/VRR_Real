@@ -142,8 +142,8 @@ def vrr_one_block_square(glfw, window, vrr_params, c_params):
         glfw.swap_buffers(window)
         if keyboard.is_pressed("enter"):
             break
-        if keyboard.is_pressed("Backspace"):
-            return -2
+        # if keyboard.is_pressed("Backspace"):
+        #     return -2
         glfw.poll_events()
     winsound.Beep(4000, 100)
 
@@ -167,12 +167,12 @@ def vrr_one_block_square(glfw, window, vrr_params, c_params):
             return color
         elif keyboard.is_pressed("up") or keyboard.is_pressed("up arrow"):
             if keyboard.is_pressed("shift"):
-                color = color + 0.02
+                color = color + 0.005
             else:
                 color = color + 0.0005
         elif keyboard.is_pressed("down") or keyboard.is_pressed("down arrow"):
             if keyboard.is_pressed("shift"):
-                color = color - 0.02
+                color = color - 0.005
             else:
                 color = color - 0.0005
 
@@ -232,6 +232,8 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle, conti
                 print('Jump')
                 index = index + 1
                 continue
+            filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[3] != size]
+            experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
             experiment_json_dict[f'V_{vrr_f}_S_{size}'] = []
             x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
             x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
@@ -251,14 +253,14 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle, conti
                                                      c_params=c_params)
             if observer_choice == -1:  # -1代表想要退出
                 break
-            elif observer_choice == -2:  # -2代表认为前一个出现了错误，希望重来
-                index = index - 1
-                winsound.Beep(8000, 100)
-                print('Something Wrong! Return to the previous one.')
-                for key in experiment_record.keys():
-                    experiment_record[key].pop()
-                vrr_f, size, _ = setting_list[index]
-                experiment_json_dict[f'V_{vrr_f}_S_{size}'].pop()
+            # elif observer_choice == -2:  # -2代表认为前一个出现了错误，希望重来
+            #     index = index - 1
+            #     winsound.Beep(8000, 100)
+            #     print('Something Wrong! Return to the previous one.')
+            #     for key in experiment_record.keys():
+            #         experiment_record[key].pop()
+            #     vrr_f, size, _ = setting_list[index]
+            #     experiment_json_dict[f'V_{vrr_f}_S_{size}'].pop()
 
             else:  # 否则这个observer_choice就是对应的Color
                 print('VRR_Frequency:', vrr_f, 'Size_Degree:', size, 'Repeat_ID:', re_i, 'Observer_color_value:', observer_choice)
@@ -306,9 +308,29 @@ if __name__ == "__main__":
     #     'age': 23,
     #     'gender': 'F',
     # }
+    # observer_params = {
+    #     'name': 'Ale_2',
+    #     'age': 30,
+    #     'gender': 'M',
+    # }
+    # observer_params = {
+    #     'name': 'Zhen_2',
+    #     'age': 22,
+    #     'gender': 'F',
+    # }
+    # observer_params = {
+    #     'name': 'Zhen_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
+    # observer_params = {
+    #     'name': 'Hongyun_Gao_2',
+    #     'age': 31,
+    #     'gender': 'M',
+    # }
     observer_params = {
-        'name': 'Ale_2',
-        'age': 30,
+        'name': 'Shushan_2',
+        'age': 25,
         'gender': 'M',
     }
     # observer_params = {
@@ -339,4 +361,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=False)
+                 continue_exp=True)

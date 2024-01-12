@@ -292,10 +292,14 @@ def vrr_one_block_disk(glfw, window, vrr_params, signal_params, random_vrr_perio
             return 1
 
 
-def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_save_path, random_shuffle, continue_exp):
+def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_save_path, random_shuffle, continue_exp, use_mean_MOA):
     # MOA will provide the initial color value
-    with open(MOA_save_path, 'r')as fp:
-        MOA_result_dict = json.load(fp)
+    if use_mean_MOA:
+        with open(r'B:\Py_codes\VRR_Real\VRR_subjective_Quest/Average_Quest_Color.json', 'r') as fp:
+            MOA_result_dict = json.load(fp)
+    else:
+        with open(MOA_save_path, 'r') as fp:
+            MOA_result_dict = json.load(fp)
     if continue_exp:
         if not os.path.exists(os.path.join(save_path, 'result_in_progress.json')):
             raise ValueError('Unable to continue, necessary files are missing!')
@@ -329,10 +333,10 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
             print('Jump')
             index = index + 1
             continue
-        #删除experiment_record中要做实验的所有值
-        # if continue_exp:
-        #     filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[2] != size]
-        #     experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
+        # 删除experiment_record中要做实验的所有值
+        if continue_exp:
+            filtered_data = [record for record in zip(*experiment_record.values()) if record[1] != vrr_f or record[2] != size]
+            experiment_record = {key: [item[i] for item in filtered_data] for i, key in enumerate(experiment_record.keys())}
 
         print('VRR_Frequency', vrr_f, 'Size', size)
         MOA_result = np.array(MOA_result_dict[f'V_{vrr_f}_S_{size}'])
@@ -445,6 +449,7 @@ if __name__ == "__main__":
     # observer_params = {
     #     'name': 'Ali_2',
     #     'age': 29,
+
     #     'gender': 'M',
     # }
     # observer_params = {
@@ -452,11 +457,26 @@ if __name__ == "__main__":
     #     'age': 23,
     #     'gender': 'F',
     # }
+    # observer_params = {
+    #     'name': 'Ale_2',
+    #     'age': 30,
+    #     'gender': 'M',
+    # }
+    # observer_params = {
+    #     'name': 'Zhen_2',
+    #     'age': 22,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'Ale_2',
-        'age': 30,
+        'name': 'Shushan_2',
+        'age': 25,
         'gender': 'M',
     }
+    # observer_params = {
+    #     'name': 'Hongyun_Gao_2',
+    #     'age': 31,
+    #     'gender': 'M',
+    # }
     # observer_params = {
     #     'name': 'Maliha_2',
     #     'age': 29,
@@ -484,4 +504,5 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=False)
+                 continue_exp=True,
+                 use_mean_MOA=True)
