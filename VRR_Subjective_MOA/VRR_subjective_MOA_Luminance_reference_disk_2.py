@@ -238,7 +238,7 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle, conti
             x_center, y_center = compute_x_y_from_eccentricity(eccentricity=0)
             x_scale, y_scale = compute_scale_from_degree(visual_degree=size)
             interval_time = 1 / (2 * vrr_f)
-            initial_color = random.uniform(0, 0.3)
+            initial_color = random.uniform(0, 0.1)
             color_range = change_parameters['Color_Value_adjust_range']
             c_params = x_center, y_center, x_scale, y_scale, interval_time, initial_color, color_range
             if size == 'full':
@@ -333,9 +333,14 @@ if __name__ == "__main__":
     #     'age': 25,
     #     'gender': 'M',
     # }
+    # observer_params = {
+    #     'name': 'Yaru_2',
+    #     'age': 26,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'Yaru_2',
-        'age': 26,
+        'name': 'Yuan_2',
+        'age': 23,
         'gender': 'F',
     }
     # observer_params = {
@@ -366,4 +371,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=True)
+                 continue_exp=False)

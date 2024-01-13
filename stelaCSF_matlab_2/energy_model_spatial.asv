@@ -1,0 +1,22 @@
+function E = energy_model_spatial(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value)
+    delta_rho = 0.01;
+    rho_sum = linspace(0, 64, 5000)';
+    I_fourier = get_contrast_from_Luminance(L_thr, fit_poly_degree, radius).*D(rho, radius).*S_CSF(csf_model, rho, L_thr, area_value, vrr_f_value);
+    I_spatial = fftshift(abs(fft( cat( 1, I_fourier, flipud(I_fourier(2:end,:)) ), [], 1 )), 1);
+    ppd = rho(end)*2;
+size_deg = size(I_S,1)/ppd;
+yy = linspace( -size_deg/2, size_deg/2, size(I_S,1) )';
+
+E = pi*trapz( yy, (I_S).^2 .* abs(yy) );
+    integrand_CSF = @(rho, L_thr) 2 * pi * get_contrast_from_Luminance(L_thr, fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_CSF(csf_model, rho, L_thr, area_value, vrr_f_value)).^2) .* rho;
+    E = delta_rho * sum(integrand_CSF(rho_sum, luminance_value));
+end
+
+function value = S_CSF(csf_model, rho, L_b, area_value, t_frequency)
+    csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);% 'ge_sigma',1);
+    value = csf_model.sensitivity(csf_pars);
+end
+
+function fft_D_value = D(rho, r)
+    fft_D_value = r * sinc(2*rho*r);
+end

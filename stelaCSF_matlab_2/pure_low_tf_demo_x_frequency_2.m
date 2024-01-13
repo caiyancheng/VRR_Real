@@ -1,6 +1,6 @@
 clear;
 clc;
-size = 0.1;
+size = 0.01;
 radius = size/2;
 area_value = pi*radius^2;
 fit_poly_degree = 4;

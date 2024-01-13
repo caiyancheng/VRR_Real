@@ -41,7 +41,7 @@ set( gca, 'YScale', 'log' );
 %ylim( [500 15000] );
 
 fname = [ 'plot_area_' csf_model.short_name() '.png' ];
-exportgraphics( gcf, fname );
+% exportgraphics( gcf, fname );
 
 
 figure(2);
