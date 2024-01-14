@@ -20,16 +20,16 @@ castleCSF_model = CSF_castleCSF();
 stelaCSF_transient_model = CSF_stelaCSF_transient();
 stelaCSF_HF_transient_model = CSF_stelaCSF_HF_transient();
 % energy_model = energy_model_spatial;
-pow = 1;
+pow = 3;
 for vrr_f_index = 1:length(vrr_f_contiuous)
     vrr_f_value = vrr_f_contiuous(vrr_f_index);
-    E_stelaCSF_all(vrr_f_index) = energy_model_spatial(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_stelaCSF_HF_all(vrr_f_index) = energy_model_spatial(stelaCSF_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_Barten_Original_all(vrr_f_index) = energy_model_spatial(Barten_Original_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_Barten_HF_all(vrr_f_index) = energy_model_spatial(Barten_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_castleCSF_all(vrr_f_index) = energy_model_spatial(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_stelaCSF_transient_all(vrr_f_index) = energy_model_spatial(stelaCSF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_stelaCSF_HF_transient_all(vrr_f_index) = energy_model_spatial(stelaCSF_HF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_stelaCSF_all(vrr_f_index) = energy_model_spatial_fixarea(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_stelaCSF_HF_all(vrr_f_index) = energy_model_spatial_fixarea(stelaCSF_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_Barten_Original_all(vrr_f_index) = energy_model_spatial_fixarea(Barten_Original_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_Barten_HF_all(vrr_f_index) = energy_model_spatial_fixarea(Barten_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_castleCSF_all(vrr_f_index) = energy_model_spatial_fixarea(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_stelaCSF_transient_all(vrr_f_index) = energy_model_spatial_fixarea(stelaCSF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_stelaCSF_HF_transient_all(vrr_f_index) = energy_model_spatial_fixarea(stelaCSF_HF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
 end
 
 figure;

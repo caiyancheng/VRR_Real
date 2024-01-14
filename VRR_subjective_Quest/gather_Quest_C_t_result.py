@@ -9,7 +9,8 @@ gather_dict = {}
 gather_dict_creat = False
 # Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru']#, 'Zhen']
 observer_name_list = ['Observer_Yancheng_Cai_2', 'Observer_Ale_2', 'Observer_Ali_2', 'Observer_Maliha_2',
-                      'Observer_Shushan_2', 'Observer_Hongyun_Gao_2', 'Observer_Zhen_2', 'Observer_Yaru_2']
+                      'Observer_Shushan_2', 'Observer_Hongyun_Gao_2', 'Observer_Zhen_2', 'Observer_Yaru_2',
+                      'Observer_Yuan_2', 'Observer_Claire_2']
 for observer_path in observer_path_list:
     # if observer_path.endswith('.csv') or observer_path.endswith('.png')  or observer_path.endswith('Rafal_2'):
     #     continue

@@ -338,9 +338,14 @@ if __name__ == "__main__":
     #     'age': 26,
     #     'gender': 'F',
     # }
+    # observer_params = {
+    #     'name': 'Yuan_2',
+    #     'age': 23,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'Yuan_2',
-        'age': 23,
+        'name': 'Claire_2',
+        'age': 26,
         'gender': 'F',
     }
     # observer_params = {

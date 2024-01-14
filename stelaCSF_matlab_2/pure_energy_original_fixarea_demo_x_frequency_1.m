@@ -1,4 +1,4 @@
-size = 16;
+size = 1;
 radius = size/2;
 area_value = pi*radius^2;
 fit_poly_degree = 4;
@@ -19,17 +19,16 @@ Barten_HF_model = CSF_Barten_HF();
 castleCSF_model = CSF_castleCSF();
 stelaCSF_transient_model = CSF_stelaCSF_transient();
 stelaCSF_HF_transient_model = CSF_stelaCSF_HF_transient();
-% energy_model = energy_model_spatial;
-pow = 1;
+
 for vrr_f_index = 1:length(vrr_f_contiuous)
     vrr_f_value = vrr_f_contiuous(vrr_f_index);
-    E_stelaCSF_all(vrr_f_index) = energy_model_spatial(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_stelaCSF_HF_all(vrr_f_index) = energy_model_spatial(stelaCSF_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_Barten_Original_all(vrr_f_index) = energy_model_spatial(Barten_Original_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_Barten_HF_all(vrr_f_index) = energy_model_spatial(Barten_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_castleCSF_all(vrr_f_index) = energy_model_spatial(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_stelaCSF_transient_all(vrr_f_index) = energy_model_spatial(stelaCSF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
-    E_stelaCSF_HF_transient_all(vrr_f_index) = energy_model_spatial(stelaCSF_HF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow);
+    E_stelaCSF_all(vrr_f_index) = energy_model_fixarea_beta(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
+    E_stelaCSF_HF_all(vrr_f_index) = energy_model_fixarea_beta(stelaCSF_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
+    E_Barten_Original_all(vrr_f_index) = energy_model_fixarea_beta(Barten_Original_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
+    E_Barten_HF_all(vrr_f_index) = energy_model_fixarea_beta(Barten_HF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
+    E_castleCSF_all(vrr_f_index) = energy_model_fixarea_beta(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
+    E_stelaCSF_transient_all(vrr_f_index) = energy_model_fixarea_beta(stelaCSF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
+    E_stelaCSF_HF_transient_all(vrr_f_index) = energy_model_fixarea_beta(stelaCSF_HF_transient_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value);
 end
 
 figure;
@@ -43,6 +42,6 @@ plot(vrr_f_contiuous, E_stelaCSF_transient_all, 'DisplayName', 'stelaCSF transie
 plot(vrr_f_contiuous, E_stelaCSF_HF_transient_all, 'DisplayName', 'stelaCSF_{HF} transient');
 xlabel('Frequency of RR Switch (Hz)');
 ylabel('Energy')
-title([num2str(size) ' degree diameter, ' num2str(luminance_value) ' cd/m^2, spatial domain power = ' num2str(pow)]);
+title([num2str(size) ' degree diameter, ' num2str(luminance_value) ' cd/m^2']);
 xlim([0.1,20]);
 legend('show');

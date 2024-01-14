@@ -1,8 +1,11 @@
-function E = energy_model_original(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value)
+function E = energy_model_fixarea_beta(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value)
+    fix_area_value = 1;
+    beta = 3.5;
     delta_rho = 0.01;
     num_rho_points = 5000;
     rho_sum = linspace(0, num_rho_points * delta_rho, num_rho_points)';
-    integrand_CSF = @(rho, L_thr) 2 * pi * ((get_contrast_from_Luminance(L_thr, fit_poly_degree, radius).* (D(rho, radius) .* S_CSF(csf_model, rho, L_thr, area_value, vrr_f_value))).^2) .* rho;
+    integrand_CSF = @(rho, L_thr) 2 * pi * (2 * pi * radius)^(1/beta) * get_contrast_from_Luminance(L_thr, ...
+        fit_poly_degree, radius)^2 * ((D(rho, radius) .* S_CSF(csf_model, rho, L_thr, fix_area_value, vrr_f_value)).^2) .* rho;
     E = delta_rho * sum(integrand_CSF(rho_sum, luminance_value));
 end
 
