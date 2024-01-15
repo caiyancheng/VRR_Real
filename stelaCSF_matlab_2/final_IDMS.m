@@ -18,7 +18,7 @@ for size_i = 1:length(size_indices)
     size_value = size_indices(size_i);
     if (size_value == -1)
         area_value = 62.666 * 37.808;
-        radius = (62.666+37.808)/4;
+        radius = (area_value/pi)^0.5;
     else
         area_value = pi*size_value^2;
         radius = size_value;
@@ -33,9 +33,9 @@ for size_i = 1:length(size_indices)
             continue
         end
         valid_data = filtered_data(~isnan(filtered_data.C_t), :);
-        average_C_t = mean(valid_data.C_t);
-        high_C_t = mean(valid_data.C_t_high);
-        low_C_t = mean(valid_data.C_t_low);
+        average_C_t = nanmean(valid_data.C_t);
+        high_C_t = nanmean(valid_data.C_t_high);
+        low_C_t = nanmean(valid_data.C_t_low);
         average_C_t_matrix(vrr_f_i, size_i) = average_C_t;
         high_C_t_matrix(vrr_f_i, size_i) = high_C_t;
         low_C_t_matrix(vrr_f_i, size_i) = low_C_t;
@@ -67,6 +67,7 @@ set(ha,'YTickLabel',[0.001,0.005, 0.01, 0.05, 0.1]);
 set(ha,'XTick',[0.5, 1, 2, 4, 8]); 
 set(ha,'XTickLabel',[0.5, 1, 2, 4, 8]);
 xlim([0.25, 16]);
+ylim([0.005, 0.1]);
 xlabel('Frequency of Refresh Rate Switch (Hz)','FontSize',14);
 ylabel('C_{thr} (Flicker Detection Contrast Threshold)','FontSize',14);
 color = ['r', 'g', 'b', 'm'];
@@ -78,7 +79,7 @@ for size_i = 1:length(size_indices)
     size_value = size_indices(size_i);
     if (size_value == -1)
         area_value = 62.666 * 37.808;
-        radius = (62.666+37.808)/4;
+        radius = (area_value/pi)^0.5;
         display_name = 'Subjective Psychophysical Result - Size: 62.7^{\circ}*37.8^{\circ}';
     else
         area_value = pi*size_value^2;

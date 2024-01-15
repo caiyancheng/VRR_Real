@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/VRR_Real.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VRR_Real.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/gather_Quest_C_t_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/gather_Quest_C_t_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/plot_C_t_eccentricity.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_C_t_eccentricity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_size.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/energy_model_spatial_fixarea.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/energy_model_spatial_fixarea.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/final_Quest_disk_C_t_energy_eachone_plot_2.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/final_Quest_disk_C_t_energy_eachone_plot_2.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/pure_energy_spatial_demo_x_area_1.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/pure_energy_spatial_demo_x_area_1.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/pure_energy_spatial_fixarea_demo_x_area_1.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/pure_energy_spatial_fixarea_demo_x_area_1.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/pure_energy_spatial_fixarea_demo_x_frequency_1.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/pure_energy_spatial_fixarea_demo_x_frequency_1.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/final_IDMS.asv" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/final_IDMS.asv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stelaCSF_matlab_2/final_IDMS.m" beforeDir="false" afterPath="$PROJECT_DIR$/stelaCSF_matlab_2/final_IDMS.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +268,7 @@
       <workItem from="1704991865133" duration="7875000" />
       <workItem from="1705023870359" duration="14164000" />
       <workItem from="1705149471756" duration="6893000" />
-      <workItem from="1705238685368" duration="6273000" />
+      <workItem from="1705238685368" duration="6874000" />
     </task>
     <servers />
   </component>
