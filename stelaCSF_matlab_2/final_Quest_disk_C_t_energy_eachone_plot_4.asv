@@ -1,3 +1,4 @@
+%这段代码只画那些比baseline好或者有潜力比baseline好的模型
 clear;
 clc;
 size_indices = [0.5, 1, 16, -1]; %-1 means full
@@ -14,16 +15,9 @@ beta = 3.5;
 
 c_t_subjective_path = '..\VRR_subjective_Quest\Result_Quest_disk_4/D_thr_C_t_gather.csv';
 data = readtable(c_t_subjective_path);
-suffixes = {'stelaCSF (Original Energy)', 'stelaCSF_{HF} (Original Energy)',  'BartenCSF (Original Energy)', 'BartenCSF_{HF} (Original Energy)', ...
-            'castleCSF (Original Energy)', 'stelaCSF transient (Original Energy)', 'stelaCSF_{HF} transient (Original Energy)', ...
-            'stelaCSF (Fixed Area + Beta)', 'stelaCSF_{HF} (Fixed Area + Beta)',  'BartenCSF (Fixed Area + Beta)', 'BartenCSF_{HF} (Fixed Area + Beta)', ...
-            'castleCSF (Fixed Area + Beta)', 'stelaCSF transient (Fixed Area + Beta)', 'stelaCSF_{HF} transient (Fixed Area + Beta)', ...
-            'stelaCSF (Fixed Area + SI power 1)', 'stelaCSF_{HF} (Fixed Area + SI power 1)',  'BartenCSF (Fixed Area + SI power 1)', 'BartenCSF_{HF} (Fixed Area + SI power 1)', ...
-            'castleCSF (Fixed Area + SI power 1)', 'stelaCSF transient (Fixed Area + SI power 1)', 'stelaCSF_{HF} transient (Fixed Area + SI power 1)', ...
-            'stelaCSF (Fixed Area + SI power 2)', 'stelaCSF_{HF} (Fixed Area + SI power 2)',  'BartenCSF (Fixed Area + SI power 2)', 'BartenCSF_{HF} (Fixed Area + SI power 2)', ...
-            'castleCSF (Fixed Area + SI power 2)', 'stelaCSF transient (Fixed Area + SI power 2)', 'stelaCSF_{HF} transient (Fixed Area + SI power 2)', ...
-            'stelaCSF (Fixed Area + SI power 3)', 'stelaCSF_{HF} (Fixed Area + SI power 3)',  'BartenCSF (Fixed Area + SI power 3)', 'BartenCSF_{HF} (Fixed Area + SI power 3)', ...
-            'castleCSF (Fixed Area + SI power 3)', 'stelaCSF transient (Fixed Area + SI power 3)', 'stelaCSF_{HF} transient (Fixed Area + SI power 3)'};
+suffixes = {'BartenCSF (FA + Beta)', 'BartenCSF_{HF} (FA + Beta)', 'castleCSF (FA + Beta)', 'stelaCSF (FA + SI power 0.2)', ...
+            'stelaCSF (FA + SI power 0.25)', 'stelaCSF (FA + SI power 0.3)', 'castleCSF (FA + R power 3.5)', 'castleCSF (FA + R power 4)', ...
+            'castleCSF (FA + R power 4.5)', 'castleCSF (FA + E power 1.8)', 'castleCSF (FA + E power 2)', 'castleCSF (FA + E power 2.2)'};
 
 stelaCSF_model = CSF_stelaCSF();
 stelaCSF_HF_model = CSF_stelaCSF_HF();
@@ -33,12 +27,26 @@ castleCSF_model = CSF_castleCSF();
 stelaCSF_transient_model = CSF_stelaCSF_transient();
 stelaCSF_HF_transient_model = CSF_stelaCSF_HF_transient();
 CSF_Model_cell = {stelaCSF_model, stelaCSF_HF_model, Barten_Original_model, Barten_HF_model, castleCSF_model, stelaCSF_transient_model, stelaCSF_HF_transient_model};
-energy_model_spatial_with_pow1 = @(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 1);
-energy_model_spatial_with_pow2 = @(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 2);
-energy_model_spatial_with_pow3 = @(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 3);
-Energy_Model_cell = {@energy_model_original, @energy_model_fixarea_beta, energy_model_spatial_with_pow1, energy_model_spatial_with_pow2, energy_model_spatial_with_pow3};
+energy_model_spatial_fixarea_pow05 = @(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 0.5);
+energy_model_spatial_fixarea_radius_pow2 = @(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_radius(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 2);
+energy_model_spatial_fixarea_ecc_pow2 = @(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_ecc(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 2);
+Energy_Model_cell = {@(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value)energy_model_fixarea_beta(Barten_Original_model,fit_poly_degree, radius, area_value, vrr_f_value, luminance_value), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value)energy_model_fixarea_beta(Barten_HF_model,fit_poly_degree, radius, area_value, vrr_f_value, luminance_value), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value)energy_model_fixarea_beta(castleCSF_model,fit_poly_degree, radius, area_value, vrr_f_value, luminance_value), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 0.2), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 0.25), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea(stelaCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 0.3), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_radius(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 3.5), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_radius(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 4), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_radius(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 4.5), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_ecc(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 1.8), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_ecc(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 1.8), ...
+                     @(fit_poly_degree, radius, area_value, vrr_f_value, luminance_value) energy_model_spatial_fixarea_ecc(castleCSF_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, 1.8), ...
+                     };
+
+
 C_thr_results_x_vrr_f_range = zeros(length(suffixes), length(continuous_vrr_f_range), length(size_indices));
-C_thr_results_x_area_range = zeros(length(suffixes), length(continuous_area_range), length(size_indices));
+C_thr_results_x_area_range = zeros(length(suffixes), length(vrr_f_indices), length(continuous_area_range));
 average_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
 high_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
 low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
@@ -46,11 +54,11 @@ average_L_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
 valids = zeros(length(vrr_f_indices), length(size_indices));
 initial_E_thr_values = zeros(1,length(suffixes));
 
-optimize_need = 1;
+optimize_need = 0;
 skip_optimize_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
-csv_generate_vrr_f = 1;
-csv_generate_area = 1;
-plot_vrr_f = 1;
+csv_generate_vrr_f = 0;
+csv_generate_area = 0;
+plot_vrr_f = 0;
 plot_area = 1;
 
 if optimize_need == 1
@@ -131,10 +139,10 @@ if (optimize_need == 1)
             fvals(overall_index) = fval./loss_multiple_factor;
         end
     end
-    writematrix(optimized_E_thr_values, 'optimized_E_thr_values_final_Quest_disk_C_t_energy_eachone_plot_2.csv');
-    writematrix(fvals, 'fvals_x_final_Quest_disk_C_t_energy_eachone_plot_2.csv');
+    writematrix(optimized_E_thr_values, 'optimized_E_thr_values_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
+    writematrix(fvals, 'fvals_x_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
 else
-    optimized_E_thr_values = readmatrix('optimized_E_thr_values_final_Quest_disk_C_t_energy_eachone_plot_2.csv');
+    optimized_E_thr_values = readmatrix('optimized_E_thr_values_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
 end
 
 if (csv_generate_vrr_f == 1)
@@ -159,9 +167,9 @@ if (csv_generate_vrr_f == 1)
             end
         end
     end
-    writematrix(C_thr_results_x_vrr_f_range, 'C_thr_results_range_x_vrr_f_final_Quest_disk_C_t_energy_eachone_plot_2.csv');
+    writematrix(C_thr_results_x_vrr_f_range, 'C_thr_results_range_x_vrr_f_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
 else
-    C_thr_results_x_vrr_f_range_flat = readmatrix('C_thr_results_range_x_vrr_f_final_Quest_disk_C_t_energy_eachone_plot-2.csv');
+    C_thr_results_x_vrr_f_range_flat = readmatrix('C_thr_results_range_x_vrr_f_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
     C_thr_results_x_vrr_f_range = reshape(C_thr_results_x_vrr_f_range_flat, [length(suffixes), length(continuous_vrr_f_range), length(vrr_f_indices)]);
 end
 
@@ -176,15 +184,15 @@ if (csv_generate_area == 1)
                 for csf_model_index = 1:length(CSF_Model_cell)
                     csf_model_use = CSF_Model_cell{csf_model_index};
                     overall_index = (energy_model_index-1)*length(CSF_Model_cell)+csf_model_index;
-                    [~,C_thr_results_x_area_range(overall_index,vrr_f_range_i,size_i)] = energy_generate_contrast_all(csf_model_use, energy_model_use, vrr_f_value, area_range_value, radius_range_value, optimized_E_thr_values(overall_index), fit_poly_degree, Luminance_lb, Luminance_ub);
+                    [~,C_thr_results_x_area_range(overall_index,vrr_f_i,area_range_i)] = energy_generate_contrast_all(csf_model_use, energy_model_use, vrr_f_value, area_range_value, radius_range_value, optimized_E_thr_values(overall_index), fit_poly_degree, Luminance_lb, Luminance_ub);
                 end
             end
         end
     end
-    writematrix(C_thr_results_x_area_range, 'C_thr_results_range_x_area_final_Quest_disk_C_t_energy_eachone_plot.csv');
+    writematrix(C_thr_results_x_area_range, 'C_thr_results_range_x_area_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
 else
-    C_thr_results_x_area_range_flat = readmatrix('C_thr_results_range_x_area_final_Quest_disk_C_t_energy_eachone_plot.csv');
-    C_thr_results_x_area_range = reshape(C_thr_results_x_area_range_flat, [length(suffixes), length(continuous_area_range), length(size_indices)]);
+    C_thr_results_x_area_range_flat = readmatrix('C_thr_results_range_x_area_final_Quest_disk_C_t_energy_eachone_plot_3.csv');
+    C_thr_results_x_area_range = reshape(C_thr_results_x_area_range_flat, [length(suffixes), length(vrr_f_indices), length(continuous_area_range)]);
 end
 
 %VRR-F
@@ -302,7 +310,7 @@ if plot_area == 1
             else
                 errorbar(area_indices, average_C_t_matrix(vrr_f_i,:), error_lower, error_upper, 'LineStyle', 'none', 'Color', 'k', 'LineWidth', 1.0);
             end
-            legend_model_plots{end+1} = plot(continuous_area_range, C_thr_results_x_area_range(plot_i,:,vrr_f_i), '-', 'LineWidth', 1, 'Color', color(vrr_f_i), 'DisplayName', display_name_model);
+            legend_model_plots{end+1} = plot(continuous_area_range, reshape(C_thr_results_x_area_range(plot_i,vrr_f_i,:), 1, []), '-', 'LineWidth', 1, 'Color', color(vrr_f_i), 'DisplayName', display_name_model);
             legend_model_labels{end+1} = display_name_model;
             grid on;
         end

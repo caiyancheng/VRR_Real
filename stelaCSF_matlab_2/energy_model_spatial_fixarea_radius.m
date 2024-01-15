@@ -1,4 +1,4 @@
-function E = energy_model_spatial_fixarea(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow)
+function E = energy_model_spatial_fixarea_radius(csf_model, fit_poly_degree, radius, area_value, vrr_f_value, luminance_value, pow)
     delta_rho = 0.01;
     num_rho_points = 5000;
     fix_area_value = 1;
@@ -8,7 +8,9 @@ function E = energy_model_spatial_fixarea(csf_model, fit_poly_degree, radius, ar
     ppd = rho_sum(end) * 2;
     size_deg = size(I_spatial, 1) / ppd;
     yy = linspace(-size_deg/2, size_deg/2, size(I_spatial, 1))';
-    E = pi * sum((I_spatial.^pow) .* abs(yy)) * (size_deg / size(I_spatial, 1)) * 0.00001;
+    idx_range = find(yy >= -radius & yy <= radius);
+    yy_range = yy(idx_range,:);
+    E = pi * sum(((I_spatial(idx_range,:)).^pow) .* abs(yy(idx_range,:))) * (size_deg / size(I_spatial, 1));
 end
 
 function value = S_CSF(csf_model, rho, L_b, area_value, t_frequency)
