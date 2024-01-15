@@ -4,7 +4,7 @@ import pandas as pd
 import json
 import os
 
-Quest_exp_path = r'Result_Quest_disk_eccentricity_1'
+Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_eccentricity_1'
 Observer = 'Yancheng_Cai'
 
 plt.figure(figsize=(8,9))

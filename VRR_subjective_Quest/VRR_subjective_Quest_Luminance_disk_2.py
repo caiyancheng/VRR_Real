@@ -492,9 +492,14 @@ if __name__ == "__main__":
     #     'age': 23,
     #     'gender': 'F',
     # }
+    # observer_params = {
+    #     'name': 'Claire_2',
+    #     'age': 26,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'Claire_2',
-        'age': 26,
+        'name': 'pupu_2',
+        'age': 22,
         'gender': 'F',
     }
     # observer_params = {
@@ -519,5 +524,5 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=False,
+                 continue_exp=True,
                  use_mean_MOA=False)

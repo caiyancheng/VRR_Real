@@ -3,12 +3,11 @@ import numpy as np
 import pandas as pd
 import json
 import os
-import math
 
-Quest_exp_path = r'Result_Quest_disk_4'
-Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru', 'Yuan', 'Claire']
+Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_3'
+Observer_list = ['Yancheng_Cai', 'Ali']
 
-plt.figure(figsize=(8,12))
+plt.figure(figsize=(8,9))
 for Observer in Observer_list:
     config_path = os.path.join(Quest_exp_path, f'Observer_{Observer}_2', 'config.json')
     csv_result_path = os.path.join(Quest_exp_path, f'Observer_{Observer}_2', 'reorder_result_D_thr_C_t.csv')
@@ -20,7 +19,7 @@ for Observer in Observer_list:
     for vrr_f_index in range(len(VRR_Frequency_list)):
         vrr_f_value = VRR_Frequency_list[vrr_f_index]
         plt.subplot(len(VRR_Frequency_list), 1, vrr_f_index + 1)
-        area_list = []
+        size_list = []
         luminance_list = []
         luminance_high_list = []
         luminance_low_list = []
@@ -28,31 +27,26 @@ for Observer in Observer_list:
             size_value = Size_list[size_index]
             if size_value == 'full':
                 sub_df = df[(df["VRR_Frequency"] == vrr_f_value) & (df["Size_Degree"] == -1)]
-                area_value = round(62.666 * 37.808)
+                size_list.append(round(62.666 * 37.808))
             else:
                 sub_df = df[(df["VRR_Frequency"] == vrr_f_value) & (df["Size_Degree"] == size_value)]
-                area_value = math.pi * (size_value/2)**2
-            if len(sub_df) == 1:
-                area_list.append(area_value)
-                luminance_list.append(sub_df['Luminance'].item())
-                luminance_high_list.append(sub_df['Luminance_high'].item())
-                luminance_low_list.append(sub_df['Luminance_low'].item())
-            else:
-                continue
+                size_list.append(size_value**2)
+            luminance_list.append(sub_df['Luminance'].item())
+            luminance_high_list.append(sub_df['Luminance_high'].item())
+            luminance_low_list.append(sub_df['Luminance_low'].item())
         error_bar = np.array([luminance_list, luminance_high_list]) - np.array([luminance_low_list, luminance_list])
-        plt.errorbar(area_list, np.array(luminance_list), yerr=error_bar, fmt='-o', label=f'Observer {Observer}')
+        plt.errorbar(size_list, np.array(luminance_list), yerr=error_bar, fmt='-o', label=f'Observer {Observer}')
         # 其他绘图参数，可以根据需要进行修改
         # plt.xlabel('VRR Frequency')
         plt.xscale('log')
         plt.yscale('log')
-        plt.xticks(area_list, [str(s) for s in area_list])
+        plt.xticks(size_list, [str(s) for s in size_list])
         plt.ylabel('Luminance')
-        plt.xlim([math.pi*0.25**2, round(62.666 * 37.808)])
         plt.ylim([0.5,7])
         plt.title(f'Frequency of RR Switch: {vrr_f_value}')
         plt.grid(True)
         plt.legend()
-plt.xlabel('Area (degree$^2$)')
+plt.xlabel('Size (degree$^2$)')
 plt.tight_layout()
 plt.show()
 

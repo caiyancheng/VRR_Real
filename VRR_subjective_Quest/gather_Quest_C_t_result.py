@@ -3,7 +3,7 @@ import numpy as np
 import os
 import json
 
-Quest_root_path = 'Result_Quest_disk_4'
+Quest_root_path = 'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
 observer_path_list = os.listdir(Quest_root_path)
 gather_dict = {}
 gather_dict_creat = False
@@ -38,4 +38,4 @@ for observer_path in observer_path_list:
         gather_dict['Gender'].append(Gender)
 
 df = pd.DataFrame(gather_dict)
-df.to_csv(r'Result_Quest_disk_4/D_thr_C_t_gather.csv', index=False)
+df.to_csv('B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4/D_thr_C_t_gather.csv', index=False)
