@@ -33,11 +33,10 @@ high_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
 low_C_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
 average_L_t_matrix = zeros(length(vrr_f_indices), length(size_indices));
 valids = zeros(length(vrr_f_indices), length(size_indices));
-peak_spatial_frequency = logspace(log10(0.1), log10(100), 100)';
 initial_k_scale_values = zeros(1,length(suffixes));
 initial_s_frequency_values = [1,1,0.01,0.01,1,1,1];
 
-optimize_need = 1;
+optimize_need = 0;
 csv_generate_vrr_f = 1;
 csv_generate_area = 1;
 plot_vrr_f = 1;
@@ -154,7 +153,7 @@ if (csv_generate_area == 1)
             for csf_model_index = 1:length(CSF_Model_cell)
                 csf_model_use = CSF_Model_cell{csf_model_index};
                 [~,C_thr_results_x_area_range(csf_model_index,vrr_f_i,area_range_i)] = ...
-                    peak_generate_contrast_all_2(csf_model_use, area_range_value, vrr_f_value, optimized_k_scale_values(csf_model_index), ...
+                    simple_generate_contrast_all(csf_model_use, area_range_value, vrr_f_value, optimized_k_scale_values(csf_model_index), ...
                     optimized_s_frequency_values(csf_model_index), fit_poly_degree, Luminance_lb, Luminance_ub);
             end
         end
