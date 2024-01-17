@@ -348,10 +348,15 @@ if __name__ == "__main__":
     #     'age': 26,
     #     'gender': 'F',
     # }
+    # observer_params = {
+    #     'name': 'pupu_2',
+    #     'age': 22,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'pupu_2',
+        'name': 'haoyu_2',
         'age': 22,
-        'gender': 'F',
+        'gender': 'M',
     }
     # observer_params = {
     #     'name': 'Maliha_2',
@@ -381,4 +386,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=True)
+                 continue_exp=False)
