@@ -1,0 +1,15 @@
+function [L_thr, C_thr] = simple_generate_contrast_all(csf_model_use, area_value, vrr_f_value, k_scale_value, s_frequency_value, fit_poly_degree, Luminance_lb, Luminance_ub)
+    initial_L_thr = Luminance_lb;
+    options = optimset('Display', 'off');
+    
+    S_peak = @(L_thr) k_scale * S_peak_generate(csf_model, peak_spatial_frequency, L_thr, area_value, t_frequency);
+    fun = @(L_thr) abs(get_contrast_from_Luminance(L_thr, fit_poly_degree, radius) - 1 / S_peak(L_thr));
+    [L_thr, min_difference] = fmincon(fun, initial_L_thr, [], [], [], [], Luminance_lb, Luminance_ub, [], options);
+    L_thr = luminance_fixed;
+    C_thr = get_contrast_from_Luminance(L_thr, fit_poly_degree, radius);
+end
+
+function S_simple(s_frequency, t_frequency, luminance, area, eccentricity)
+    csf_pars = struct('s_frequency', s_frequency, 't_frequency', vrr_f_value, 'orientation', 0, ...
+            'luminance', initial_setting_luminance_value, 'area', initial_setting_area_value, 'eccentricity', 0);
+end

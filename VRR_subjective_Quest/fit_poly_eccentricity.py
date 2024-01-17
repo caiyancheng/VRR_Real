@@ -51,5 +51,5 @@ plt.grid(True)
 plt.legend()
 plt.xlabel('Eccentricity (degree)')
 plt.tight_layout()
-plt.savefig(r'E:\Conference Papers\SIGGRAPH2024/ecc.png')
+plt.savefig(r'B:\All_Conference_Papers\SIGGRAPH24\Images/ecc_2.png')
 

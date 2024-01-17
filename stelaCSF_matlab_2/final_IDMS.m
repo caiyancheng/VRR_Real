@@ -1,3 +1,5 @@
+clear all;
+clc;
 size_indices = [0.5, 1, 16, -1]; %-1 means full
 vrr_f_indices = [0.5, 2, 4, 8];
 vrr_f_range = logspace(log10(0.25), log10(16), 100);
@@ -89,7 +91,7 @@ for size_i = 1:length(size_indices)
     hold on;
     set(gca, 'XScale', 'log');
     set(gca, 'YScale', 'log');
-    legend_plots{end+1} = scatter(vrr_f_indices, average_C_t_matrix(:,size_i), 50, 'Marker', 'o', 'MarkerFaceColor', color(size_i), 'MarkerEdgeColor', 'k', 'LineWidth', 1.0, 'DisplayName', display_name);
+    legend_plots{end+1} = plot(vrr_f_indices, average_C_t_matrix(:, size_i), 'o-', 'Color', color(size_i), 'MarkerFaceColor', color(size_i), 'LineWidth', 1.0, 'DisplayName', display_name);
     legend_labels{end+1} = display_name;
     if (size_i == 1)
         legend_plots{end+1} = errorbar(vrr_f_indices, average_C_t_matrix(:, size_i), error_lower, error_upper, 'LineStyle', 'none', 'Color', 'k', 'LineWidth', 1.0, 'DisplayName', 'Psychometric function fitting error bar');
@@ -99,7 +101,7 @@ for size_i = 1:length(size_indices)
     end
     grid on;
 end
-legend_plots{end+1} = plot(vrr_f_range, Ct_results_IDMS_plot(:,1)/optimized_k_IDMS, '-', 'LineWidth', 3, 'Color', 'c', 'MarkerSize', 3, 'DisplayName', 'IDMS 1.1a TCSF C_{thr} Prediciton');
+legend_plots{end+1} = plot(vrr_f_range, Ct_results_IDMS_plot(:,1)/optimized_k_IDMS, '--', 'LineWidth', 1, 'Color', 'c', 'DisplayName', 'IDMS 1.1a TCSF C_{thr} Prediciton');
 legend_labels{end+1} = 'IDMS 1.1a TCSF C_{thr} Prediciton';
 hLegend = legend([legend_plots{1} legend_plots{3} legend_plots{4} legend_plots{5} legend_plots{2} legend_plots{6}], ...
     {legend_labels{1},legend_labels{3},legend_labels{4},legend_labels{5},legend_labels{2},legend_labels{6}},'FontSize',9);

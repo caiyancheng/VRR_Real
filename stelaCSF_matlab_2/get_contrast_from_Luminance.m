@@ -1,13 +1,13 @@
 function contrast = get_contrast_from_Luminance(Luminance, fit_poly_degree, size_value) 
     jsonFilePath = ['..\dL_L/KONICA_Fit_result_poly_' num2str(fit_poly_degree) '_noabs.json'];
     jsonData = jsondecode(fileread(jsonFilePath));
-    if (size_value == 0.5)
+    if (size_value == 0.25)
         coefficients = jsonData.size_0_5.coefficients;
-    elseif (size_value == 1)
+    elseif (size_value == 0.5)
         coefficients = jsonData.size_1.coefficients;
-    elseif (size_value == 16)
+    elseif (size_value == 8)
         coefficients = jsonData.size_16.coefficients;
-    elseif (size_value == (62.666+37.808)/4)
+    elseif (size_value == (62.666*37.808/pi)^0.5)
         coefficients = jsonData.size_full.coefficients;
     else
         coefficients = jsonData.size_all.coefficients;
