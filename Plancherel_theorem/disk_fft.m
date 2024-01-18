@@ -1,0 +1,57 @@
+clear all;
+clc;
+% 参数设置
+W = 63;        % 区间宽度
+H = 38;        % 区间高度
+r = 0.1;         % 圆盘半径
+a = 1;         % 圆盘信号值
+num_samples = 1000;  % 采样点数量
+
+% 生成信号
+x = linspace(-W/2, W/2, num_samples);
+y = linspace(-H/2, H/2, num_samples);
+[X, Y] = meshgrid(x, y);
+
+% 创建信号
+signal = zeros(num_samples, num_samples);
+signal(sqrt(X.^2 + Y.^2) <= r) = a;
+
+% 计算傅里叶变换
+fft_signal = fftshift(fft2(signal)) / (num_samples^2);
+
+% 创建频域坐标
+sampling_rate_x = 1 / (x(:,2) - x(:,1));
+sampling_rate_y = 1 / (y(:,2) - y(:,1));
+f_x = linspace(-sampling_rate_x/2, sampling_rate_x/2, num_samples);
+f_y = linspace(-sampling_rate_y/2, sampling_rate_y/2, num_samples);
+
+% 绘制原始信号
+figure;
+subplot(2, 1, 1);
+imagesc(x, y, signal);
+title('Disk Signal');
+xlabel('x');
+ylabel('y');
+axis equal;
+colormap('jet');
+colorbar;
+
+% 绘制傅里叶变换结果
+subplot(2, 1, 2);
+imagesc(f_x, f_y, abs(fft_signal));
+title('Fourier Transformation');
+xlabel('rho x');
+ylabel('rho y');
+xlim([-0.5, 0.5]); % 设置x坐标轴显示范围为-1到1
+ylim([-0.5, 0.5]); % 设置y坐标轴显示范围为-1到1
+axis equal;
+colormap('jet');
+colorbar;
+
+N = num_samples;
+B = abs(fft_signal);
+B(N/2,N/2)
+
+(2*a*r^2)/(W*H)
+
+B(N/2,N/2) / ((2*a*r^2)/(W*H))

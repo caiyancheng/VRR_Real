@@ -1,0 +1,42 @@
+% 参数设置
+w = 63; % 信号宽度
+r = 8;  % 方波信号的半宽度
+a = 1;  % 方波信号的幅度
+N = 100000; % 采样点数量
+
+disc_F = @(radius, rho, A, w) (2*A/w)*radius.*sinc(2*rho.*radius);
+
+% 生成x坐标
+x = linspace(-w/2, w/2, N);
+
+% 生成信号
+signal = zeros(size(x));
+signal(abs(x) <= r) = a;
+
+% 计算傅里叶变换
+fourier_transform = fftshift(fft(signal));
+
+
+% 计算频率坐标
+sampling_rate = 1 / (x(:,2) - x(:,1));
+frequencies = linspace(-sampling_rate/2, sampling_rate/2, N);
+disc_F_s = disc_F(r, frequencies', a)
+
+figure;
+% 绘制原始信号
+subplot(2, 1, 1);
+plot(x, signal);
+title('原始信号');
+xlabel('x');
+ylabel('信号值');
+grid on;
+
+% 绘制傅里叶变换结果
+subplot(2, 1, 2);
+plot(frequencies, abs(fourier_transform));
+plot(frequencies, disc_F(r));
+title('傅里叶变换结果');
+xlim([-2,2]);
+xlabel('频率 (Hz)');
+ylabel('幅度');
+grid on;

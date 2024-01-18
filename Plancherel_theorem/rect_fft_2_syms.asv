@@ -1,0 +1,15 @@
+syms r a N theta rho;
+
+% Define the signal
+signal = @(theta) a * (heaviside(theta + r) - heaviside(theta - r));
+% signal = a * (abs(theta) < r);
+
+syms k; 
+
+% 计算傅立叶变换
+fourier_transform = fourier(signal, theta, k);
+
+% 将结果表示为关于rho的函数
+fourier_transform_rho = subs(fourier_transform, k, 2 * rho);
+
+simplify(abs(fourier_transform_rho))

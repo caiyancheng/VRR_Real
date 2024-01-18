@@ -303,11 +303,11 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
-    # observer_params = {
-    #     'name': 'Dounia_2',
-    #     'age': 23,
-    #     'gender': 'F',
-    # }
+    observer_params = {
+        'name': 'Dounia_2',
+        'age': 23,
+        'gender': 'F',
+    }
     # observer_params = {
     #     'name': 'Ale_2',
     #     'age': 30,
@@ -353,11 +353,11 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'F',
     # }
-    observer_params = {
-        'name': 'haoyu_2',
-        'age': 22,
-        'gender': 'M',
-    }
+    # observer_params = {
+    #     'name': 'haoyu_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
     # observer_params = {
     #     'name': 'Maliha_2',
     #     'age': 29,
@@ -386,4 +386,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=False)
+                 continue_exp=True)
