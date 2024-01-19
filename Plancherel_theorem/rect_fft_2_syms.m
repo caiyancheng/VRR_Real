@@ -1,4 +1,4 @@
-syms r a N theta rho;
+syms r a theta rho;
 
 % Define the signal
 signal = @(theta) a * (heaviside(theta + r) - heaviside(theta - r));
