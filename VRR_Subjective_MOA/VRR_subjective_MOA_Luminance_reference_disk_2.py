@@ -303,8 +303,13 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
+    # observer_params = {
+    #     'name': 'Dounia_2',
+    #     'age': 23,
+    #     'gender': 'F',
+    # }
     observer_params = {
-        'name': 'Dounia_2',
+        'name': 'Jane_2',
         'age': 23,
         'gender': 'F',
     }
@@ -386,4 +391,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=True)
+                 continue_exp=False)
