@@ -69,9 +69,9 @@ def get_Temporal_Flicker_Meter_data(root_path):
     return return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array
 
 if __name__ == '__main__':
-    return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array = get_Temporal_Flicker_Meter_data(root_path=r'B:\Datasets\Temporal_Flicker_Meter_log\deltaL_L_10s\2023-12-19-20-43-10')
+    return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array = get_Temporal_Flicker_Meter_data(root_path=r'E:\Datasets\Temporal_Flicker_Meter_log_new\deltaL_L_10second_9VRR_4Size_2repeat_30color_log10\2024-01-21-00-53-48')
     print('Abnormal Numbers', return_abnormal_array.sum())
-    save_path = r'B:\Py_codes\VRR_Real\Plot_figures'
+    save_path = r'E:\Py_codes\VRR_Real\G1_Contrast_Size_Frequency_Color'
     os.makedirs(save_path, exist_ok=True)
     json_result_dict = {
         'KONICA_Luminance': return_KONICA_Luminance.tolist(),
@@ -80,5 +80,5 @@ if __name__ == '__main__':
         'dL': return_dL_array.tolist(),
         'abnormal': return_abnormal_array.tolist()
     }
-    with open(os.path.join(save_path, 'dl_L_results_10s_5r.json'), 'w') as fp:
+    with open(os.path.join(save_path, 'deltaL_L_10second_9VRR_4Size_2repeat_30color_log10.json'), 'w') as fp:
         json.dump(json_result_dict, fp)

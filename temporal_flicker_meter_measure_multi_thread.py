@@ -181,14 +181,15 @@ def temporal_record_main(change_parameters, vrr_params, color_change_parameters,
 
 if __name__ == "__main__": #必须要用多线程，否则会出现问题
     change_parameters = {
-        'VRR_Frequency': [0.5, 1, 2, 4, 8, 16],
-        'Size': [1, 16, 'full'],
-        'Repeat_times': 1, #每条应该记录1遍
+        'VRR_Frequency': [0.5, 2, 4, 8, 10, 12, 14, 16, 20],
+        'Size': [0.5, 1, 16, 'full'],
+        'Repeat_times': 2, #每条应该记录2遍
     }
     color_change_parameters = {
         'Pixel_value_range': [0.05, 1],
         'sample_numbers': 30,
-        'scale': 'Log10'
+        'scale': 'Log10',
+        # 'scale': 'Linear',
     }
     vrr_params = {
         'frame_rate_min': 30,
@@ -199,9 +200,9 @@ if __name__ == "__main__": #必须要用多线程，否则会出现问题
     record_params = {
         'time_flicker_meter_log': 10,
         'num_flicker_meter_sample': 50000,
-        'time_maximum': 17, #最多17s, 超出17s不再记录
+        'time_maximum': 15, #最多15s, 超出15s不再记录
     }
-    save_path = r'E:\Datasets\Temporal_Flicker_Meter_log/deltaL_L_10s'
+    save_path = r'E:\Datasets\Temporal_Flicker_Meter_log_new/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10'
     current_time = datetime.now()
     readable_timestamp = current_time.strftime("%Y-%m-%d-%H-%M-%S")
     real_save_path = os.path.join(save_path, readable_timestamp)
