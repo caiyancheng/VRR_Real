@@ -5,20 +5,96 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/fit_dL_L_various_size_frequency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/VRR_Real.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VRR_Real.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plancherel_theorem/rect_fft_2.asv" beforeDir="false" afterPath="$PROJECT_DIR$/Plancherel_theorem/rect_fft_2.asv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plancherel_theorem/rect_fft_2.m" beforeDir="false" afterPath="$PROJECT_DIR$/Plancherel_theorem/rect_fft_2.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result_in_progress.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result_in_progress.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result_in_progress.json" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro/Observer_Yancheng_Cai_2/result_in_progress.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Quest_get_C_t_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Quest_get_C_t_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00001_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00001_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00002_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00002_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00003_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00003_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00004.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00004.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00004_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00004_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00005.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00005.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00005_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00005_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00006.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00006.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00006_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00006_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00007.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00007.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00007_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00007_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00008.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00008.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00008_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00008_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00009.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00009.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00009_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00009_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00010.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00010.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00010_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00010_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00011.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00011.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00011_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00011_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00012.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00012.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00012_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00012_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00013.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00013.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00013_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00013_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00014.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00014.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00014_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00014_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00015.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00015.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00015_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00015_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00016.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00016.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00016_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00016_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00017.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00017.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00017_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00017_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00018.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00018.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00018_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00018_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00019.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00019.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00019_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00019_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00020.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00020.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00020_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/fit_00020_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/reorder_result_D_thr.html" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4/Observer_Yancheng_Cai_2/report/reorder_result_D_thr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/reorder_result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/reorder_result.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/reorder_result_D_thr.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/reorder_result_D_thr.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/reorder_result_D_thr_C_t.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/reorder_result_D_thr_C_t.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00001_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00001_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00002_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00002_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00003_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00003_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00004.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00004.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00004_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00004_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00005.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00005.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00005_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00005_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00006.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00006.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00006_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00006_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00007.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00007.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00007_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00007_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00008.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00008.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00008_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00008_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00009.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00009.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00009_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00009_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00010.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00010.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00010_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00010_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00011.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00011.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00011_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00011_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00012.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00012.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00012_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00012_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00013.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00013.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00013_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00013_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00014.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00014.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00014_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00014_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00015.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00015.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00015_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00015_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00016.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00016.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00016_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00016_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00017.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00017.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00017_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00017_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00018.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00018.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00018_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00018_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00019.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00019.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00019_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00019_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00020.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00020.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00020_stairs.png" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/fit_00020_stairs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/reorder_result_D_thr.html" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/Result_Quest_disk_4_pro/Observer_Yancheng_Cai_2/report/reorder_result_D_thr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/csv_file_remake.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/csv_file_remake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psychometric_fit_matlab/fit_psych_Quest_color.m" beforeDir="false" afterPath="$PROJECT_DIR$/psychometric_fit_matlab/fit_psych_Quest_color.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +152,29 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.VRR_subjective_Quest_Luminance_disk_2">
+  <component name="RunManager" selected="Python.plot_Luminance_different_observers_x_vrrf">
+    <configuration name="Quest_get_C_t_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_subjective_Quest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_subjective_Quest/Quest_get_C_t_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="VRR_subjective_MOA_Luminance_reference_disk_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,7 +219,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="fit_dL_L_various_size_frequency" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="csv_file_remake" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -129,12 +227,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_subjective_Quest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/fit_dL_L_various_size_frequency.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_subjective_Quest/csv_file_remake.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,7 +241,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="get_Temporal_Flicker_Meter_data_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="plot_Luminance_different_observers_x_vrrf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -151,34 +249,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dL_L" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_subjective_Quest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/get_Temporal_Flicker_Meter_data_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="high_frequency_temporal_flicker_meter_fft_processing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dL_L" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dL_L/high_frequency_temporal_flicker_meter_fft_processing.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -189,11 +265,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.plot_Luminance_different_observers_x_vrrf" />
+        <item itemvalue="Python.Quest_get_C_t_2" />
+        <item itemvalue="Python.csv_file_remake" />
         <item itemvalue="Python.VRR_subjective_Quest_Luminance_disk_2" />
         <item itemvalue="Python.VRR_subjective_MOA_Luminance_reference_disk_2" />
-        <item itemvalue="Python.fit_dL_L_various_size_frequency" />
-        <item itemvalue="Python.get_Temporal_Flicker_Meter_data_2" />
-        <item itemvalue="Python.high_frequency_temporal_flicker_meter_fft_processing" />
       </list>
     </recent_temporary>
   </component>
@@ -446,7 +522,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_Lmean_Color_poly.coverage" NAME="fit_Lmean_Color_poly Coverage Results" MODIFIED="1704058279352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Get_Luminance_fome_Color_After_Psyfit.coverage" NAME="Get_Luminance_fome_Color_After_Psyfit Coverage Results" MODIFIED="1703296843074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$plot_Luminance_different_observers_x_vrrf.coverage" NAME="plot_Luminance_different_observers_x_vrrf Coverage Results" MODIFIED="1705685544069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$plot_Luminance_different_observers_x_vrrf.coverage" NAME="plot_Luminance_different_observers_x_vrrf Coverage Results" MODIFIED="1705893703169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Compute_color_value_mean.coverage" NAME="Compute_color_value_mean Coverage Results" MODIFIED="1705027523965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$plot_vrr.coverage" NAME="plot_vrr Coverage Results" MODIFIED="1704064502008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Plot_figures" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_poly_eccentricity.coverage" NAME="fit_poly_eccentricity Coverage Results" MODIFIED="1705257997224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -463,9 +539,9 @@
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$gather_Quest_C_t_result.coverage" NAME="gather_Quest_C_t_result Coverage Results" MODIFIED="1705594044099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dL_L_various_size_frequency.coverage" NAME="fit_dL_L_various_size_frequency Coverage Results" MODIFIED="1705865927095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_Quest_Luminance_gabor.coverage" NAME="VRR_subjective_Quest_Luminance_gabor Coverage Results" MODIFIED="1704166289223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$csv_file_remake.coverage" NAME="csv_file_remake Coverage Results" MODIFIED="1705685378988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$csv_file_remake.coverage" NAME="csv_file_remake Coverage Results" MODIFIED="1705893396518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$deltaL_L.coverage" NAME="deltaL_L Coverage Results" MODIFIED="1702657547614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Quest_get_C_t_2.coverage" NAME="Quest_get_C_t_2 Coverage Results" MODIFIED="1705685523769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Quest_get_C_t_2.coverage" NAME="Quest_get_C_t_2 Coverage Results" MODIFIED="1705893693211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve_poly.coverage" NAME="fit_dl_L_curve_poly Coverage Results" MODIFIED="1704061941067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Compute_Quest_initial_std_gabor.coverage" NAME="Compute_Quest_initial_std_gabor Coverage Results" MODIFIED="1704163284467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$csv_file_remake_eccentricity.coverage" NAME="csv_file_remake_eccentricity Coverage Results" MODIFIED="1704854965269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />

@@ -4,8 +4,10 @@ import pandas as pd
 import json
 import os
 
-Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
-Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru', 'Yuan', 'Claire', 'haoyu', 'pupu', 'Dounia', 'Jane']
+# Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
+# Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru', 'Yuan', 'Claire', 'haoyu', 'pupu', 'Dounia', 'Jane']
+Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4_pro'
+Observer_list = ['Yancheng_Cai']
 
 
 plt.figure(figsize=(8,9))
@@ -45,7 +47,7 @@ for Observer in Observer_list:
         plt.yscale('log')
         plt.xticks(vrr_f_list, [str(v) for v in vrr_f_list])
         plt.ylabel('Luminance')
-        plt.xlim([0.4, 10])
+        # plt.xlim([0.4, 10])
         plt.ylim([0.5,7])
         plt.title(f'Size {size_value}')
         plt.grid(True)
