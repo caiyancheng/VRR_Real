@@ -422,7 +422,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
 
 if __name__ == "__main__":
     change_parameters = {
-        'VRR_Frequency': [0.5, 2, 4, 8],
+        'VRR_Frequency': [0.5, 2, 4, 8, 10, 12, 14, 16],
         'Color_Value_adjust_range': [0, 0.1],
         'Size': [0.5, 1, 16, 'full'],
         'Trail_Number': 40,
@@ -441,11 +441,11 @@ if __name__ == "__main__":
         'signal_2_color': [0.01, 0.01, 0.01],
         'signal_time': 0.2,
     }
-    # observer_params = {
-    #     'name': 'Yancheng_Cai_2',
-    #     'age': 22,
-    #     'gender': 'M',
-    # }
+    observer_params = {
+        'name': 'Yancheng_Cai_2',
+        'age': 22,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Ali_2',
     #     'age': 29,
@@ -457,11 +457,11 @@ if __name__ == "__main__":
     #     'age': 23,
     #     'gender': 'F',
     # }
-    observer_params = {
-        'name': 'Jane_2',
-        'age': 23,
-        'gender': 'F',
-    }
+    # observer_params = {
+    #     'name': 'Jane_2',
+    #     'age': 23,
+    #     'gender': 'F',
+    # }
     # observer_params = {
     #     'name': 'Ale_2',
     #     'age': 30,
@@ -518,9 +518,9 @@ if __name__ == "__main__":
     #     'gender': 'M',
     # }
     print(change_parameters)
-    save_base_path = r'Result_Quest_disk_4/'
+    save_base_path = r'Result_Quest_disk_4_pro/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
-    MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_disk_4/', f"Observer_{observer_params['name']}", 'result.json')
+    MOA_save_path = os.path.join(r'../VRR_Subjective_MOA/Result_MOA_disk_4_pro/', f"Observer_{observer_params['name']}", 'result.json')
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,
                    'vrr_params': vrr_params,
@@ -534,5 +534,5 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=False,
+                 continue_exp=True,
                  use_mean_MOA=False)

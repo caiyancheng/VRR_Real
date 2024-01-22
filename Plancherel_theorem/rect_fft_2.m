@@ -1,8 +1,8 @@
 % 参数设置
-w = 63; % 信号宽度
+w = 630; % 信号宽度
 r = 4;  % 方波信号的半宽度
 a = 1;  % 方波信号的幅度
-N = 1000; % 采样点数量
+N = 10000; % 采样点数量
 
 disc_F = @(radius, rho, A, w) (2*A/w)*radius.*sinc(2*rho.*radius);
 % disc_F_2 = @(radius, rho, A, w) (2*A*radius.*sinc(2*pi*rho.*radius));

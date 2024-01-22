@@ -15,7 +15,7 @@ signal = zeros(size(x));
 signal(abs(x) <= r) = a;
 
 % 计算傅里叶变换
-fourier_transform = fftshift(fft(signal))/N;
+fourier_transform = fftshift(fft(signal));
 
 
 % 计算频率坐标

@@ -287,7 +287,7 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle, conti
 if __name__ == "__main__":
     # 这段代码即为完整代码
     change_parameters = {
-        'VRR_Frequency': [0.5, 2, 4, 8],
+        'VRR_Frequency': [0.5, 2, 4, 8, 10, 12, 14, 16],
         'Color_Value_adjust_range': [0, 0.2],
         'Size': [0.5, 1, 16, 'full'],
         'Repeat_times': 1,
@@ -298,21 +298,21 @@ if __name__ == "__main__":
         'vrr_total_time': 2,
         'fix_frame_rate': 60,
     }
-    # observer_params = {
-    #     'name': 'Yancheng_Cai_2',
-    #     'age': 22,
-    #     'gender': 'M',
-    # }
+    observer_params = {
+        'name': 'Yancheng_Cai_2',
+        'age': 22,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Dounia_2',
     #     'age': 23,
     #     'gender': 'F',
     # }
-    observer_params = {
-        'name': 'Jane_2',
-        'age': 23,
-        'gender': 'F',
-    }
+    # observer_params = {
+    #     'name': 'Jane_2',
+    #     'age': 23,
+    #     'gender': 'F',
+    # }
     # observer_params = {
     #     'name': 'Ale_2',
     #     'age': 30,
@@ -379,7 +379,7 @@ if __name__ == "__main__":
     #     'gender': 'M',
     # }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_4/'
+    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_4_pro/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,
@@ -391,4 +391,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=False)
+                 continue_exp=True)

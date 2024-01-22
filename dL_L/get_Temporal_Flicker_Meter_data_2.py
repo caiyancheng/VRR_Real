@@ -55,30 +55,33 @@ def get_Temporal_Flicker_Meter_data(root_path):
                         return_abnormal_array[size_index, vrr_f_index, repeat_index, color_index] = 0
                     else:
                         return_abnormal_array[size_index, vrr_f_index, repeat_index, color_index] = 1
-                    KONICA_Luminance = x_L_array[size_index, :,color_index].mean()
+                    KONICA_Luminance = x_L_array[size_index, :, color_index].mean()
                     x_time_array = np.arange(len(measurements)) * config_data['record_params']['time_flicker_meter_log'] / config_data['record_params']['num_flicker_meter_sample']
                     y_luminance_array = measurements / measurements.mean() * KONICA_Luminance
                     x_freq_array, K_FFT_array = compute_signal_FFT(x_time_array=x_time_array, y_luminance_array=y_luminance_array,
                                                                    frequency_upper=120, plot_FFT=False, skip_0=False, force_equal=True)
                     return_L_array[size_index, vrr_f_index, repeat_index, color_index] = y_luminance_array.mean()
-                    return_dL_array[size_index, vrr_f_index, repeat_index, color_index] = K_FFT_array[find_nearest_index(x_freq_array, vrr_f_value)]
+                    min_index = max(1, find_nearest_index(x_freq_array, vrr_f_value*0.7))
+                    max_index = min(find_nearest_index(x_freq_array, 25), find_nearest_index(x_freq_array, vrr_f_value*1.3))
+                    return_dL_array[size_index, vrr_f_index, repeat_index, color_index] = max(K_FFT_array[min_index:max_index+1])
                     return_len_measurements[size_index, vrr_f_index, repeat_index, color_index] = len(measurements)
                     return_KONICA_Luminance[size_index, vrr_f_index, repeat_index, color_index] = KONICA_Luminance
                     # return_time_dict[f'S_{size_value}_V_{vrr_f_value}_C_{color_value}'] = x_time_array.tolist()
 
-    return return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array
+    return return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array, config_data
 
 if __name__ == '__main__':
-    return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array = get_Temporal_Flicker_Meter_data(root_path=r'E:\Datasets\Temporal_Flicker_Meter_log_new\deltaL_L_10second_9VRR_4Size_2repeat_30color_log10\2024-01-21-00-53-48')
+    return_KONICA_Luminance, return_len_measurements, return_L_array, return_dL_array, return_abnormal_array, config_data = get_Temporal_Flicker_Meter_data(root_path=r'B:\Datasets\Temporal_Flicker_Meter_log_new\deltaL_L_10second_9VRR_4Size_2repeat_30color_log10\2024-01-21-00-53-48')
     print('Abnormal Numbers', return_abnormal_array.sum())
-    save_path = r'E:\Py_codes\VRR_Real\G1_Contrast_Size_Frequency_Color'
+    save_path = r'B:\Py_codes\VRR_Real\G1_Contrast_Size_Frequency_Color'
     os.makedirs(save_path, exist_ok=True)
     json_result_dict = {
         'KONICA_Luminance': return_KONICA_Luminance.tolist(),
         'len_measurements': return_len_measurements.tolist(),
         'L': return_L_array.tolist(),
         'dL': return_dL_array.tolist(),
-        'abnormal': return_abnormal_array.tolist()
+        'abnormal': return_abnormal_array.tolist(),
+        'config_data': config_data,
     }
     with open(os.path.join(save_path, 'deltaL_L_10second_9VRR_4Size_2repeat_30color_log10.json'), 'w') as fp:
         json.dump(json_result_dict, fp)
