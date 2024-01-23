@@ -287,8 +287,9 @@ def vrr_exp_main(change_parameters, vrr_params, save_path, random_shuffle, conti
 if __name__ == "__main__":
     # 这段代码即为完整代码
     change_parameters = {
-        'VRR_Frequency': [0.5, 2, 4, 8, 10, 12, 14, 16],
-        'Color_Value_adjust_range': [0, 0.2],
+        # 'VRR_Frequency': [0.5, 2, 4, 8, 10, 12, 14, 16],
+        'VRR_Frequency': [10, 12, 14, 16],
+        'Color_Value_adjust_range': [0.04, 0.2],
         'Size': [0.5, 1, 16, 'full'],
         'Repeat_times': 1,
     }
@@ -328,9 +329,14 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
+    # observer_params = {
+    #     'name': 'Hongyun_Gao_2',
+    #     'age': 31,
+    #     'gender': 'M',
+    # }
     observer_params = {
-        'name': 'Hongyun_Gao_2',
-        'age': 31,
+        'name': 'Tianbo_Liang_2',
+        'age': 22,
         'gender': 'M',
     }
     # observer_params = {
@@ -391,4 +397,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=True)
+                 continue_exp=False)

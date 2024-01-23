@@ -1,4 +1,4 @@
-observer_name = 'Yancheng_Cai';
+observer_name = 'Tianbo_Liang';
 base_path = '..\VRR_subjective_Quest\Result_Quest_disk_4_pro';
 ds = dataset('File', [base_path '\Observer_' observer_name '_2/reorder_result.csv'],'Delimiter',',');
 % ds = dataset('File',['..\VRR_subjective_Quest\Result_Quest_gabor_1\Observer_' observer_name '_2/reorder_result.csv'],'Delimiter',',');
