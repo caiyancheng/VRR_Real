@@ -298,11 +298,11 @@ if __name__ == "__main__":
         'vrr_total_time': 2,
         'fix_frame_rate': 60,
     }
-    observer_params = {
-        'name': 'Yancheng_Cai_2',
-        'age': 22,
-        'gender': 'M',
-    }
+    # observer_params = {
+    #     'name': 'Yancheng_Cai_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
     # observer_params = {
     #     'name': 'Dounia_2',
     #     'age': 23,
@@ -328,11 +328,11 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
-    # observer_params = {
-    #     'name': 'Hongyun_Gao_2',
-    #     'age': 31,
-    #     'gender': 'M',
-    # }
+    observer_params = {
+        'name': 'Hongyun_Gao_2',
+        'age': 31,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Shushan_2',
     #     'age': 25,
