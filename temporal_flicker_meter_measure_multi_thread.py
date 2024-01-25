@@ -145,7 +145,7 @@ def temporal_record_main(change_parameters, vrr_params, color_change_parameters,
     glfw, window = start_opengl()
     glfw.set_input_mode(window, glfw.CURSOR, glfw.CURSOR_DISABLED)
     global sensor
-    sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM5", 500000, timeout=record_params['time_maximum']))
+    sensor = temporal_light_sensor.TemporalLightSensor(serial.Serial("COM4", 500000, timeout=record_params['time_maximum']))
 
     for index in range(len(setting_list)):
         size_value, vrr_f_value, color_value = setting_list[index]
@@ -202,7 +202,7 @@ if __name__ == "__main__": #必须要用多线程，否则会出现问题
         'num_flicker_meter_sample': 50000,
         'time_maximum': 15, #最多15s, 超出15s不再记录
     }
-    save_path = r'E:\Datasets\Temporal_Flicker_Meter_log_new/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10_eye_point'
+    save_path = r'B:\Datasets\Temporal_Flicker_Meter_log_Krypton/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10'
     current_time = datetime.now()
     readable_timestamp = current_time.strftime("%Y-%m-%d-%H-%M-%S")
     real_save_path = os.path.join(save_path, readable_timestamp)
