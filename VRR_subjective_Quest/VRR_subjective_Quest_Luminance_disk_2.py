@@ -422,7 +422,7 @@ def vrr_exp_main(change_parameters, vrr_params, signal_params, save_path, MOA_sa
 
 if __name__ == "__main__":
     change_parameters = {
-        'VRR_Frequency': [10, 12, 14, 16],
+        'VRR_Frequency': [0.5, 2, 4, 8, 10, 12, 14, 16],
         'Color_Value_adjust_range': [0, 0.1],
         'Size': [0.5, 1, 16, 'full'],
         'Trail_Number': 40,
@@ -446,11 +446,11 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'M',
     # }
-    observer_params = {
-        'name': 'Tianbo_Liang_2',
-        'age': 22,
-        'gender': 'M',
-    }
+    # observer_params = {
+    #     'name': 'Tianbo_Liang_2',
+    #     'age': 22,
+    #     'gender': 'M',
+    # }
     # observer_params = {
     #     'name': 'Ali_2',
     #     'age': 29,
@@ -477,11 +477,11 @@ if __name__ == "__main__":
     #     'age': 22,
     #     'gender': 'F',
     # }
-    # observer_params = {
-    #     'name': 'Shushan_2',
-    #     'age': 25,
-    #     'gender': 'M',
-    # }
+    observer_params = {
+        'name': 'Shushan_2',
+        'age': 25,
+        'gender': 'M',
+    }
     # observer_params = {
     #     'name': 'Hongyun_Gao_2',
     #     'age': 31,
@@ -539,5 +539,5 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=False,
+                 continue_exp=True,
                  use_mean_MOA=False)

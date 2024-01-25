@@ -7,7 +7,7 @@ import os
 # Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
 # Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru', 'Yuan', 'Claire', 'haoyu', 'pupu', 'Dounia', 'Jane']
 Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4_pro'
-Observer_list = ['Yancheng_Cai', 'Hongyun_Gao', 'Tianbo_Liang']
+Observer_list = ['Yancheng_Cai', 'Hongyun_Gao', 'Tianbo_Liang', 'Yaru', 'Shushan']
 
 
 plt.figure(figsize=(8,9))
@@ -43,12 +43,13 @@ for Observer in Observer_list:
         plt.errorbar(vrr_f_list, np.array(luminance_list), yerr=error_bar, fmt='-o', label=f'Observer {Observer}')
         # 其他绘图参数，可以根据需要进行修改
         # plt.xlabel('VRR Frequency')
-        plt.xticks([0.5, 2, 4, 8, 10, 12, 14, 16])
         plt.xscale('log')
         plt.yscale('log')
+        plt.xticks([0.5, 2, 4, 8, 10, 12, 14, 16], ['0.5', '2', '4', '8', '10', '12', '14', '16'])
+        plt.yticks([0.5,1,2,5], ['0.5', '1', '2', '5'])
         plt.ylabel('Luminance')
         plt.xlim([0.4, 18])
-        plt.ylim([0.3,7])
+        plt.ylim([0.4, 6])
         plt.title(f'Size {size_value}')
         plt.grid(True)
         plt.legend()

@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 
-Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_disk_4_pro\Observer_Tianbo_Liang_2'
+Quest_exp_path = r'..\VRR_subjective_Quest\Result_Quest_disk_4_pro\Observer_Shushan_2'
 with open(os.path.join(Quest_exp_path, 'config.json'), 'r') as fp:
     Quest_config = json.load(fp)
 df = pd.read_csv(os.path.join(Quest_exp_path, 'result.csv'))
