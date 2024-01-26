@@ -23,7 +23,7 @@ with open('deltaL_L_10second_9VRR_4Size_2repeat_30color_log10-2024-01-26-01-22-0
 
 KONICA_Luminance_array = np.array(Temporal_Flicker_meter_data['KONICA_Luminance'])
 Luminance_array = np.array(Temporal_Flicker_meter_data['L'])
-delta_Luminance_L_array = np.array(Temporal_Flicker_meter_data['dL_L'])
+delta_Luminance_array = np.array(Temporal_Flicker_meter_data['dL'])
 config_data = Temporal_Flicker_meter_data['config_data']
 
 VRR_Frequency_list = config_data['change_params']['VRR_Frequency']
@@ -42,16 +42,15 @@ for size_index in range(len(Size_list)):
         plt.subplot(len(Size_list), len(VRR_Frequency_list), size_index * len(VRR_Frequency_list) + vrr_f_index + 1)
         current_L_array = Luminance_array[size_index, vrr_f_index].flatten()
         current_dL_array = delta_Luminance_array[size_index, vrr_f_index].flatten()
-        current_dL_L_array = current_dL_array / current_L_array
         x = np.log10(current_L_array)
-        y = current_dL_L_array
+        y = current_dL_array
         for fit_degree in fit_degree_list:
             coefficients = np.polyfit(x, y, fit_degree)
             json_fit_result_coefficients[f'Size_{size_value}_VRR_F_{vrr_f_value}'][f'degree_{fit_degree}_coefficients'] = coefficients.tolist()
             fitted_curve = np.polyval(coefficients, x_fit_range)
             plt.plot(x_fit_range, fitted_curve, label=f'polynomial fitting - degree {fit_degree}', linestyle='-')
         plt.xlabel('Luminance (cd/m$^2$)')
-        plt.ylabel('Contrast')
+        plt.ylabel('delta Luminance')
         plt.title(f'Size_{size_value}_Frequency_of_RR_switch_{vrr_f_value}')
         plt.scatter(x, y)
         plt.legend()
@@ -61,9 +60,9 @@ plt.savefig('B:\Py_codes\VRR_Real\G1_Contrast_Size_Frequency_Color/dl_L_split.pn
 plt.figure(figsize=(10,10))
 current_L_array_all = Luminance_array.flatten()
 current_dl_array_all = delta_Luminance_array.flatten()
-current_dl_L_array_all = current_dl_array_all / current_L_array_all
+# current_dl_L_array_all = current_dl_array_all / current_L_array_all
 x = np.log10(current_L_array_all)
-y = current_dl_L_array_all
+y = current_dl_array_all
 json_fit_result_coefficients[f'All_in_all'] = {}
 for fit_degree in fit_degree_list:
     coefficients = np.polyfit(x, y, fit_degree)
@@ -72,7 +71,7 @@ for fit_degree in fit_degree_list:
     fitted_curve = np.polyval(coefficients, x_fit_range)
     plt.plot(x_fit_range, fitted_curve, label=f'polynomial fitting - degree {fit_degree}', linestyle='--')
 plt.xlabel('Luminance (cd/m$^2$)')
-plt.ylabel('Contrast')
+plt.ylabel('delta Luminance')
 plt.scatter(x, y)
 plt.legend()
 plt.tight_layout()

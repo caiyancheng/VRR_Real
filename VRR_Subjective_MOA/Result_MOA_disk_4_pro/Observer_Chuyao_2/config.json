@@ -1,0 +1,1 @@
+{"change_parameters": {"VRR_Frequency": [10, 12, 14, 16], "Color_Value_adjust_range": [0.04, 0.2], "Size": [0.5, 1, 16, "full"], "Repeat_times": 1}, "vrr_params": {"frame_rate_min": 30, "frame_rate_max": 120, "vrr_total_time": 2, "fix_frame_rate": 60}, "observer_params": {"name": "Chuyao_2", "age": 23, "gender": "F"}}
