@@ -155,14 +155,14 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
         json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
-    Size = [0.5, 1, 16, 'full']
-    Pixel_value_range = [0.05, 1]
-    sample_numbers = 30
-    scale = 'Log10' #Linear/Log10
+    Size = [16, 'full']
+    Pixel_value_range = [0.05, 0.2]
+    sample_numbers = 50
+    scale = 'Linear' #Linear/Log10
     Refresh_rate = [30, 120]
-    repeat_times = 10
+    repeat_times = 20
     # 别忘了denser at darker
-    save_dir_path = f"dL_L/LG_G1_KONICA_10"
+    save_dir_path = f"dL_L_/short_range_LG_G1_KONICA_multi_points/9_points/point_0_0/KONICA_1" #左上角是(0,0)，右下角是(2,2)
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'sample_numbers': sample_numbers, 'scale': scale,
@@ -171,4 +171,4 @@ if __name__ == "__main__":
         json.dump(config_json, fp=fp)
     check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale,
                    Refresh_rate, repeat_times, save_dir_path,
-                   random_shuffle=False)
+                   random_shuffle=True)
