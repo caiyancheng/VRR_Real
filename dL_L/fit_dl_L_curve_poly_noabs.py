@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 from get_KONICA_data import get_KONICA_data
 import json
 
-degree = 2
+degree = 4
 
-L_array, _, dl_L_array, size_values = get_KONICA_data(base_path='LG_G1_KONICA_10', abs=False)
+L_array, _, dl_L_array, size_values = get_KONICA_data(base_path='B:\Py_codes\VRR_Real\dL_L_laptop\short_range_LG_G1_KONICA_multi_points\9_points\point_1_1\KONICA_1', abs=False)
 dl_L_array = dl_L_array/2
 size_num, repeat_num, color_num = L_array.shape
 
@@ -34,11 +34,11 @@ x = np.log10(current_L_array)
 y = current_dl_L_array
 coefficients = np.polyfit(x, y, degree)
 json_save['size_all'] = {'coefficients': coefficients.tolist()}
-with open(f'KONICA_Fit_result_poly_{degree}_noabs.json', 'w') as fp:
-    json.dump(json_save, fp)
+# with open(f'KONICA_Fit_result_poly_{degree}_noabs.json', 'w') as fp:
+#     json.dump(json_save, fp)
 
 fitted_curve = np.polyval(coefficients, x_fit_1)
-plt.plot(x_fit_1, fitted_curve, label=f'Fit - All Sizes', linewidth=4)
+# plt.plot(x_fit_1, fitted_curve, label=f'Fit - All Sizes', linewidth=4)
 
 plt.legend()
 plt.title(f'{degree} degree Polynomial Fit for All Sizes')

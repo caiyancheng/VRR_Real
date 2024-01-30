@@ -162,7 +162,9 @@ if __name__ == "__main__":
     Refresh_rate = [30, 120]
     repeat_times = 20
     # 别忘了denser at darker
-    save_dir_path = f"dL_L_/short_range_LG_G1_KONICA_multi_points/9_points/point_0_0/KONICA_1" #左上角是(0,0)，右下角是(2,2)
+    current_time = datetime.now()
+    now_real_time = current_time.strftime("%Y-%m-%d-%H-%M-%S")
+    save_dir_path = f"dL_L_PC_datasets/short_range_LG_G1_KONICA_multi_points/9_points/point_1_1/KONICA_{now_real_time}" #左下角是(-1,-1)，右上角是(1,1)
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'sample_numbers': sample_numbers, 'scale': scale,

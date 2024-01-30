@@ -545,5 +545,5 @@ if __name__ == "__main__":
                  save_path=save_path,
                  MOA_save_path=MOA_save_path,
                  random_shuffle=True,
-                 continue_exp=False,
+                 continue_exp=True,
                  use_mean_MOA=False)
