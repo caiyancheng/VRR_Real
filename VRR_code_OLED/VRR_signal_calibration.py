@@ -68,9 +68,9 @@ def vrr_generate(rect_params, frame_rates, interval_times, total_time):
 
 if __name__ == "__main__":
     rect_params = {
-        'x_center': 0,  # 长方形中心 x 坐标
-        'y_center': 0,  # 长方形中心 y 坐标
-        'diameter': 0.5,  # 长方形宽度
+        'x_center': -0.5,  # 长方形中心 x 坐标
+        'y_center': -0.5,  # 长方形中心 y 坐标
+        'diameter': 1,  # 长方形宽度
         'color': [1.0, 1.0, 1.0]  # 长方形颜色 (白色)\
         # 'color': [0.0703125, 0.0703125, 0.0703125]
     }

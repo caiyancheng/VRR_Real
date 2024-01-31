@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dL_L/KONICA_fit_dl_L_curve_poly_noabs_nomean.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dL_L/get_KONICA_data_3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10-2024-01-26-01-22-07.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10-2024-01-26-01-22-07.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10_eye_point.json" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/deltaL_L_10second_9VRR_4Size_2repeat_30color_log10_eye_point.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/dl_L_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/dl_L_all.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/dl_L_split.png" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/dl_L_split.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/fit_dL_L_various_size_frequency.py" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/fit_dL_L_various_size_frequency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color/fit_dl_L_L_various_size_frequency.py" beforeDir="false" afterPath="$PROJECT_DIR$/G1_Contrast_Size_Frequency_Color_Temporal_Flicker_Meter/fit_dl_L_L_various_size_frequency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs_nomean.py" beforeDir="false" afterPath="$PROJECT_DIR$/dL_L/fit_dl_L_curve_poly_noabs_nomean.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KONICA_measure_multi_thread_disk.py" beforeDir="false" afterPath="$PROJECT_DIR$/KONICA_measure_multi_thread_disk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VRR_code_OLED/VRR_signal_calibration.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_code_OLED/VRR_signal_calibration.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +65,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.KONICA_fit_dl_L_curve_poly_noabs_nomean">
+  <component name="RunManager" selected="Python.KONICA_measure_multi_thread_disk">
     <configuration name="KONICA_fit_dl_L_curve_poly_noabs_nomean" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.KONICA_measure_multi_thread_disk" />
+        <item itemvalue="Python.VRR_signal_calibration" />
         <item itemvalue="Python.KONICA_fit_dl_L_curve_poly_noabs_nomean" />
         <item itemvalue="Python.get_KONICA_data_3" />
         <item itemvalue="Python.fit_dl_L_curve_poly_noabs_nomean" />
-        <item itemvalue="Python.KONICA_measure_multi_thread_disk" />
-        <item itemvalue="Python.VRR_signal_calibration" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +284,7 @@
       <workItem from="1706375049772" duration="689000" />
       <workItem from="1706396035762" duration="5422000" />
       <workItem from="1706405004194" duration="5287000" />
-      <workItem from="1706584822532" duration="4158000" />
+      <workItem from="1706584822532" duration="6313000" />
     </task>
     <servers />
   </component>
@@ -553,7 +544,7 @@
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$disk_sizes.coverage" NAME="disk_sizes Coverage Results" MODIFIED="1704158313170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GL_picture" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$disk_try__1_.coverage" NAME="disk_try (1) Coverage Results" MODIFIED="1703694298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GL_picture" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$temporal_flick_meter_measure_main.coverage" NAME="temporal_flick_meter_measure_main Coverage Results" MODIFIED="1702314233514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$KONICA_fit_dl_L_curve_poly_noabs_nomean.coverage" NAME="KONICA_fit_dl_L_curve_poly_noabs_nomean Coverage Results" MODIFIED="1706647537481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$KONICA_fit_dl_L_curve_poly_noabs_nomean.coverage" NAME="KONICA_fit_dl_L_curve_poly_noabs_nomean Coverage Results" MODIFIED="1706647639178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$csv_file_remake_gabor.coverage" NAME="csv_file_remake_gabor Coverage Results" MODIFIED="1704167837117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_Quest_Luminance.coverage" NAME="VRR_subjective_Quest_Luminance Coverage Results" MODIFIED="1703284118122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$plot_C_t_eccentricity.coverage" NAME="plot_C_t_eccentricity Coverage Results" MODIFIED="1705257381838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
@@ -630,8 +621,8 @@
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_Quest_Luminance_disk_2.coverage" NAME="VRR_subjective_Quest_Luminance_disk_2 Coverage Results" MODIFIED="1706454425766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/VRR_Real$Analyze_Luminance.coverage" NAME="Analyze_Luminance Coverage Results" MODIFIED="1701730577336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Subjective_Experiment_Analyze" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$csv_file_remake_duration.coverage" NAME="csv_file_remake_duration Coverage Results" MODIFIED="1703379854294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$KONICA_measure_multi_thread_disk.coverage" NAME="KONICA_measure_multi_thread_disk Coverage Results" MODIFIED="1706585311686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_signal_calibration.coverage" NAME="VRR_signal_calibration Coverage Results" MODIFIED="1706585033518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$KONICA_measure_multi_thread_disk.coverage" NAME="KONICA_measure_multi_thread_disk Coverage Results" MODIFIED="1706653421536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_signal_calibration.coverage" NAME="VRR_signal_calibration Coverage Results" MODIFIED="1706651382659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_code_OLED" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$gabor_try.coverage" NAME="gabor_try Coverage Results" MODIFIED="1704148882265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GL_picture" />
     <SUITE FILE_PATH="coverage/VRR_Real$compute_score.coverage" NAME="compute_score Coverage Results" MODIFIED="1701444546090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
   </component>

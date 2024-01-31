@@ -221,16 +221,16 @@ def check_dl_L_all(Size, Pixel_value_range, sample_numbers, scale, Refresh_rate,
         json.dump(json_log_data, fp)
 
 if __name__ == "__main__":
-    Size = [0.5,1,16,'full']
+    Size = ['full']
     Pixel_value_range = [0.05, 0.2]
-    sample_numbers = 30
+    sample_numbers = 50
     scale = 'Linear' #Linear/Log10
     Refresh_rate = [30, 120]
-    repeat_times = 10
+    repeat_times = 40
     # 别忘了denser at darker
     current_time = datetime.now()
     now_real_time = current_time.strftime("%Y-%m-%d-%H-%M-%S")
-    save_dir_path = f"dL_L_PC_datasets/short_range_LG_G1_KONICA_multi_points/9_points/point_0_0/KONICA_{now_real_time}" #左下角是(-1,-1)，右上角是(1,1)
+    save_dir_path = f"dL_L_PC_datasets/short_range_LG_G1_KONICA_multi_points/9_points/point_-0.5_-0.5/KONICA_{now_real_time}" #左下角是(-1,-1)，右上角是(1,1)
     os.makedirs(save_dir_path, exist_ok=True)
     config_json = {'Size': Size, 'Pixel_value_range': Pixel_value_range,
                    'sample_numbers': sample_numbers, 'scale': scale,
