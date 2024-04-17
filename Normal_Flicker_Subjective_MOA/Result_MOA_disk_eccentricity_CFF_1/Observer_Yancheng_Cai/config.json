@@ -1,0 +1,1 @@
+{"stimulus_params": {"Contrast": [0.5, 1], "Size": [1, 4], "Color": [0.2, 0.5], "Persistence": [0.1, 0.5], "Repeat_times": 2, "Eccentricity": [0, 5, 10, 15, 20]}, "center_point_params": {"Size": [0.1, 1], "Color": [0.1, 1]}, "observer_params": {"name": "Yancheng_Cai", "age": 23, "gender": "M"}}

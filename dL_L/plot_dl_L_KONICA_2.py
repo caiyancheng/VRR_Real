@@ -124,4 +124,4 @@ plt.legend()
 plt.subplots_adjust(left=0.07, right=0.99, top=0.98, bottom=0.13, wspace=0.2)
 # Show the plots
 # plt.show()
-plt.savefig(f'B:\All_Conference_Papers\SIGGRAPH24\Images/deltaL-L-2.png', dpi=300)
+plt.savefig(f'E:\All_Conference_Papers\SIGGRAPH24\Images/deltaL-L-2.png', dpi=300)

@@ -6,7 +6,7 @@ import os
 
 # Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4'
 # Observer_list = ['Ale', 'Maliha', 'Yancheng_Cai', 'Ali', 'Shushan', 'Hongyun_Gao', 'Zhen', 'Yaru', 'Yuan', 'Claire', 'haoyu', 'pupu', 'Dounia', 'Jane']
-Quest_exp_path = r'B:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4_pro'
+Quest_exp_path = r'E:\Py_codes\VRR_Real\VRR_subjective_Quest\Result_Quest_disk_4_pro'
 Observer_list = ['Yancheng_Cai', 'Hongyun_Gao', 'Tianbo_Liang', 'Yaru', 'Shushan', 'Chuyao']
 
 

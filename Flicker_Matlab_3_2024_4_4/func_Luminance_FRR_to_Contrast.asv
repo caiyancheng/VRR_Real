@@ -1,0 +1,7 @@
+function contrast = func_Luminance_FRR_to_Contrast(Luminance, T_frequency, coefficients)
+    if isempty(stored_coefficients)
+        jsonFilePath = ['..\dL_L/KONICA_Fit_result_poly_' num2str(fit_poly_degree) '_noabs.json'];
+        jsonData = jsondecode(fileread(jsonFilePath));
+    end
+    contrast = max(polyvaln(coefficients, [Luminance, T_frequency]),0);
+end

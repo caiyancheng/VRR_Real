@@ -51,8 +51,6 @@ for vrr_f_index in range(len(Quest_VRR_Fs)):
             continue
         coefficients = fit_set[f'size_{size_value}']['coefficients']
         popt = fit_result[f'size_{size_value}']['popt']
-        if np.isnan(Color_value):
-            continue
         if size_value != 'full':
             size_value_new = float(size_value)
             C_t_result_csv['Size_Degree'].append(size_value)

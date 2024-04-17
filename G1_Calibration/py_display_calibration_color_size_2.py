@@ -156,12 +156,12 @@ if __name__ == "__main__":
         'x_center': 0,
         'y_center': 0,
         'Size': [0.5, 1, 16, 'full'],
-        'Repeat': 2,
+        'Repeat': 4,
     }
     color_change_parameters = {
         'Pixel_value_range': [0.05, 1],
-        'sample_numbers': 100,
-        'scale': 'Log10'
+        'sample_numbers': 30,
+        'scale': 'Log10',
     }
 
     now = datetime.now()

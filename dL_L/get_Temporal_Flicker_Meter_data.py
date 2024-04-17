@@ -57,7 +57,7 @@ def get_Temporal_Flicker_Meter_data(root_path):
                     x_time_array = np.arange(len(measurements)) * config_data['record_params']['time_flicker_meter_log'] / config_data['record_params']['num_flicker_meter_sample']
                     y_luminance_array = measurements / measurements.mean() * KONICA_Luminance
                     x_freq_array, K_FFT_array = compute_signal_FFT(x_time_array=x_time_array, y_luminance_array=y_luminance_array,
-                                                                   frequency_upper=120, plot_FFT=False, skip_0=False, force_equal=True)
+                                                                   frequency_upper=120, plot_FFT=False, skip_0=True, force_equal=True)
                     return_L_array[size_index, vrr_f_index, repeat_index, color_index] = y_luminance_array.mean()
                     return_dL_array[size_index, vrr_f_index, repeat_index, color_index] = K_FFT_array[find_nearest_index(x_freq_array, vrr_f_value)]
 

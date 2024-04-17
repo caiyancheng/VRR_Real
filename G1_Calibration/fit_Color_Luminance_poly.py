@@ -4,8 +4,8 @@ import json
 from Read_Calibration_result import read_calibration_result
 
 degree = 7
-base_path = r'py_display_calibration_results_new\LG-G1-Std-2023_12_23_16_14_06'
-# base_path = r'py_display_calibration_results_new\LG-G1-Std-2023_12_23_17_49_24'
+# base_path = r'py_display_calibration_results_new\LG-G1-Std-2023_12_23_16_14_06'
+base_path = r'py_display_calibration_results_new\LG-G1-Std-2023_12_23_17_49_24'
 pixel_all_values, Luminance_array, size_list = read_calibration_result(base_path=base_path)
 size_num, color_num, repeat_num = Luminance_array.shape
 
@@ -23,13 +23,19 @@ for size_index in range(len(size_list)):
     plt.scatter(x, y, label=f'Size {size_value}')
     plt.plot(x_fit, fitted_curve, label=f'Fit - Size {size_value}', linestyle='--')
     json_save[f'size_{size_value}'] = {'coefficients': coefficients.tolist()}
-#Fit all:
-# x = np.tile(pixel_all_values, size_num)
-# y = np.log10(Luminance_array.mean(axis=-1).flatten())
-# coefficients = np.polyfit(x, y, degree)
-# json_save = {'popt': coefficients.tolist()}
+# Fit all:
+x = np.tile(pixel_all_values, size_num-1)
+Luminance_array = Luminance_array[:-1,...]
+y = np.log10(Luminance_array.mean(axis=-1).flatten())
+coefficients = np.polyfit(x, y, degree)
+fitted_curve = np.polyval(coefficients, x_fit)
+plt.plot(x_fit, fitted_curve, label=f'Fit - Size No Full All', linestyle='--')
+json_save[f'size_nofull_all'] = {'coefficients': coefficients.tolist()}
+json_save['color_min'] = np.min(pixel_all_values)
+json_save['color_max'] = np.max(pixel_all_values)
 with open(f'KONICA_Color_Luminance_Fit_result_poly_{degree}.json', 'w') as fp:
     json.dump(json_save, fp)
+
 #
 # fitted_curve = np.polyval(coefficients, x_fit)
 # plt.plot(x_fit, fitted_curve, label=f'Fit - All Sizes', linewidth=4)

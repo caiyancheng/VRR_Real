@@ -1,0 +1,17 @@
+stelaCSF_model = CSF_stelaCSF();
+stelaCSF_HF_model = CSF_stelaCSF_HF();
+Barten_Original_model = CSF_Barten_Original();
+Barten_HF_model = CSF_Barten_HF();
+castleCSF_model = CSF_castleCSF();
+
+luminance = 10;
+s_frequency = 1;
+t_frequency = 1;
+orientation = linspace(0,180,10);
+sensitivity_matrix = zeros(5, length(orientation));
+csf_pars = struct('s_frequency', s_frequency, 't_frequency', t_frequency, 'orientation', p, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);
+
+function value = S_CSF(csf_model, rho, t_frequency, or)
+    csf_pars = struct('s_frequency', rho, 't_frequency', t_frequency, 'orientation', 0, 'luminance', L_b, 'area', area_value, 'eccentricity', 0);% 'ge_sigma',1);
+    value = csf_model.sensitivity(csf_pars);
+end

@@ -1,0 +1,37 @@
+clear all;
+clc;
+jsonFilePath = 'E:\Datasets\RD-80SA/2024-4-14_gather_result_2.json';
+jsonData = jsondecode(fileread(jsonFilePath));
+
+Log_Luminance_List = log10(jsonData.L_list);
+FRR_list = jsonData.real_fundamental_frequency_list;
+contrast_List = jsonData.dL_list ./ jsonData.L_list;
+% scatter(Log_Luminance_List, contrast_List);
+X = [Log_Luminance_List, FRR_list];
+coefficients = polyfitn(X, contrast_List, 4);
+
+[Log_Luminance_Fit, FRR_Fit] = meshgrid(linspace(min(Log_Luminance_List), max(Log_Luminance_List), 100), linspace(min(FRR_list), max(FRR_list), 100));
+contrast_Fit = max(polyvaln(coefficients, [Log_Luminance_Fit(:), FRR_Fit(:)]),0);
+Contrast_Fit = reshape(contrast_Fit, size(Log_Luminance_Fit));
+
+
+scatter3(Log_Luminance_List, FRR_list, contrast_List, 'o');
+hold on;
+surf(Log_Luminance_Fit, FRR_Fit, Contrast_Fit, 'EdgeColor','none');
+colormap(hsv);
+xlabel('Log10 Luminance (cd/m^2)');
+ylabel('Frequency of RR Switch (Hz)');
+zlim([0,0.11]);
+zlabel('Contrast');
+
+save_json_file_path = 'E:\Py_codes\VRR_Real\Flicker_Matlab_3_2024_4_4/Luminance_FRR_to_Contrast.json';
+coefficients_3d = polyfitn(X, contrast_List, 3);
+coefficients_4d = polyfitn(X, contrast_List, 4);
+coefficients_5d = polyfitn(X, contrast_List, 5);
+coefficients_6d = polyfitn(X, contrast_List, 6);
+coefficients_7d = polyfitn(X, contrast_List, 7);
+coeff_struct = struct('coefficients_3d', coefficients_3d, 'coefficients_4d', coefficients_4d, ...
+    'coefficients_5d', coefficients_5d, 'coefficients_6d', coefficients_6d, 'coefficients_7d', coefficients_7d);
+fid = fopen(save_json_file_path, 'w');
+fwrite(fid, jsonencode(coeff_struct));
+fclose(fid);
