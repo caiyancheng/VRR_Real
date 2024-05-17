@@ -1,0 +1,26 @@
+clear all;
+clc;
+
+Luminance_range = logspace(log10(1),log10(1000),20);
+refresh_rate_range = linspace(10,144,5);
+contrast_function = @(RR, Lum) (144 - RR) * (-9.98798e-3 * log10(Lum) + 0.02);
+
+for RR_index = 1:length(refresh_rate_range)
+    RR_value = refresh_rate_range(RR_index);
+    contrast_list = [];
+    for Lum_index = 1:length(Luminance_range)
+        Luminance_value = Luminance_range(Lum_index);
+        contrast = contrast_function(RR_value, Luminance_value);
+        contrast_list(end+1) = contrast;
+    end
+    plot(Luminance_value, contrast_list);
+    hold on;
+end
+
+Contrast_Ticks = [0.001,0.01,0.1];
+xlabel('Luminance (cd/m^2)');
+ylabel('VRR Contrast (Simulated)');
+xlim([1,1000]);
+ylim()
+set(gca, 'XScale', 'log', 'XTick', [1, 10, 100, 1000], 'XTickLabel', [1, 10, 100, 1000]);
+set(gca, 'YScale', 'log', 'YTick', Contrast_Ticks, 'YTickLabel', Contrast_Ticks);

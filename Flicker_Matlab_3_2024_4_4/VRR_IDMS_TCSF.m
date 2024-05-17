@@ -90,7 +90,7 @@ for size_i = 1:length(size_indices)
     end
     hold on;
     % set(gca, 'XScale', 'log');
-    set(gca, 'YScale', 'log');
+    % set(gca, 'YScale', 'log');
     legend_plots{end+1} = plot(FRR_indices, average_C_t_matrix(:, size_i), 'o-', 'Color', color(size_i), 'MarkerFaceColor', color(size_i), 'LineWidth', 1.0, 'DisplayName', display_name);
     legend_labels{end+1} = display_name;
     if (size_i == 1)

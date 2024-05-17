@@ -1,0 +1,12 @@
+x_t = linspace(0,100,1000);
+y_luminance = zeros(1,length(x_t));
+refresh_rate = 60;
+persistence = 0.1;
+one_frame_time = 1/refresh_rate;
+
+for time_index = 1:length(x_t)
+    time = x_t(time_index);
+    if time 
+    y_luminance()
+end
+

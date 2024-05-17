@@ -1,0 +1,72 @@
+clear all;
+clc;
+size_indices = [0.5, 1, 16, -1]; %-1 means full
+FRR_indices = [0.5, 2, 4, 8, 10, 11.9, 13.3, 14.9];
+FRR_range = logspace(log10(0.4), log10(16), 100);
+VRR_Luminance_transform = Area_FRR_2_VRR_dataset_Luminance();
+
+initial_k = 1;
+
+Luminance_matrix = zeros(length(FRR_indices), length(size_indices)); %主观实验的结果
+c_t_subjective_path = '..\VRR_subjective_Quest\Result_Quest_disk_4_all/Matlab_D_thr_C_t_gather.csv';
+data = readtable(c_t_subjective_path);
+for size_i = 1:length(size_indices)
+    size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = (area_value/pi)^0.5;
+    else
+        area_value = pi*(size_value/2)^2;
+        radius = size_value/2;
+    end
+    for FRR_i = 1:length(FRR_indices)
+        FRR_value = FRR_indices(FRR_i);
+        % Subjective Experiment Result
+        filtered_data = data(data.Size_Degree == size_value & data.FRR == FRR_value, :);
+        if (height(filtered_data) >= 1)
+            valids(FRR_i, size_i) = 1;
+        else
+            continue
+        end
+        valid_data = filtered_data(~isnan(filtered_data.Luminance), :);
+        average_Luminance = 10.^(nanmean(log10(valid_data.Luminance)));
+        Luminance_matrix(FRR_i, size_i) = average_Luminance;
+    end
+end
+
+figure;
+Y_labels = [0.4,0.5,1,2,5];
+ha = tight_subplot(1, 1, [.04 .02],[.12 .01],[.09 .00]);
+set(ha,'YTick',Y_labels); 
+set(ha,'YTickLabel',Y_labels); 
+set(ha,'XTick',FRR_indices); 
+set(ha,'XTickLabel',FRR_indices);
+xlim([0.4, 16]);
+ylim([min(Y_labels),max(Y_labels)]);
+xlabel('Frequency of Refresh Rate Switch (Hz)','FontSize',14);
+ylabel('Luminance','FontSize',14);
+color = ['r', 'g', 'b', 'm'];
+hh = [];
+for size_i = 1:length(size_indices)
+    size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = (area_value/pi)^0.5;
+        display_name = 'Size: 62.7^{\circ}*37.8^{\circ}';
+    else
+        area_value = pi*size_value^2;
+        radius = size_value;
+        display_name = ['Size: disk radius ' num2str(size_value/2) '^{\circ}'];
+    end
+    hold on;
+    % set(gca, 'XScale', 'log');
+    set(gca, 'YScale', 'log');
+    hh(end+1) = plot(FRR_indices, Luminance_matrix(:, size_i), 'o-', 'Color', color(size_i), 'MarkerFaceColor', color(size_i), 'LineWidth', 1.0, 'DisplayName', display_name);
+    % area_value_range = repmat(area_value, 1, length(FRR_range));
+    Luminance_prediciton = VRR_Luminance_transform.AT2L_FRR(FRR_range, size_value);
+    hh(end+1) = plot(FRR_range, Luminance_prediciton', '-', 'Color', color(size_i), 'MarkerFaceColor', color(size_i), 'LineWidth', 3.0, 'DisplayName', display_name);
+    grid on;
+end
+
+legend(hh, 'FontSize', 9, 'Location', 'southoutside', 'NumColumns', 4);
+set(gcf, 'Units', 'normalized', 'Position', [0.1, 0.1, 0.8, 0.8]);

@@ -45,8 +45,6 @@ dL_list = []
 file_index = 0
 for vrr_f in tqdm(change_parameters['VRR_Frequency']):
     for size in change_parameters['Size']:
-        # L_plot_list = []
-        # dL_plot_List = []
         for color_value in color_values:
             vrr_f_list.append(vrr_f)
             size_list.append(size)

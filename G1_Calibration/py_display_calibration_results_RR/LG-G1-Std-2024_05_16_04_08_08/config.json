@@ -1,0 +1,1 @@
+{"stimulus_params": {"x_center": 0, "y_center": 0, "Size": ["full"], "Repeat": 2, "White_Clear": false}, "color_change_parameters": {"Pixel_value_range": [0.05, 1], "sample_numbers": 30, "scale": "Log10"}, "frame_rate_parameters": {"Frame_rate_range": [10, 120], "sample_numbers": 10, "scale": "Linear"}}

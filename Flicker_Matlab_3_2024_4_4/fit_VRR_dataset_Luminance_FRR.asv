@@ -1,0 +1,80 @@
+clear all;
+clc;
+size_indices = [0.5, 1, 16, -1]; %-1 means full
+FRR_indices = [0.5, 2, 4, 8, 10, 11.9, 13.3, 14.9];
+FRR_range = logspace(log10(0.4), log10(16), 100);
+
+initial_k = 1;
+
+Luminance_matrix = zeros(length(FRR_indices), length(size_indices)); %主观实验的结果
+c_t_subjective_path = '..\VRR_subjective_Quest\Result_Quest_disk_4_all/Matlab_D_thr_C_t_gather.csv';
+data = readtable(c_t_subjective_path);
+
+coeff_struct = struct();
+for size_i = 1:length(size_indices)
+    size_value = size_indices(size_i);
+    if (size_value == -1)
+        area_value = 62.666 * 37.808;
+        radius = (area_value/pi)^0.5;
+    else
+        area_value = pi*(size_value/2)^2;
+        radius = size_value/2;
+    end
+    FRR_list_fit = [];
+    Log_Luminance_List_fit = [];
+    for FRR_i = 1:length(FRR_indices)
+        FRR_value = FRR_indices(FRR_i);
+        % Subjective Experiment Result
+        filtered_data = data(data.Size_Degree == size_value & data.FRR == FRR_value, :);
+        if (height(filtered_data) >= 1)
+            valids(FRR_i, size_i) = 1;
+        else
+            continue
+        end
+        valid_data = filtered_data(~isnan(filtered_data.Luminance), :);
+        average_Luminance = 10.^(nanmean(log10(valid_data.Luminance)));
+        Luminance_matrix(FRR_i, size_i) = average_Luminance;
+        FRR_list_fit(end+1) = FRR_value;
+        Log_Luminance_List_fit(end+1) = log10(average_Luminance);
+    end
+    X = FRR_list_fit;
+    coeff_struct.(num2str(size_value) = polyfit(X, Log_Luminance_List_fit, 2);
+end
+
+% 进行二元优化以得到
+X = [Log_area_list_fit' FRR_list_fit'];
+coefficients = polyfitn(X, Log_Luminance_List_fit', 2);
+
+[Log_Area_Fit_plot, FRR_Fit_plot] = meshgrid(linspace(min(Log_area_list_fit), max(Log_area_list_fit), 100), linspace(min(FRR_list_fit), max(FRR_list_fit), 100));
+Log_Luminance_Fit_flat = max(polyvaln(coefficients, [Log_Area_Fit_plot(:), FRR_Fit_plot(:)]),log10(0.4738));
+Log_Luminance_Fit = reshape(Log_Luminance_Fit_flat, size(Log_Area_Fit_plot));
+
+scatter3(10.^Log_area_list_fit, FRR_list_fit, 10.^Log_Luminance_List_fit, 'o', ...
+    'Marker', 'o', 'MarkerEdgeColor', 'k', 'MarkerFaceColor', 'r');
+
+hold on;
+surf(10.^Log_Area_Fit_plot, FRR_Fit_plot, 10.^Log_Luminance_Fit, 'EdgeColor','none');
+colormap(hsv);
+xlabel('Area (degree^2)');
+ylabel('Frequency of RR Switch (Hz)');
+zlabel('Luminance (cd/m^2)');
+% zlim([0,0.11]);
+set(gca, 'XScale', 'log');
+set(gca, 'ZScale', 'log');
+X_labels = [0.1,1,10,100,1000];
+Y_labels = [0.5,1,2,4,8,16];
+Z_labels = [0.5,1,2,5];
+set(gca,'XTick', X_labels);
+set(gca,'XTickLabel',X_labels);
+set(gca,'YTick',Y_labels);
+set(gca,'YTickLabel',Y_labels);
+set(gca,'ZTick',Z_labels);
+set(gca,'ZTickLabel',Z_labels);
+
+save_json_file_path = 'E:\Py_codes\VRR_Real\Flicker_Matlab_3_2024_4_4/VRR_dataset_get_Luminance.json';
+coefficients_2d = polyfitn(X, Log_Luminance_List_fit, 2);
+coefficients_3d = polyfitn(X, Log_Luminance_List_fit, 3);
+coeff_struct = struct('coefficients_2d', coefficients_2d, 'coefficients_3d', coefficients_3d);
+fid = fopen(save_json_file_path, 'w');
+fwrite(fid, jsonencode(coeff_struct));
+fclose(fid);
