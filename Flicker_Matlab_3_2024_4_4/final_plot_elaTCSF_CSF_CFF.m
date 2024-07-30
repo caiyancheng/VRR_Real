@@ -7,7 +7,7 @@ CL_transform = Color2Luminance_LG_G1(degree_C2L, degree_L2C);
 Sensitivity_transform = Luminance_VRR_2_Sensitivity();
 VRR_Luminance_transform = Area_FRR_2_VRR_dataset_Luminance();
 
-compute_values = 1;
+compute_values = 0;
 plot_figures = 1;
 
 csf_elaTCSF_model = CSF_elaTCSF_16();

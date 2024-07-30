@@ -12,6 +12,7 @@ Observer_list = ['Ale', 'Ali', 'Chuyao', 'Claire', 'Dounia', 'haoyu', 'Hongyun_G
 plt.figure(figsize=(12,9))
 size_ticks = [0.5, 1, 16, 'full']
 vrr_f_ticks = [0.5, 2, 4, 8, 10, 12, 14, 16]
+frr_ticks = [0.5, 2, 4, 8, 10, 11.9, 13.3, 14.9]
 Luminance_value_vrr_f = np.full((len(Observer_list), len(size_ticks), len(vrr_f_ticks)), np.nan)
 
 for Observer_id in range(len(Observer_list)):

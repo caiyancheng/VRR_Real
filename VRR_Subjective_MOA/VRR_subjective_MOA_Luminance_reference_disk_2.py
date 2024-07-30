@@ -390,7 +390,7 @@ if __name__ == "__main__":
     #     'gender': 'M',
     # }
     print(change_parameters)
-    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_4_pro/'
+    save_base_path = r'../VRR_Subjective_MOA/Result_MOA_disk_4_pro_test/'
     save_path = os.path.join(save_base_path, f"Observer_{observer_params['name']}")
     os.makedirs(save_path, exist_ok=True)
     config_json = {'change_parameters': change_parameters,
@@ -402,4 +402,4 @@ if __name__ == "__main__":
                  vrr_params=vrr_params,
                  save_path=save_path,
                  random_shuffle=True,
-                 continue_exp=True)
+                 continue_exp=False)

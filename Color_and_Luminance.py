@@ -84,6 +84,6 @@ if __name__ == "__main__":
         L_full[cv] = CL_transform.C2L(color_value=color_value[cv], full_screen=True)
     plt.figure()
     plt.plot(color_value, L)
-    plt.plot(color_value, L_full)
+    # plt.plot(color_value, L_full)
     plt.show()
 

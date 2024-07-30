@@ -1,11 +1,12 @@
 clear all;
 clc;
 
-Luminance_range = logspace(log10(10),log10(1000),20);
+Luminance_range = logspace(log10(1),log10(1000),20);
 refresh_rate_range = [24,36,48,60,90,120];
-k = (log10(0.02) - log10(0.0025)) / log10(100);
-contrast_function = @(RR, Lum) ((144 - RR) / (144 - 40)) * 10 ^ ((-k * log10(Lum) + log10(0.02)));
-RR_inverse_function = @(contrast, Lum) 144 - contrast ./ (10 .^ ((-k .* log10(Lum) + log10(0.02)))) .* (144 - 40);
+b = log10(0.008);
+k = (b - log10(0.0025)) / log10(100);
+contrast_function = @(RR, Lum) ((144 - RR) / (144 - 40)) * 10 ^ ((-k * log10(Lum) + b));
+RR_inverse_function = @(contrast, Lum) 144 - contrast ./ (10 .^ ((-k .* log10(Lum) + b))) .* (144 - 40);
 
 csf_elaTCSF_model = CSF_elaTCSF_16();
 fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\Final-try-CSF_elaTCSF_16_new";
@@ -21,11 +22,11 @@ fprintf( 1, "Loaded: %s\n", fitted_pars_file )
 csf_elaTCSF_model.par = CSF_base.update_struct( fit_data.fitted_struct, csf_elaTCSF_model.par );
 csf_elaTCSF_model = csf_elaTCSF_model.set_pars(csf_elaTCSF_model.get_pars());
 
-calculate_need = 0;
+calculate_need = 1;
 plot_need = 1;
 
 T_frequency_range = linspace(0,20,50);
-Area = 62.7 * 37.8;
+Area = 62.7 * 37.8 / 4;
 Peak_sensitivity_list = [];
 
 if calculate_need == 1
