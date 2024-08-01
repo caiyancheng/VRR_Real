@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/G1_Calibration/compute_ppd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LuminanceVRR2Sensitivity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_all_dataset_x_temporal_frequency.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2_demo_video.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2_demo_video.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Color_and_Luminance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_and_Luminance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/Application_vrr_range.asv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/Application_vrr_range_2.asv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/Application_vrr_range_3.asv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/Application_vrr_range_3.m" beforeDir="false" afterPath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/Application_vrr_range_3.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/application_vrr_range/Peak_sensitivity_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/application_vrr_range/Peak_sensitivity_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/final_plot_elaTCSF_CSF_CFF.m" beforeDir="false" afterPath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/final_plot_elaTCSF_CSF_CFF.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/first_figure/Sensitivity_ecc_temporal_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/first_figure/Sensitivity_ecc_temporal_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flicker_Matlab_3_2024_4_4/first_figure_2.asv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_subjective_Quest/plot_Luminance_different_observers_x_vrrf_all.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +65,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.Color_and_Luminance">
+  <component name="RunManager" selected="Python.VRR_subjective_Quest_Luminance_disk_2_demo_video">
     <configuration name="Color_and_Luminance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,6 +110,50 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="VRR_subjective_MOA_Luminance_reference_disk_2_demo_video" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_Subjective_MOA" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_Subjective_MOA/VRR_subjective_MOA_Luminance_reference_disk_2_demo_video.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="VRR_subjective_Quest_Luminance_disk_2_demo_video" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="VRR_Real" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VRR_subjective_Quest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VRR_subjective_Quest/VRR_subjective_Quest_Luminance_disk_2_demo_video.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="compute_ppd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="VRR_Real" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,57 +176,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="fit_Color_Luminance_poly_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/G1_Calibration" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/G1_Calibration/fit_Color_Luminance_poly_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="plot_all_dataset_x_temporal_frequency" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="VRR_Real" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_all_dataset_x_temporal_frequency.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.VRR_subjective_Quest_Luminance_disk_2_demo_video" />
+        <item itemvalue="Python.VRR_subjective_MOA_Luminance_reference_disk_2_demo_video" />
         <item itemvalue="Python.Color_and_Luminance" />
         <item itemvalue="Python.compute_ppd" />
         <item itemvalue="Python.VRR_subjective_MOA_Luminance_reference_disk_2" />
-        <item itemvalue="Python.plot_all_dataset_x_temporal_frequency" />
-        <item itemvalue="Python.fit_Color_Luminance_poly_2" />
       </list>
     </recent_temporary>
   </component>
@@ -345,6 +333,7 @@
       <workItem from="1721958241929" duration="589000" />
       <workItem from="1722043286373" duration="589000" />
       <workItem from="1722220667516" duration="590000" />
+      <workItem from="1722531823873" duration="3389000" />
     </task>
     <servers />
   </component>
@@ -656,6 +645,7 @@
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Compute_Quest_initial_std.coverage" NAME="Compute_Quest_initial_std Coverage Results" MODIFIED="1703703753510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$KONICA_color_Luminance_disk_1.coverage" NAME="KONICA_color_Luminance_disk_1 Coverage Results" MODIFIED="1710728997265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$disk_eccentricity_CFF_1.coverage" NAME="disk_eccentricity_CFF_1 Coverage Results" MODIFIED="1710685408948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Normal_Flicker_Subjective_MOA" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_Quest_Luminance_disk_2_demo_video.coverage" NAME="VRR_subjective_Quest_Luminance_disk_2_demo_video Coverage Results" MODIFIED="1722537966660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_4_light_measure.coverage" NAME="VRR_subjective_4_light_measure Coverage Results" MODIFIED="1702259182850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$plot_dl_L_KONICA_2.coverage" NAME="plot_dl_L_KONICA_2 Coverage Results" MODIFIED="1704311807267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
     <SUITE FILE_PATH="coverage/VRR_Real$VRR_subjective_3_light_measure.coverage" NAME="VRR_subjective_3_light_measure Coverage Results" MODIFIED="1701398612818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_Experiment" />
@@ -739,6 +729,7 @@
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_Quest_Luminance_disk_2_eccentricity.coverage" NAME="VRR_subjective_Quest_Luminance_disk_2_eccentricity Coverage Results" MODIFIED="1704850663987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$plot_CFF.coverage" NAME="plot_CFF Coverage Results" MODIFIED="1710715312997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Normal_Flicker_Subjective_MOA" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$fit_dl_L_curve.coverage" NAME="fit_dl_L_curve Coverage Results" MODIFIED="1702765351166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dL_L" />
+    <SUITE FILE_PATH="coverage/temporal_light_sensor_py$VRR_subjective_MOA_Luminance_reference_disk_2_demo_video.coverage" NAME="VRR_subjective_MOA_Luminance_reference_disk_2_demo_video Coverage Results" MODIFIED="1722537673317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_Subjective_MOA" />
     <SUITE FILE_PATH="coverage/temporal_light_sensor_py$Quest_get_C_t_duration.coverage" NAME="Quest_get_C_t_duration Coverage Results" MODIFIED="1703386060198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VRR_subjective_Quest" />
     <SUITE FILE_PATH="coverage/VRR_Real$compute_x_y_location.coverage" NAME="compute_x_y_location Coverage Results" MODIFIED="1701038250272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
     <SUITE FILE_PATH="coverage/VRR_Real$py_display_calibration_color_size.coverage" NAME="py_display_calibration_color_size Coverage Results" MODIFIED="1700590727025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/G1_Calibration" />
