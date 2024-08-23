@@ -426,7 +426,7 @@ if __name__ == "__main__":
         'VRR_Frequency': [8],
         'Color_Value_adjust_range': [0, 0.1],
         'Size': [16],
-        'Trail_Number': 40,
+        'Trail_Number': 10,
         'STD_multiple': 1,
         'power_scale': 2.2,
         'MOA_STD': 0.013177134551942615,
