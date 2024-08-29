@@ -1,9 +1,6 @@
 clear all;
 clc;
 
-degree_C2L = 7;
-degree_L2C = 7;
-
 size_indices = [0.5, 1, 16, -1]; %-1 means full
 FRR_indices = [0.5, 2, 4, 8, 10, 11.9, 13.3, 14.9];
 FRR_range = linspace(0.4, 16, 100);
@@ -20,7 +17,7 @@ default_area = 1;
 % csf_elaTCSF_model = CSF_elaTCSF_16();
 % fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\Final-try-CSF_elaTCSF_16_new";
 csf_elaTCSF_model = CSF_elaTCSF_16_TCSF_free();
-fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\elaTCSF_all_2024-08-28_15-53";
+fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\SIGGRAPH2025_final_revision_CSF_elaTCSF_16_TCSF_free_1";
 fname = fullfile( fitpars_dir, strcat(csf_elaTCSF_model.short_name(), '_all_*.mat' ) );
 fl = dir( fname );
 if isempty(fl)
@@ -100,6 +97,7 @@ CFF_ticks = [10,20,30,40,50,60,70,80,90,100];
 
 if (plot_surface==1)
     ha = tight_subplot(1, 2, [.13 .09],[.16 .02],[.07 .04]);
+    set(gcf, 'Position', [100, 100, 1050, 400]);
 
     axes(ha(1));
     surf(Ecc_surface_matrix_1, TF_surface_matrix_1, log10(Sensitivity_ecc_temporal_1), 'EdgeColor','none', 'FaceAlpha', 1);
