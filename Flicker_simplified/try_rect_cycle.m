@@ -1,8 +1,8 @@
 clear all;
 clc;
 
-csf_elaTCSF_model = CSF_elaTCSF_16();
-fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\Final-try-CSF_elaTCSF_16_new";
+csf_elaTCSF_model = CSF_elaTCSF_16_TCSF_free();
+fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\SIGGRAPH2025_final_revision_CSF_elaTCSF_16_TCSF_free_1";
 fname = fullfile( fitpars_dir, strcat(csf_elaTCSF_model.short_name(), '_all_*.mat' ) );
 fl = dir( fname );
 if isempty(fl)
