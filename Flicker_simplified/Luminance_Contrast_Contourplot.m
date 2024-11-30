@@ -78,8 +78,10 @@ if plot_need == 1
     Title_Dict = {'Display 1: 1920*1080', 'Display 2: 3840*2160', 'Display 3: 7680*4320'};
     for display_pattern_index = 1:length(width_list)
         axes(ha(display_pattern_index));
-        contour(X_Luminance_plot, Y_Contrast_plot, squeeze(Z_JND_plot_log10(display_pattern_index,:,:)));
-        c = colorbar;
+        contour_values = [1, 2, 5, 10];
+        [C, h] = contour(X_Luminance_plot, Y_Contrast_plot, squeeze(10.^Z_JND_plot_log10(display_pattern_index,:,:)), contour_values);
+        clabel(C, h);
+        % c = colorbar;
         % c.Ticks = [-1,0,1,2];
         % c.TickLabels = [0.1,1,10,100];
         title(Title_Dict{display_pattern_index}, FontSize=Font_size);

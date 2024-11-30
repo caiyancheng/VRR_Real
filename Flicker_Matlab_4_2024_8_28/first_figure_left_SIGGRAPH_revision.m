@@ -17,18 +17,18 @@ default_area = 1;
 % csf_elaTCSF_model = CSF_elaTCSF_16();
 % fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\Final-try-CSF_elaTCSF_16_new";
 csf_elaTCSF_model = CSF_elaTCSF_16_TCSF_free();
-fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\SIGGRAPH2025_final_revision_CSF_elaTCSF_16_TCSF_free_1";
-fname = fullfile( fitpars_dir, strcat(csf_elaTCSF_model.short_name(), '_all_*.mat' ) );
-fl = dir( fname );
-if isempty(fl)
-    error( 'Fitted parameters missing for %s', fit_config.csf_models{model_index}.short_name() );
-end
-ind_latest = find( [fl(:).datenum]==max([fl(:).datenum]) );
-fitted_pars_file = fullfile( fl(ind_latest).folder, fl(ind_latest).name );
-fit_data = load( fitted_pars_file );
-fprintf( 1, "Loaded: %s\n", fitted_pars_file )
-csf_elaTCSF_model.par = CSF_base.update_struct( fit_data.fitted_struct, csf_elaTCSF_model.par );
-csf_elaTCSF_model = csf_elaTCSF_model.set_pars(csf_elaTCSF_model.get_pars());
+% % fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\SIGGRAPH2025_final_revision_CSF_elaTCSF_16_TCSF_free_1";
+% % fname = fullfile( fitpars_dir, strcat(csf_elaTCSF_model.short_name(), '_all_*.mat' ) );
+% % fl = dir( fname );
+% % if isempty(fl)
+% %     error( 'Fitted parameters missing for %s', fit_config.csf_models{model_index}.short_name() );
+% % end
+% % ind_latest = find( [fl(:).datenum]==max([fl(:).datenum]) );
+% % fitted_pars_file = fullfile( fl(ind_latest).folder, fl(ind_latest).name );
+% % fit_data = load( fitted_pars_file );
+% % fprintf( 1, "Loaded: %s\n", fitted_pars_file )
+% % csf_elaTCSF_model.par = CSF_base.update_struct( fit_data.fitted_struct, csf_elaTCSF_model.par );
+% % csf_elaTCSF_model = csf_elaTCSF_model.set_pars(csf_elaTCSF_model.get_pars());
 
 Luminance_plot_list = logspace(log10(1), log10(100), 20);
 Area_plot_list = logspace(log10(1),log10(1000), 20);
@@ -96,8 +96,10 @@ sensitivity_ticks_labels = [1,10,100,1000];
 CFF_ticks = [10,20,30,40,50,60,70,80,90,100];
 
 if (plot_surface==1)
-    ha = tight_subplot(1, 2, [.13 .09],[.16 .02],[.07 .04]);
-    set(gcf, 'Position', [100, 100, 1050, 400]);
+    % ha = tight_subplot(1, 2, [.13 .09],[.16 .02],[.07 .04]);
+    % set(gcf, 'Position', [100, 100, 1050, 400]);
+    ha = tight_subplot(1, 2, [.13 .12],[.16 .02],[.07 .03]);
+    set(gcf, 'Position', [100, 100, 1200, 400]);
 
     axes(ha(1));
     surf(Ecc_surface_matrix_1, TF_surface_matrix_1, log10(Sensitivity_ecc_temporal_1), 'EdgeColor','none', 'FaceAlpha', 1);

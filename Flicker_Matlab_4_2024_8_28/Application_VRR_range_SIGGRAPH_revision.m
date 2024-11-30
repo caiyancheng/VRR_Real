@@ -9,20 +9,8 @@ contrast_function = @(RR, Lum) ((144 - RR) / (144 - 40)) * 10 ^ ((-k * log10(Lum
 RR_inverse_function = @(contrast, Lum) 144 - contrast ./ (10 .^ ((-k .* log10(Lum) + b))) .* (144 - 40);
 
 csf_elaTCSF_model = CSF_elaTCSF_16_TCSF_free();
-fitpars_dir = "E:\Matlab_codes\csf_datasets\model_fitting\fitted_models\SIGGRAPH2025_final_revision_CSF_elaTCSF_16_TCSF_free_1";
-fname = fullfile( fitpars_dir, strcat(csf_elaTCSF_model.short_name(), '_all_*.mat' ) );
-fl = dir( fname );
-if isempty(fl)
-    error( 'Fitted parameters missing for %s', fit_config.csf_models{model_index}.short_name() );
-end
-ind_latest = find( [fl(:).datenum]==max([fl(:).datenum]) );
-fitted_pars_file = fullfile( fl(ind_latest).folder, fl(ind_latest).name );
-fit_data = load( fitted_pars_file );
-fprintf( 1, "Loaded: %s\n", fitted_pars_file )
-csf_elaTCSF_model.par = CSF_base.update_struct( fit_data.fitted_struct, csf_elaTCSF_model.par );
-csf_elaTCSF_model = csf_elaTCSF_model.set_pars(csf_elaTCSF_model.get_pars());
 
-calculate_need = 1;
+calculate_need = 0;
 plot_need = 1;
 
 T_frequency_range = linspace(0,20,50);

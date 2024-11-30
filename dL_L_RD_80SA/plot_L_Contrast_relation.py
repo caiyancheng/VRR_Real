@@ -25,6 +25,8 @@ for vrr_f in change_parameters['VRR_Frequency']:
         plt.plot(L_plot_array, contrast_plot_list, label=f'vrr_f = {vrr_f}, size = {size}')
         index += 1
 plt.xscale('log')
+plt.yscale('log')
+plt.ylim([0.001,1])
 plt.xticks([0.5, 1, 2, 4, 8], [0.5, 1, 2, 4, 8])
 plt.subplots_adjust(left=0.1, bottom=0.35, right=0.99, top=0.99)
 plt.legend(loc='lower center', bbox_to_anchor=(0.5, -0.5), ncol=3)

@@ -65,8 +65,9 @@ for vrr_f in tqdm(change_parameters['VRR_Frequency']):
             y_K_FFT_plot_list.append(K_FFT_array)
             file_index += 1
 
-# fig, axs = plt.subplots(2, 1, figsize=(6, 6), gridspec_kw={'height_ratios': [4, 1]})
-fig = plt.figure(figsize=(8, 5))
+
+# fig = plt.figure(figsize=(8, 5), dpi=600)
+fig = plt.figure(figsize=(8, 5), dpi=600)
 gs = GridSpec(2, 2, width_ratios=[1, 1], height_ratios=[3, 1])
 left_top = fig.add_subplot(gs[0, 0])
 left_bottom = fig.add_subplot(gs[1, 0])
@@ -135,5 +136,6 @@ ax.plot([aim_vrr_f, aim_vrr_f], [min(np.log10(yticks)), max(np.log10(yticks))], 
 ax.plot([30, 30], [min(np.log10(yticks)), max(np.log10(yticks))], [0, 0], color='g', linewidth=2)
 ax.plot([120, 120], [min(np.log10(yticks)), max(np.log10(yticks))], [0, 0], color='b', linewidth=2)
 plt.subplots_adjust(left=0.08, right=0.97, top=0.95, bottom=0.10, wspace=0.06)
-# plt.show()
-plt.savefig(f'E:\All_Conference_Papers\SIGGRAPH24\Images_new/final_FFT_{aim_vrr_f}_3d_label_new.pdf', format='pdf')
+plt.show()
+# plt.savefig(f'E:\All_Conference_Papers\SIGGRAPH24\Images_new/final_FFT_{aim_vrr_f}_3d_label_new.pdf', format='pdf')
+# plt.savefig(f'E:\All_Conference_Papers\SIGGRAPH Asia 24\Images_new/final_FFT_{aim_vrr_f}_3d_label_new.png', format='png', dpi=600)

@@ -21,10 +21,11 @@ markers = {'o', '+', '*', 'x', 's', 'd', '^', 'v'};
 clear length
 le = 10;
 index = 1;
+
+
+figure('Position',[100,100,1400,600]);
+
 ha = tight_subplot(4, 2, [.07 .05],[.12 .01],[.1 .01]);
-
-% figure('Position',[100,100,600,600]);
-
 for vrr_f_index = 1:length(VRR_F_list)
     vrr_f_value = VRR_F_list(vrr_f_index);
     axes(ha(vrr_f_index));

@@ -1,7 +1,8 @@
 clear all;
 clc;
 
-size_indices = [0.5, 1, 16, -1]; %-1 means full
+% size_indices = [0.5, 1, 16, -1]; %-1 means full
+size_indices = [0.5,1,16,-1];
 FRR_indices = [0.5, 2, 4, 8, 10, 11.9, 13.3, 14.9];
 
 average_S_matrix = zeros(length(FRR_indices), length(size_indices)); %主观实验的结果
@@ -40,15 +41,16 @@ for size_i = 1:length(size_indices)
     end
 end
 
-figure;
-Y_labels = [10,20,50,100,200,500];
-ha = tight_subplot(1, 1, [.04 .02],[.12 .01],[.09 .01]);
+Y_labels = [10,20,50,100,200,500,1000];
+figure('Position',[100,100,600,400]);
+ha = tight_subplot(1, 1, [.04 .02],[.12 .01],[.1 .01]);
+
 set(ha,'YTick',Y_labels);
 set(ha,'YTickLabel',Y_labels);
 set(ha,'XTick',FRR_indices);
 set(ha,'XTickLabel',FRR_indices);
 xlim([0, 16]);
-% ylim([min(Y_labels),max(Y_labels)]);
+ylim([min(Y_labels),max(Y_labels)]);
 xlabel('Frequency of Refresh Rate Switch (Hz)','FontSize',14);
 ylabel('Sensitivity','FontSize',14);
 color = ['r', 'g', 'c', 'b'];
@@ -79,4 +81,5 @@ for size_i = 1:length(size_indices)
         'DisplayName', display_name_gt);
     grid on;
 end
-legend(hh,'FontSize',9,'Location','best');
+lgd = legend(hh,'FontSize',9);
+lgd.Position = [0.3, 0.2, 0.2, 0.1];
