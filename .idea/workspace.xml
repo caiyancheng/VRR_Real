@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc02d99-9ab7-4e9f-a7ac-9c2627892314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/VRR_subjective_Quest/generate_flicker_video.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compute.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_demo_video/Observer_Yancheng_Cai_2/result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_demo_video/Observer_Yancheng_Cai_2/result.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_demo_video/Observer_Yancheng_Cai_2/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_demo_video/Observer_Yancheng_Cai_2/result.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_test/Observer_Chuyao_2/result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_test/Observer_Chuyao_2/result.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_test/Observer_Chuyao_2/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/VRR_Subjective_MOA/Result_MOA_disk_4_pro_test/Observer_Chuyao_2/result.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,6 +362,7 @@
       <workItem from="1735955996776" duration="333000" />
       <workItem from="1738851395298" duration="3497000" />
       <workItem from="1740427990430" duration="1819000" />
+      <workItem from="1741290924715" duration="564000" />
     </task>
     <servers />
   </component>
